@@ -1,0 +1,60 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #e6f4ea;
+  padding: 18px 32px;
+  border-radius: 16px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(60, 120, 60, 0.08);
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #357a38;
+  letter-spacing: 0.05em;
+  font-family: 'Segoe Script', 'Comic Sans MS', cursive, sans-serif;
+}
+.siteName {
+  text-decoration: none;
+  color: #357a38;
+  transition: color 0.2s;
+}
+.siteName:hover {
+  color: #60b26b;
+}
+.links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.links li a {
+  color: #357a38;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+.links li a:hover {
+  background: #c8e6c9;
+  color: #226c2a;
+}
+.insta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #e1306c;
+  font-weight: 600;
+}
+.instaText {
+  display: none;
+}
+@media (min-width: 600px) {
+  .instaText {
+    display: inline;
+  }
+}
