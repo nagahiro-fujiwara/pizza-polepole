@@ -1,47 +1,55 @@
+/* --- フラット＆直線的・右上ナビ・グリーン基調 --- */
 .nav {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 64px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background: #e6f4ea;
-  padding: 18px 32px;
-  border-radius: 16px;
-  margin-bottom: 32px;
-  box-shadow: 0 2px 8px rgba(60, 120, 60, 0.08);
+  justify-content: flex-end;
+  background: var(--main-bg);
+  border-bottom: 1px solid var(--primary-color);
+  box-shadow: none;
 }
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #357a38;
-  letter-spacing: 0.05em;
-  font-family: 'Segoe Script', 'Comic Sans MS', cursive, sans-serif;
+  color: var(--primary-color);
+  font-family: 'Montserrat', 'Klee One', 'Hannari', 'Noto Sans JP', sans-serif;
+  margin-right: auto;
+  letter-spacing: 0.08em;
 }
 .siteName {
   text-decoration: none;
-  color: #357a38;
+  color: var(--primary-color);
   transition: color 0.2s;
 }
 .siteName:hover {
-  color: #60b26b;
+  color: var(--main-green-dark);
 }
 .links {
   display: flex;
-  gap: 24px;
+  gap: 32px;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 .links li a {
-  color: #357a38;
+  color: var(--main-green-dark);
   text-decoration: none;
-  font-weight: 500;
-  font-size: 1.1rem;
-  padding: 6px 12px;
-  border-radius: 8px;
-  transition: background 0.2s, color 0.2s;
+  font-weight: 600;
+  font-size: 1.08rem;
+  padding: 0 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+  border-radius: 0;
+  background: none;
 }
 .links li a:hover {
-  background: #c8e6c9;
-  color: #226c2a;
+  border-bottom: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  background: none;
 }
 .insta {
   display: flex;
@@ -49,6 +57,8 @@
   gap: 4px;
   color: #e1306c;
   font-weight: 600;
+  background: none;
+  border-radius: 0;
 }
 .instaText {
   display: none;
@@ -56,5 +66,17 @@
 @media (min-width: 600px) {
   .instaText {
     display: inline;
+  }
+}
+@media (max-width: 800px) {
+  .nav {
+    padding: 0 8px;
+    height: auto;
+  }
+  .links {
+    gap: 14px;
+  }
+  .logo {
+    font-size: 1.1rem;
   }
 }

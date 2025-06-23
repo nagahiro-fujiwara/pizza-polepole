@@ -16,7 +16,7 @@ export default function Nav() {
         <li><Link href="/access">アクセス</Link></li>
         <li><Link href="/blog">ブログ</Link></li>
         <li>
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className={styles.insta}>
+          <a href="https://www.instagram.com/pizza_pole_pole/" target="_blank" rel="noopener noreferrer" className={styles.insta}>
             <FaInstagram size={22} />
             <span className={styles.instaText}>Instagram</span>
           </a>
