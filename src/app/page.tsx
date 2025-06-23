@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
+import MenuHighlight from "../components/MenuHighlight";
+import GalleryHighlight from "../components/GalleryHighlight";
 
 export default function Home() {
   return (
@@ -49,33 +51,11 @@ export default function Home() {
           </div>
         </section>
 
+        {/* --- Menu Highlight Section --- */}
+        <MenuHighlight />
+
         {/* --- Gallery Section --- */}
-        <div className={styles.section}>
-          <h2 className={styles.sectionTitle}>ギャラリー</h2>
-          <div className={styles.galleryGrid}>
-            {[
-              "/images/menu1_Malinala.jpg",
-              "/images/menu3_Butabarita.jpg",
-              "/images/menu4_Norijapone.jpg",
-              "/images/menu5_Quwtrofolmadge.jpg",
-            ].map((src, i) => (
-              <div className={styles.galleryCard} key={src}>
-                <Image
-                  src={src}
-                  alt={`ギャラリー画像${i + 1}`}
-                  width={250}
-                  height={180}
-                  className={styles.galleryImg}
-                />
-              </div>
-            ))}
-          </div>
-          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-            <Link href="/gallery" className={styles.button}>
-              もっと見る
-            </Link>
-          </div>
-        </div>
+        <GalleryHighlight />
       </main>
     </div>
   );

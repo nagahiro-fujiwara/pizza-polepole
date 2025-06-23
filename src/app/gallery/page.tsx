@@ -1,44 +1,70 @@
-import styles from "../page.module.css";
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
+import styles from "./gallery.module.css";
 
 const images = [
-  "/images/Kama.jpg",
-  "/images/menu1_Malinala.jpg",
-  "/images/menu2_Margherita.jpg",
-  "/images/menu3_Butabarita.jpg",
-  "/images/menu4_Norijapone.jpg",
-  "/images/menu5_Quwtrofolmadge.jpg",
-  "/images/menu6_Seasonal.jpg",
+  { src: "/images/menu1_Malinala.jpg", alt: "マリナーラ" },
+  { src: "/images/menu2_Margherita.jpg", alt: "マルゲリータ" },
+  { src: "/images/menu3_Butabarita.jpg", alt: "豚バラと長ネギのピザ" },
+  { src: "/images/menu4_Norijapone.jpg", alt: "海苔と大葉の和風ピザ" },
+  { src: "/images/menu5_Quwtrofolmadge.jpg", alt: "クアトロフォルマッジ" },
+  { src: "/images/menu6_Seasonal.jpg", alt: "季節のピザ" },
+  { src: "/images/Kama.jpg", alt: "薪窯" },
+  // Add more images as needed
 ];
 
-function shuffle(arr: string[]) {
-  return arr
-    .map((v) => ({ v, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ v }) => v);
-}
+export default function GalleryPage() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-export default function Gallery() {
-  const shuffled = shuffle(images);
+  const openLightbox = (src: string) => {
+    setSelectedImage(src);
+  };
+
+  const closeLightbox = () => {
+    setSelectedImage(null);
+  };
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
         <h1 className={styles.title}>ギャラリー</h1>
+        <p className={styles.description}>
+          POLEPOLEの雰囲気や自慢のピザをご覧ください。
+        </p>
         <div className={styles.galleryGrid}>
-          {shuffled.map((src, i) => (
-            <div className={styles.galleryCard} key={src}>
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className={styles.galleryItem}
+              onClick={() => openLightbox(image.src)}
+            >
               <Image
-                src={src}
-                alt={`ギャラリー画像${i + 1}`}
-                width={320}
-                height={220}
-                className={styles.galleryImg}
-                style={{ borderRadius: 16, boxShadow: "0 2px 12px rgba(53,122,56,0.10)" }}
+                src={image.src}
+                alt={image.alt}
+                width={400}
+                height={400}
+                className={styles.galleryImage}
               />
             </div>
           ))}
         </div>
       </main>
+
+      {selectedImage && (
+        <div className={styles.lightbox} onClick={closeLightbox}>
+          <span className={styles.closeButton}>&times;</span>
+          <div className={styles.lightboxContent}>
+            <Image
+              src={selectedImage}
+              alt="拡大画像"
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

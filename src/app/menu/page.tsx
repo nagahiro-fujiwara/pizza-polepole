@@ -1,4 +1,4 @@
-import styles from "../page.module.css";
+import styles from "./menu.module.css";
 import Image from "next/image";
 
 const menu = [
@@ -42,26 +42,28 @@ const menu = [
 
 export default function Menu() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>メニュー</h1>
-        <div className={styles.menuGrid}>
-          {menu.map((item) => (
-            <div key={item.name} className={styles.menuCard}>
+    <div className={styles.menuContainer}>
+      <h1 className={styles.title}>Our Menu</h1>
+      <div className={styles.menuGrid}>
+        {menu.map((item) => (
+          <div key={item.name} className={styles.menuCard}>
+            <div className={styles.menuImageContainer}>
               <Image
                 src={item.img}
                 alt={item.name}
-                width={180}
-                height={120}
+                width={300}
+                height={220}
                 className={styles.menuImg}
               />
-              <div className={styles.menuName}>{item.name}</div>
-              <div className={styles.menuDesc}>{item.desc}</div>
+            </div>
+            <div className={styles.menuContent}>
+              <h2 className={styles.menuName}>{item.name}</h2>
+              <p className={styles.menuDesc}>{item.desc}</p>
               <div className={styles.menuPrice}>{item.price}</div>
             </div>
-          ))}
-        </div>
-      </main>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

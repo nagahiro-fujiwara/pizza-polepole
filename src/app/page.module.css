@@ -30,7 +30,7 @@
   color: #5c6d4b;
 }
 
-.menuGrid, .galleryGrid {
+.menuGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   gap: 36px;
@@ -39,7 +39,7 @@
   max-width: 1100px;
   justify-items: center;
 }
-.menuCard, .galleryCard {
+.menuCard {
   background: #fff;
   border-radius: 0;
   box-shadow: 0 2px 8px rgba(155,175,135,0.08);
@@ -54,11 +54,11 @@
   max-width: 340px;
   width: 100%;
 }
-.menuCard:hover, .galleryCard:hover {
+.menuCard:hover {
   box-shadow: 0 6px 18px rgba(155,175,135,0.13);
   transform: translateY(-2px) scale(1.01);
 }
-.menuImg, .galleryImg {
+.menuImg {
   width: 100%;
   max-width: 260px;
   height: 170px;
@@ -203,7 +203,8 @@
 
 .aboutImage {
   flex: 1;
-  text-align: center;
+  min-width: 300px;
+  position: relative;
 }
 
 .aboutImage img {
@@ -214,9 +215,10 @@
 /* --- Section Title --- */
 .sectionTitle {
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #333;
+  font-weight: bold;
 }
 
 
