@@ -6,20 +6,63 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <h1 className={styles.title}>薪窯Pizza POLEPOLE</h1>
+        <h1 className={styles.title}>薪窯Pizza POLEPOLEへようこそ</h1>
         <p className={styles.catch}>
-          ぼちぼち行こか。
+          ゆるふわ・和モダン・カフェ風の癒し空間で
           <br />
-          西条・東広島のゆるふわ薪窯ピザ
+          本格ナポリピザと地元食材をお楽しみください。
         </p>
-        <Image
-          className={styles.hero}
-          src="/images/pizza-hero.jpg"
-          alt="薪窯ピザのイメージ"
-          width={480}
-          height={320}
-          priority
-        />
+        <div className={styles.heroImgWrapper}>
+          <Image
+            src="/images/Kama.jpg"
+            alt="薪窯"
+            width={400}
+            height={260}
+            className={styles.heroImg}
+            priority
+          />
+        </div>
+        <div
+          className={styles.section}
+          style={{ background: "#e6f4ea", color: "#357a38" }}
+        >
+          <h2 style={{ fontSize: "1.3rem", marginBottom: 8 }}>ギャラリー</h2>
+          <p style={{ marginBottom: 16 }}>
+            お店やピザの雰囲気を写真でご覧ください。
+          </p>
+          <div className={styles.galleryGrid}>
+            {[
+              "/images/menu1_Malinala.jpg",
+              "/images/menu2_Margherita.jpg",
+              "/images/menu3_Butabarita.jpg",
+              "/images/menu4_Norijapone.jpg",
+              "/images/menu5_Quwtrofolmadge.jpg",
+              "/images/menu6_Seasonal.jpg",
+            ].map((src, i) => (
+              <div className={styles.galleryCard} key={src}>
+                <Image
+                  src={src}
+                  alt={`ギャラリー画像${i + 1}`}
+                  width={180}
+                  height={120}
+                  className={styles.galleryImg}
+                />
+              </div>
+            ))}
+          </div>
+          <div style={{ marginTop: 16 }}>
+            <Link
+              href="/gallery"
+              className={styles.privacyLink}
+              style={{
+                color: "#357a38",
+                fontWeight: 600,
+              }}
+            >
+              もっと見る
+            </Link>
+          </div>
+        </div>
         <div className={styles.instaBanner}>
           <a
             href="https://www.instagram.com/"

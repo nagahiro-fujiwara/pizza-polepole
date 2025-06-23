@@ -1,30 +1,95 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
+/* --- POLEPOLEピザ屋・和モダンゆるカフェ風 --- */
+@import url('https://fonts.googleapis.com/css2?family=Hannari&family=Klee+One:wght@400;700&display=swap');
 
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
+:root {
+  --main-bg: #fffdf7;
+  --main-accent: #b7a14f;
+  --main-accent-dark: #7a6e00;
+  --main-brown: #6e5c3a;
+  --main-green: #4e944f;
+  --main-gray: #f2f2eb;
+  --main-shadow: 0 4px 16px rgba(183,161,79,0.08);
+  --main-radius: 18px;
+  --main-font: 'Klee One', 'Hannari', 'Noto Sans JP', serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+.page {
+  background: var(--main-bg);
+  font-family: var(--main-font);
+  color: var(--main-brown);
+  min-height: 100vh;
+  padding: 0 0 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
+.title {
+  font-family: 'Hannari', 'Klee One', serif;
+  font-size: 2.3rem;
+  color: var(--main-accent-dark);
+  text-align: center;
+  margin: 1.5em 0 1em 0;
+  letter-spacing: 0.08em;
+}
+
+.section {
+  background: var(--main-gray);
+  border-radius: var(--main-radius);
+  padding: 2.2em 1em;
+  margin-bottom: 2em;
+  box-shadow: var(--main-shadow);
+  color: var(--main-brown);
+}
+
+.menuGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  margin: 2em 0;
+}
+.menuCard {
+  border-radius: var(--main-radius);
+  background: #fff;
+  box-shadow: var(--main-shadow);
+  padding: 1.2em 1em 1em 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1.5px solid var(--main-accent);
+}
+.menuCard:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(183,161,79,0.13);
+  background: #fef9e7;
+}
+.menuImg {
+  border-radius: 12px;
+  margin-bottom: 12px;
+  object-fit: cover;
+  width: 180px;
+  height: 120px;
+  border: 1px solid var(--main-accent-dark);
+}
+.menuName {
+  font-family: 'Hannari', 'Klee One', serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--main-accent-dark);
+  margin-bottom: 4px;
+  letter-spacing: 0.04em;
+}
+.menuDesc {
+  color: var(--main-green);
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+.menuPrice {
+  color: var(--main-brown);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 2px;
 }
 
 .main {
@@ -32,231 +97,107 @@
   flex-direction: column;
   gap: 32px;
   grid-row-start: 2;
-}
-
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
-}
-
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.ctas {
-  display: flex;
-  gap: 16px;
-}
-
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
-}
-
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
-}
-
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
 }
 
 .footer {
-  grid-row-start: 3;
+  background: var(--main-green);
+  color: #fff;
+  text-align: center;
+  padding: 2em 1em 1em 1em;
+  border-radius: var(--main-radius) var(--main-radius) 0 0;
+  font-size: 1rem;
+  margin-top: 3em;
   display: flex;
-  gap: 24px;
-}
-
-.footer a {
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
 }
-
+.footer__contentsWrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer a {
+  color: #fff;
+  text-decoration: underline;
+  margin: 0.2em 0;
+  display: inline-block;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+.footer a:hover {
+  color: var(--main-accent);
+}
 .footer img {
   flex-shrink: 0;
 }
+.privacyLink {
+  color: #fff;
+  text-decoration: underline;
+  margin-top: 1em;
+  display: inline-block;
+}
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+  margin: 2em 0;
+  width: 100%;
+  max-width: 900px;
+}
+.galleryCard {
+  background: #e6f4ea;
+  border-radius: var(--main-radius);
+  box-shadow: 0 2px 12px rgba(53,122,56,0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7em;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.galleryCard:hover {
+  box-shadow: 0 6px 24px rgba(53,122,56,0.18);
+  transform: scale(1.03);
+}
+.galleryImg {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  aspect-ratio: 4/3;
+  background: #f2f2eb;
 }
 
 @media (max-width: 600px) {
-  .page {
-    padding: 16px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-    width: 100%;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-
   .title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
-
-  .catch {
-    font-size: 1rem;
+  .menuImg {
+    width: 100px;
+    height: 70px;
   }
-
-  .hero {
-    width: 100% !important;
-    height: auto !important;
-    max-width: 100vw;
+  .menuGrid {
+    gap: 14px;
   }
-
-  .instaBanner a {
-    font-size: 1rem;
-    padding: 6px 10px;
+  .section {
+    padding: 1.2em 0.5em;
   }
-
-  .topNav {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .section, .table {
-    width: 100% !important;
+  .footer {
     font-size: 0.95rem;
-    padding: 8px !important;
+    padding: 1.2em 0.5em 0.8em 0.5em;
   }
 }
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
+@media (max-width: 900px) {
+  .galleryGrid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
   }
-}
-
-.title {
-  font-size: 2.4rem;
-  font-family: 'Segoe Script', 'Comic Sans MS', cursive, sans-serif;
-  color: #357a38;
-  margin-bottom: 0.5em;
-  text-align: center;
-}
-.catch {
-  font-size: 1.2rem;
-  color: #4e944f;
-  margin-bottom: 1.5em;
-  text-align: center;
-  font-family: 'Segoe Script', 'Comic Sans MS', cursive, sans-serif;
-}
-.hero {
-  border-radius: 18px;
-  box-shadow: 0 4px 16px rgba(60, 120, 60, 0.10);
-  margin-bottom: 1.5em;
-}
-.instaBanner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 1.5em;
-}
-.instaBanner a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #e6f4ea;
-  color: #e1306c;
-  font-weight: 600;
-  padding: 8px 18px;
-  border-radius: 24px;
-  text-decoration: none;
-  font-size: 1.1rem;
-  box-shadow: 0 2px 8px rgba(60, 120, 60, 0.06);
-  transition: background 0.2s;
-}
-.instaBanner a:hover {
-  background: #c8e6c9;
-}
-.topNav {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  margin-top: 2em;
-}
-.topNav a {
-  color: #357a38;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.1rem;
-  padding: 8px 16px;
-  border-radius: 8px;
-  background: #e6f4ea;
-  transition: background 0.2s, color 0.2s;
-}
-.topNav a:hover {
-  background: #c8e6c9;
-  color: #226c2a;
+  .galleryImg {
+    aspect-ratio: 4/3;
+  }
 }
