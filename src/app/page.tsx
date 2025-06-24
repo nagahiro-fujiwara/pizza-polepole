@@ -17,6 +17,10 @@ export default function Home() {
               className={styles.heroImage}
               priority
             />
+            {/* 薪窯のサブ画像を右下にアクセントとして配置 */}
+            <div style={{position:'absolute', right:'2vw', bottom:'2vw', zIndex:4, width:120, height:80, borderRadius:12, overflow:'hidden', boxShadow:'0 2px 8px rgba(0,0,0,0.15)'}}>
+              <Image src="/images/Kama.jpg" alt="薪窯" fill style={{objectFit:'cover'}} />
+            </div>
             <div className={styles.heroOverlay}></div>
           </div>
           <div className={styles.heroContent}>
