@@ -26,18 +26,19 @@ const Header: React.FC = () => {
   return (
     <header className={`${styles.header} ${isSticky ? styles.sticky : ''}`}>
       <div className={styles.container}>
-        <Link href="/" className={styles.logo}>
+        <Link href="/" className={styles.logo} onClick={() => setMenuOpen(false)}>
           <Image src="/images/Logo1.png" alt="Pizza PolePole Logo" width={160} height={40} priority />
         </Link>
         <nav className={`${styles.nav} ${isMenuOpen ? styles.open : ''}`}>
-          <Link href="/about">店舗紹介</Link>
-          <Link href="/menu">メニュー</Link>
-          <Link href="/access">アクセス</Link>
-          <Link href="/blog">ブログ</Link>
+          <Link href="/about" onClick={() => setMenuOpen(false)}>店舗紹介</Link>
+          <Link href="/menu" onClick={() => setMenuOpen(false)}>メニュー</Link>
+          <Link href="/access" onClick={() => setMenuOpen(false)}>アクセス</Link>
+          <Link href="/blog" onClick={() => setMenuOpen(false)}>ブログ</Link>
           <a
             href="https://www.instagram.com/pizza_pole_pole/"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => setMenuOpen(false)}
           >
             Instagram
           </a>
