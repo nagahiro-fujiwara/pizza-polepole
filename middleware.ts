@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const PASSWORD = 'polepole2025'; // ここを好きなパスワードに変更
+const PASSWORD = 'polepole2025';
 const COOKIE_NAME = 'polepole_auth';
 
 export function middleware(req: NextRequest) {
@@ -10,8 +10,7 @@ export function middleware(req: NextRequest) {
     req.nextUrl.pathname.startsWith('/_next') ||
     req.nextUrl.pathname.startsWith('/api') ||
     req.nextUrl.pathname.startsWith('/favicon') ||
-    req.nextUrl.pathname.startsWith('/images') ||
-    req.nextUrl.pathname.startsWith('/public')
+    req.nextUrl.pathname.startsWith('/images')
   ) {
     return NextResponse.next();
   }
@@ -28,5 +27,7 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next|api|favicon|images|public).*)'],
+  matcher: [
+    '/((?!_next|api|favicon|images|password).*)',
+  ],
 };

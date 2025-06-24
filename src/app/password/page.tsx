@@ -11,7 +11,7 @@ export default function PasswordPage() {
     e.preventDefault();
     if (input === "polepole2025") {
       document.cookie = `polepole_auth=${input}; path=/; max-age=86400`;
-      router.push("/");
+      window.location.reload(); // 強制リロードでcookieをmiddlewareに即反映
     } else {
       setError("パスワードが違います");
     }
