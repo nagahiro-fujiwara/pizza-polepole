@@ -169,10 +169,27 @@ hr {
   html, body {
     font-size: 15px;
   }
-  .page-container { padding-left: 0.2rem; padding-right: 0.2rem; }
+  .page-container { padding-left: 0.2rem; padding-right: 0.2rem; padding-top: 64px; }
   .button {
     font-size: 1rem;
     padding: 0.5em 1.2em;
   }
   .section-title { font-size: 1.1rem; }
+  header.sticky, header {
+    padding: 0.5rem 0.7rem !important;
+    min-height: 44px;
+  }
+  .section-title, h1, h2, h3, h4, h5 {
+    margin-top: 1.5rem;
+  }
+}
+
+/* ヒーローやページ最上部のテキストがヘッダーに隠れないよう余白を追加 */
+.hero, .main, .page-container, section {
+  scroll-margin-top: 80px;
+}
+@media (max-width: 600px) {
+  .hero, .main, .page-container, section {
+    scroll-margin-top: 64px;
+  }
 }
