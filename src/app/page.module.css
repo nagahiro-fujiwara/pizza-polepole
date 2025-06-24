@@ -247,6 +247,67 @@
   max-width: 600px;
 }
 
+.accessRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 auto;
+  max-width: 900px;
+}
+.accessInfoBlock {
+  flex: 1 1 280px;
+  min-width: 260px;
+  max-width: 340px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  padding: 2rem 1.5rem;
+  text-align: left;
+  color: #5c6d4b;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.accessAddress {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.accessDetail {
+  font-size: 1rem;
+  color: #6b7a5a;
+  margin-bottom: 0.5rem;
+}
+.accessNote {
+  font-size: 0.95rem;
+  color: #888;
+}
+.accessMapBlock {
+  flex: 1 1 340px;
+  min-width: 280px;
+  max-width: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+@media (max-width: 900px) {
+  .accessRow {
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 100%;
+  }
+  .accessMapBlock, .accessInfoBlock {
+    max-width: 100%;
+  }
+}
+
 /* --- Animations --- */
 @keyframes fadeInDown {
   from {

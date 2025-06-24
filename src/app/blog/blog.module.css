@@ -11,7 +11,7 @@
   font-size: 2.5rem; /* サイズを少し大きく */
   color: var(--primary-color);
   text-align: center;
-  margin: 2rem 0 3rem 0; /* マージンを調整 */
+  margin: 3.5rem 0 2.5rem 0; /* 上マージンを増やし、他ページと揃える */
   letter-spacing: 0.1em;
   font-weight: 700;
 }

@@ -57,16 +57,19 @@ export default function Access() {
           <div className={accessStyles.mapCard}>
             <h2 className={accessStyles.cardTitle}>マップ</h2>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3289.823979139282!2d132.7694025762358!3d34.4571899969439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355a9e1e05f43943%3A0x5c26c28a5a73e5d!2s70-1%20Taguchi%2C%20Saij%C5%8Dch%C5%8D%2C%20Higashihiroshima%2C%20Hiroshima%20739-0036%2C%20Japan!5e0!3m2!1sen!2sus!4v1716886621772!5m2!1sen!2sus"
-              className={accessStyles.mapFrame}
-              allowFullScreen={false}
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2179.5039671157233!2d132.70018337444412!3d34.38873494673091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3550710d31cfc105%3A0x4cd18bdbeb206877!2z6Jaq56qvUElaWkEgUE9MRSBQT0xFKOODlOODg-ODhOOCoeODneODrOODneODrCk!5e1!3m2!1sja!2sjp!4v1750779198049!5m2!1sja!2sjp"
+              width="600"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Google Map"
+              className={accessStyles.mapFrame}
             ></iframe>
             <div className={accessStyles.mapLink}>
               <a
-                href="https://maps.app.goo.gl/Lp8a4g5b2v6bZ9bY8"
+                href="https://www.google.com/maps/place/%E8%96%AA%E7%AA%AFPIZZA+POLE+POLE(%E3%83%94%E3%83%83%E3%83%84%E3%82%A1%E3%83%9D%E3%83%AC%E3%83%9D%E3%83%AC)/@34.3887349,132.7001834,500m/data=!3m1!1e3!4m6!3m5!1s0x3550710d31cfc105:0x4cd18bdbeb206877!8m2!3d34.3884934!4d132.7009879!16s%2Fg%2F11m6r9r_b9?entry=ttu"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={pageStyles.button}

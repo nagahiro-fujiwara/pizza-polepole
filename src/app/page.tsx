@@ -171,33 +171,36 @@ export default function Home() {
         {/* --- Access Section --- */}
         <section className={styles.section}>
             <h2 className={styles.sectionTitle}>アクセス</h2>
-            <div className={styles.accessContent}>
-                <div style={{width: '100%', maxWidth: 500, margin: '0 auto 2rem auto', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 16px rgba(0,0,0,0.08)'}}>
-                  <Image
-                    src="/images/exterior_玄関.JPG"
-                    alt="店舗外観"
-                    width={500}
-                    height={300}
-                    style={{objectFit: 'cover', width: '100%', height: 'auto', display: 'block'}}
-                    priority
-                  />
+            <div className={styles.accessRow}>
+                <div className={styles.accessInfoBlock}>
+                  <p className={styles.accessAddress}>〒739-0036<br/>広島県東広島市西条町田口70-1</p>
+                  <p className={styles.accessDetail}>営業時間：11:00-15:00 (L.O. 14:30)<br/>定休日：火曜日・水曜日<br/>駐車場：5台</p>
+                  <p className={styles.accessNote}>お車でのご来店が便利です。駐車場もご用意しております。</p>
+                  <div style={{marginTop: '1.5rem'}}>
+                    <Link href="/access" className={styles.button}>詳しいアクセス情報</Link>
+                  </div>
+                  <div style={{marginTop: '1rem'}}>
+                    <a
+                      href="https://www.google.com/maps/place/%E8%96%AA%E7%AA%AFPIZZA+POLE+POLE(%E3%83%94%E3%83%83%E3%83%84%E3%82%A1%E3%83%9D%E3%83%AC%E3%83%9D%E3%83%AC)/@34.3887349,132.7001834,500m/data=!3m1!1e3!4m6!3m5!1s0x3550710d31cfc105:0x4cd18bdbeb206877!8m2!3d34.3884934!4d132.7009879!16s%2Fg%2F11m6r9r_b9?entry=ttu"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.button}
+                    >
+                      Googleマップで開く
+                    </a>
+                  </div>
                 </div>
-                <div style={{width: '100%', maxWidth: 500, margin: '0 auto 2rem auto', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 16px rgba(0,0,0,0.08)'}}>
+                <div className={styles.accessMapBlock}>
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3289.823979139282!2d132.7694025762358!3d34.4571899969439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355a9e1e05f43943%3A0x5c26c28a5a73e5d!2s70-1%20Taguchi%2C%20Saij%C5%8Dch%C5%8D%2C%20Higashihiroshima%2C%20Hiroshima%20739-0036%2C%20Japan!5e0!3m2!1sen!2sus!4v1716886621772!5m2!1sen!2sus"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2179.5039671157233!2d132.70018337444412!3d34.38873494673091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3550710d31cfc105%3A0x4cd18bdbeb206877!2z6Jaq56qvUElaWkEgUE9MRSBQT0xFKOODlOODg-ODhOOCoeODneODrOODneODrCk!5e1!3m2!1sja!2sjp!4v1750779198049!5m2!1sja!2sjp"
                     width="100%"
                     height="300"
                     style={{border:0, borderRadius:'12px', display:'block'}}
-                    allowFullScreen={false}
+                    allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     title="Google Map"
                   ></iframe>
-                </div>
-                <p>〒739-0036 広島県東広島市西条町田口70-1</p>
-                <p>お車でのご来店が便利です。駐車場もご用意しております。</p>
-                <div style={{marginTop: '1.5rem'}}>
-                    <Link href="/access" className={styles.button}>詳しいアクセス情報</Link>
                 </div>
             </div>
         </section>
