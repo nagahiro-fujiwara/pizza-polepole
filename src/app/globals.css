@@ -3,6 +3,8 @@
 
 :root {
   --primary-color: #9baf87;
+  --text-color: #5c6d4b;
+  --text-color-dark: #3a4a3f;
   --main-bg: #f4f7f2;
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -10,8 +12,37 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: var(--text-color);
   background: var(--main-bg);
+  font-family: 'Klee One', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.page-container {
+    padding-top: 80px; /* ヘッダーの高さ分 */
+}
+
+.section-title {
+    font-family: 'Montserrat', 'Klee One', 'Hannari', serif;
+    font-size: 2.3rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    padding-top: 2rem; /* タイトルの上の余白 */
+}
+
+.text-center {
+    text-align: center;
 }
 
 /* Sticky Header Styles */

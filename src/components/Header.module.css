@@ -6,13 +6,14 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
 }
 
 .sticky {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.95);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(8px);
+  padding: 0.75rem 2rem;
 }
 
 .container {
@@ -34,11 +35,16 @@
 }
 
 .nav a {
-  color: #333;
+  color: #fff; /* デフォルトの文字色を白に */
   text-decoration: none;
   font-weight: 600;
   position: relative;
   padding-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.sticky .nav a {
+  color: #333; /* スティッキー時の文字色を黒に */
 }
 
 .nav a::after {
@@ -69,8 +75,12 @@
   display: block;
   width: 25px;
   height: 3px;
-  background-color: #333;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  background-color: #fff; /* デフォルトのハンバーガーの色を白に */
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.sticky .hamburger span {
+    background-color: #333; /* スティッキー時のハンバーガーの色を黒に */
 }
 
 @media (max-width: 768px) {

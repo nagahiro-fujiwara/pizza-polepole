@@ -3,60 +3,40 @@ import aboutStyles from "./about.module.css";
 
 export default function About() {
   return (
-    <div className={pageStyles.page}>
-      <main className={pageStyles.main}>
-        <h1 className={pageStyles.sectionTitle}>POLEPOLEへの想い</h1>
+    <div className={`${pageStyles.page} page-container`}>
+      <main className={`${pageStyles.main} text-center`}>
+        <h1 className="section-title">POLEPOLEへの想い</h1>
         <div className={aboutStyles.aboutContainer}>
           <section className={aboutStyles.philosophyCard}>
-            <h2>“POLE POLE” 「ゆっくりゆっくり」「ぼちぼちいこう」</h2>
+            <h2>
+              “POLE POLE” <br />「ゆっくりゆっくり」「ぼちぼちいこう」
+            </h2>
             <p>
-              変化が早く
+              変化が早く、不確実性が高まる現代。
               <br />
-              不確実性が高まる現代を生きる
+              私たちの目まぐるしい日々では、
               <br />
-              私たちの目まぐるしい日々は、
-              <br />
-              いろいろな事情で大切な時間が
-              <br />
-              犠牲になっています
+              大切な時間がつい後回しにされがちです。
             </p>
             <p>
-              もしかすると
-              <br />
-              このような環境を
-              <br />
-              自ら無意識に選んでいるかもしれません…
-            </p>
-            <p>
-              そんな日常で
-              <br />
-              変えたいと思うものを
-              <br />
-              変える勇気がほしいと願う一方
-              <br />
-              変えられないものを受け入れる勇気が
-              <br />
-              必要なときもあります
-            </p>
-            <p>
-              でもどちらの勇気を持てばいいか…
-              <br />
-              そんなとき“POLE POLE”の響きに身を委ね
+              そんな日常から少しだけ離れて、
               <br />
               自分のこころの声に耳をかたむけるひとときが
               <br />
-              あってもいいのではないでしょうか
+              あってもいいのではないでしょうか。
             </p>
             <p>
-              そんな場所になればいいな
+              POLEPOLEが、そんなやすらぎの場所に
               <br />
-              道が常にあなたの前にありますように
+              なれたらと願っています。
+            </p>
+            <p>
+              道が常にあなたの前にありますように。
               <br />
-              風がいつもあなたの背中を押してくれますように
+              風がいつもあなたの背中を押してくれますように。
               <br />
-              ぼちぼちいきましょう
               <br />
-              POLE POLE
+              ぼちぼちいきましょう、POLE POLE。
             </p>
           </section>
           <section className={aboutStyles.infoCard}>

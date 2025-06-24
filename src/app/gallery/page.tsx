@@ -6,14 +6,22 @@ import styles from "../page.module.css";
 import galleryStyles from "./gallery.module.css";
 
 const images = [
-  { src: "/images/menu1_Malinala.jpg", alt: "マリナーラ" },
-  { src: "/images/menu2_Margherita.jpg", alt: "マルゲリータ" },
-  { src: "/images/menu3_Butabarita.jpg", alt: "豚バラと長ネギのピザ" },
-  { src: "/images/menu4_Norijapone.jpg", alt: "海苔と大葉の和風ピザ" },
-  { src: "/images/menu5_Quwtrofolmadge.jpg", alt: "クアトロフォルマッジ" },
-  { src: "/images/menu6_Seasonal.jpg", alt: "季節のピザ" },
-  { src: "/images/Kama.jpg", alt: "薪窯" },
-  { src: "/images/Logo.jpg", alt: "店舗ロゴ" },
+  { src: "/images/interior_釜.JPG", alt: "薪窯" },
+  { src: "/images/exterior_玄関.JPG", alt: "店舗外観" },
+  { src: "/images/exterior_のれん.JPG", alt: "店舗のれん" },
+  { src: "/images/interior_席1.JPG", alt: "店内の様子" },
+  { src: "/images/menu_マルゲリータ.jpeg", alt: "マルゲリータ" },
+  { src: "/images/menu_フォルマッジ.jpeg", alt: "クワトロフォルマッジ" },
+  { src: "/images/menu_ブタバリータ.jpeg", alt: "ブタバリータ" },
+  { src: "/images/menu_ノリジャポーネ.jpeg", alt: "ノリジャポーネ" },
+  { src: "/images/interior_釜2.JPG", alt: "薪窯" },
+  { src: "/images/exterior_空撮1.JPG", alt: "店舗空撮" },
+  { src: "/images/menu_マリナーラ.jpeg", alt: "マリナーラ" },
+  { src: "/images/menu_れんこん.jpeg", alt: "れんこんのピザ" },
+  { src: "/images/exterior_イス.JPG", alt: "店外の椅子" },
+  { src: "/images/interior_花.JPG", alt: "店内の装飾" },
+  { src: "/images/menu_レモン.jpeg", alt: "レモンのピザ" },
+  { src: "/images/exterior_ボード.JPG", alt: "ウェルカムボード" },
 ];
 
 export default function GalleryPage() {
@@ -28,11 +36,13 @@ export default function GalleryPage() {
   };
 
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>ギャラリー</h1>
+    <div className={`${styles.page} page-container`}>
+      <main className={`${styles.main} text-center`}>
+        <h1 className="section-title">ギャラリー</h1>
         <p className={galleryStyles.description}>
-          POLEPOLEの雰囲気や自慢のピザをご覧ください。
+          POLEPOLEの店内の様子や、彩り豊かなピザの写真をお楽しみください。
+          <br />
+          ゆっくりとした時間が流れる空間を感じていただけたら嬉しいです。
         </p>
         <div className={galleryStyles.galleryGrid}>
           {images.map((image, index) => (

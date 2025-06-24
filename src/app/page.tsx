@@ -4,13 +4,13 @@ import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} page-container`}>
       <main className={styles.main}>
         {/* --- Hero Section --- */}
         <section className={styles.hero}>
           <div className={styles.heroImageContainer}>
             <Image
-              src="/images/Kama.jpg"
+              src="/images/interior_釜.JPG"
               alt="薪窯"
               layout="fill"
               objectFit="cover"
@@ -22,7 +22,7 @@ export default function Home() {
           <div className={styles.heroContent}>
             <h1 className={styles.title}>薪窯Pizza POLEPOLE</h1>
             <p className={styles.catch}>
-              本格ナポリピザと地元食材を、心温まる空間で。
+              心やすらぐ空間で、ゆっくりと味わう薪窯ピザ。
             </p>
             <Link href="/menu" className={styles.button}>
               メニューを見る
@@ -33,15 +33,17 @@ export default function Home() {
         {/* --- About Section --- */}
         <section className={`${styles.section} ${styles.aboutSection}`}>
           <div className={styles.aboutContent}>
-            <h2 className={styles.sectionTitle}>私たちのこだわり</h2>
+            <h2 className={styles.sectionTitle}>やすらぎの場所</h2>
             <p>
-              POLEPOLEでは、イタリア直輸入の小麦粉と新鮮な地元野菜を使い、一枚一枚丁寧に焼き上げています。薪窯で焼き上げることで生まれる、外はカリッと、中はもちもちの食感をお楽しみください。
+              POLEPOLEは、スワヒリ語で「ゆっくり、ゆっくり」という意味。<br />
+              忙しい日常を忘れ、薪の爆ぜる音を聞きながら、<br />
+              心豊かなひとときをお過ごしください。
             </p>
           </div>
           <div className={styles.aboutImage}>
             <Image
-              src="/images/menu2_Margherita.jpg"
-              alt="マルゲリータ"
+              src="/images/exterior_イス.JPG"
+              alt="店外の椅子"
               width={400}
               height={300}
               objectFit="cover"
@@ -51,12 +53,12 @@ export default function Home() {
 
         {/* --- Menu Highlight Section --- */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>おすすめメニュー</h2>
+          <h2 className={styles.sectionTitle}>彩り豊かなピザ</h2>
           <div className={styles.highlightGrid}>
             <Link href="/menu/" className={styles.highlightCard}>
               <div className={styles.imgContainer}>
                   <Image
-                    src="/images/menu2_Margherita.jpg"
+                    src="/images/menu_マルゲリータ.jpeg"
                     alt="マルゲリータ"
                     layout="fill"
                     objectFit="cover"
@@ -65,13 +67,13 @@ export default function Home() {
               </div>
               <div className={styles.cardContent}>
                 <h3>マルゲリータ</h3>
-                <p>王妃が愛したイタリアンクラシック</p>
+                <p>トマトとバジル、モッツァレラの定番ピザ</p>
               </div>
             </Link>
             <Link href="/menu/" className={styles.highlightCard}>
               <div className={styles.imgContainer}>
                   <Image
-                    src="/images/menu5_Quwtrofolmadge.jpg"
+                    src="/images/menu_フォルマッジ.jpeg"
                     alt="クワトロフォルマッジ"
                     layout="fill"
                     objectFit="cover"
@@ -80,13 +82,13 @@ export default function Home() {
               </div>
               <div className={styles.cardContent}>
                 <h3>クワトロフォルマッジ</h3>
-                <p>4種チーズの濃厚な味わい</p>
+                <p>はちみつと楽しむ4種のチーズ</p>
               </div>
             </Link>
             <Link href="/menu/" className={styles.highlightCard}>
               <div className={styles.imgContainer}>
                   <Image
-                    src="/images/menu3_Butabarita.jpg"
+                    src="/images/menu_ブタバリータ.jpeg"
                     alt="豚バラと長ネギのピザ"
                     layout="fill"
                     objectFit="cover"
@@ -112,7 +114,7 @@ export default function Home() {
           <div className={styles.galleryHighlight}>
             <Link href="/gallery" className={styles.galleryImageWrapper}>
               <Image
-                src="/images/Kama.jpg"
+                src="/images/interior_釜2.JPG"
                 alt="薪窯"
                 layout="fill"
                 className={styles.galleryImage}
@@ -120,7 +122,7 @@ export default function Home() {
             </Link>
             <Link href="/gallery" className={styles.galleryImageWrapper}>
               <Image
-                src="/images/menu1_Malinala.jpg"
+                src="/images/menu_マリナーラ.jpeg"
                 alt="マリナーラ"
                 layout="fill"
                 className={styles.galleryImage}
@@ -128,7 +130,7 @@ export default function Home() {
             </Link>
             <Link href="/gallery" className={styles.galleryImageWrapper}>
               <Image
-                src="/images/menu4_Norijapone.jpg"
+                src="/images/menu_ノリジャポーネ.jpeg"
                 alt="海苔と大葉の和風ピザ"
                 layout="fill"
                 className={styles.galleryImage}
@@ -136,8 +138,8 @@ export default function Home() {
             </Link>
             <Link href="/gallery" className={styles.galleryImageWrapper}>
               <Image
-                src="/images/Logo.jpg"
-                alt="店舗ロゴ"
+                src="/images/exterior_玄関.JPG"
+                alt="店舗外観"
                 layout="fill"
                 className={styles.galleryImage}
               />

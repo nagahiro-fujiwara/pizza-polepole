@@ -27,7 +27,7 @@ const Header: React.FC = () => {
     <header className={`${styles.header} ${isSticky ? styles.sticky : ''}`}>
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
-          <Image src="/images/Logo.jpg" alt="Pizza PolePole Logo" width={160} height={40} />
+          <Image src="/images/Logo1.png" alt="Pizza PolePole Logo" width={160} height={40} priority />
         </Link>
         <nav className={`${styles.nav} ${isMenuOpen ? styles.open : ''}`}>
           <Link href="/about">店舗紹介</Link>
