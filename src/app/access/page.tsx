@@ -3,12 +3,34 @@ import accessStyles from "./access.module.css";
 
 export default function Access() {
   return (
-    <div className={pageStyles.page}>
-      <main className={pageStyles.main}>
-        <h1 className={pageStyles.sectionTitle}>アクセス</h1>
+    <div className={`${pageStyles.page} page-container`}>
+      <main className={`${pageStyles.main} text-center`}>
+        <h1 className="section-title">アクセス</h1>
         <div className={accessStyles.accessContainer}>
+          <div className={accessStyles.exteriorGrid}>
+            <img
+              src="/images/exterior_玄関.JPG"
+              alt="店舗玄関"
+              className={accessStyles.exteriorImg}
+            />
+            <img
+              src="/images/exterior_全体.JPG"
+              alt="店舗全体"
+              className={accessStyles.exteriorImg}
+            />
+            <img
+              src="/images/exterior_のれん.JPG"
+              alt="のれん"
+              className={accessStyles.exteriorImg}
+            />
+            <img
+              src="/images/exterior_空撮1.JPG"
+              alt="空撮"
+              className={accessStyles.exteriorImg}
+            />
+          </div>
           <div className={accessStyles.infoCard}>
-            <h2>店舗情報</h2>
+            <h2 className={accessStyles.cardTitle}>店舗情報</h2>
             <ul className={accessStyles.infoList}>
               <li className={accessStyles.infoItem}>
                 <strong>住所</strong>
@@ -33,7 +55,7 @@ export default function Access() {
             </ul>
           </div>
           <div className={accessStyles.mapCard}>
-            <h2>マップ</h2>
+            <h2 className={accessStyles.cardTitle}>マップ</h2>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3289.823979139282!2d132.7694025762358!3d34.4571899969439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355a9e1e05f43943%3A0x5c26c28a5a73e5d!2s70-1%20Taguchi%2C%20Saij%C5%8Dch%C5%8D%2C%20Higashihiroshima%2C%20Hiroshima%20739-0036%2C%20Japan!5e0!3m2!1sen!2sus!4v1716886621772!5m2!1sen!2sus"
               className={accessStyles.mapFrame}

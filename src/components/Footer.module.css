@@ -21,7 +21,7 @@
 
 .title {
   font-size: 1.3rem;
-  color: #ffffff; /* タイトルは白のまま */
+  color: var(--primary-color); /* タイトルをイメージカラーに変更 */
   margin-bottom: 1.5rem;
   font-weight: 700;
   letter-spacing: 0.05em;

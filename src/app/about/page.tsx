@@ -1,13 +1,23 @@
+import Image from "next/image";
 import pageStyles from "../page.module.css";
 import aboutStyles from "./about.module.css";
 
 export default function About() {
   return (
-    <div className={`${pageStyles.page} page-container`}>
-      <main className={`${pageStyles.main} text-center`}>
-        <h1 className="section-title">POLEPOLEへの想い</h1>
-        <div className={aboutStyles.aboutContainer}>
-          <section className={aboutStyles.philosophyCard}>
+    <div className={pageStyles.page}>
+      <main className={pageStyles.main}>
+        <section className={aboutStyles.philosophySection}>
+          <div className={aboutStyles.backgroundImage}>
+            <Image
+              src="/images/exterior_イス2.JPG"
+              alt="店外の椅子と緑"
+              layout="fill"
+              objectFit="cover"
+              priority
+            />
+          </div>
+          <div className={aboutStyles.overlay}></div>
+          <div className={aboutStyles.philosophyContent}>
             <h2>
               “POLE POLE” <br />「ゆっくりゆっくり」「ぼちぼちいこう」
             </h2>
@@ -38,9 +48,12 @@ export default function About() {
               <br />
               ぼちぼちいきましょう、POLE POLE。
             </p>
-          </section>
-          <section className={aboutStyles.infoCard}>
-            <h2>店舗情報</h2>
+          </div>
+        </section>
+
+        <section className={aboutStyles.infoSection}>
+          <div className={aboutStyles.infoCard}>
+            <h2 className="section-title">店舗情報</h2>
             <ul className={aboutStyles.infoList}>
               <li className={aboutStyles.infoItem}>
                 <strong>店舗名</strong>
@@ -63,8 +76,8 @@ export default function About() {
                 <span>5台</span>
               </li>
             </ul>
-          </section>
-        </div>
+          </div>
+        </section>
       </main>
     </div>
   );

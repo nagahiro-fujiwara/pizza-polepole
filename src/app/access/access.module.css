@@ -1,17 +1,18 @@
 .accessContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
   gap: 3rem;
   max-width: 1100px;
   margin: 2.5em auto;
   padding: 0 1rem;
+  text-align: left;
 }
 
 .infoCard, .mapCard {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(155, 175, 135, 0.08);
-  padding: 2rem;
+  flex: 1 1 350px;
+  max-width: 500px;
 }
 
 .infoCard h2, .mapCard h2 {
@@ -45,6 +46,12 @@
   padding: 0;
 }
 
+.mapCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .mapFrame {
   border: 0;
   border-radius: 8px;
@@ -57,11 +64,41 @@
   margin-top: 1.5rem;
 }
 
-@media (max-width: 768px) {
+.exteriorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 2.5rem auto;
+}
+
+.exteriorImg {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.exteriorImg:hover {
+  transform: scale(1.04) translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+}
+
+@media (max-width: 900px) {
   .accessContainer {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: center;
     gap: 2rem;
   }
+  .infoCard, .mapCard {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
   .infoCard h2, .mapCard h2 {
     font-size: 1.5rem;
   }
