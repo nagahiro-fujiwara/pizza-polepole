@@ -1,33 +1,26 @@
-.aboutContainer {
-  max-width: 900px;
+.accessContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1100px;
   margin: 2.5em auto;
   padding: 0 1rem;
 }
 
-.philosophyCard, .infoCard {
+.infoCard, .mapCard {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(155, 175, 135, 0.08);
-  padding: 2.5rem;
-  margin-bottom: 3rem;
+  padding: 2rem;
 }
 
-.philosophyCard h2, .infoCard h2 {
+.infoCard h2, .mapCard h2 {
   font-family: 'Montserrat', 'Klee One', 'Hannari', serif;
   font-size: 1.8rem;
   color: var(--primary-color);
   margin-bottom: 1.5rem;
-  text-align: center;
   border-bottom: 2px solid #e6eddf;
   padding-bottom: 0.5rem;
-}
-
-.philosophyCard p {
-  font-size: 1.1rem;
-  color: #5c6d4b;
-  line-height: 2;
-  text-align: center;
-  margin-bottom: 1rem;
 }
 
 .infoList {
@@ -41,37 +34,41 @@
   font-size: 1.1rem;
   color: #5c6d4b;
   line-height: 1.7;
-  border-bottom: 1px solid #f0f0f0;
-  padding-bottom: 1rem;
-}
-
-.infoItem:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
 }
 
 .infoItem strong {
   flex-shrink: 0;
-  width: 120px;
+  width: 100px;
   font-weight: 700;
   color: #5c6d4b;
   background: none;
   padding: 0;
 }
 
+.mapFrame {
+  border: 0;
+  border-radius: 8px;
+  width: 100%;
+  height: 350px;
+}
+
+.mapLink {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
 @media (max-width: 768px) {
-  .philosophyCard, .infoCard {
-    padding: 1.5rem;
+  .accessContainer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
-  .philosophyCard h2, .infoCard h2 {
+  .infoCard h2, .mapCard h2 {
     font-size: 1.5rem;
   }
   .infoItem {
-    flex-direction: column;
-    align-items: flex-start;
+    font-size: 1rem;
   }
-  .infoItem strong {
-    margin-bottom: 0.5rem;
-    width: auto;
+  .mapFrame {
+    height: 300px;
   }
 }

@@ -1,4 +1,3 @@
-
 import fs from 'fs/promises';
 import path from 'path';
 import Link from 'next/link';
@@ -43,7 +42,7 @@ export default async function BlogPage() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Blog</h1>
+      <h1 className={styles.title}>ブログ</h1>
       <div className={styles.grid}>
         {posts.map((post) => (
           <Link href={`/blog/${post.slug}`} key={post.slug} className={styles.card}>

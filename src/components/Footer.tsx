@@ -6,15 +6,12 @@ const Footer: React.FC = () => {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.section}>
-          <h3 className={styles.title}>Pizza POLEPOLE</h3>
-          <p>〒123-4567 東京都渋谷区神宮前1-1-1</p>
-          <p>TEL: 03-1234-5678</p>
+          <h3 className={styles.title}>薪窯Pizza POLEPOLE</h3>
+          <p>〒739-0036<br />広島県東広島市西条町田口70-1</p>
         </div>
         <div className={styles.section}>
           <h3 className={styles.title}>営業時間</h3>
-          <p>ランチ: 11:30 - 15:00 (L.O. 14:30)</p>
-          <p>ディナー: 17:30 - 22:00 (L.O. 21:30)</p>
-          <p>定休日: 月曜日</p>
+          <p>11:00 - 15:00 (L.O. 14:30)</p>
         </div>
         <div className={styles.section}>
           <h3 className={styles.title}>サイトマップ</h3>

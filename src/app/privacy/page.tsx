@@ -1,44 +1,49 @@
-import styles from "../page.module.css";
+import pageStyles from "../page.module.css";
+import privacyStyles from "./privacy.module.css";
 
 export default function Privacy() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>プライバシーポリシー</h1>
-        <section className={styles.section} style={{ maxWidth: 700 }}>
-          <p>
-            薪窯Pizza POLEPOLE（以下「当店」）は、お客様の個人情報の保護に最大限の注意を払います。<br />
-            本プライバシーポリシーは、当店のウェブサイト（以下「本サイト」）における個人情報の取扱いについて定めるものです。
-          </p>
-          <h2>1. 個人情報の取得について</h2>
-          <p>
-            本サイトでは、お問い合わせ等の際にお名前・メールアドレス等の個人情報を取得する場合があります。
-          </p>
-          <h2>2. 個人情報の利用目的</h2>
-          <p>
-            取得した個人情報は、お問い合わせへの対応やサービス向上のために利用し、目的外での利用はいたしません。
-          </p>
-          <h2>3. 個人情報の第三者提供</h2>
-          <p>
-            法令に基づく場合を除き、本人の同意なく第三者に個人情報を提供することはありません。
-          </p>
-          <h2>4. 個人情報の管理</h2>
-          <p>
-            個人情報への不正アクセス・紛失・漏洩等が起こらないよう、適切な安全対策を講じます。
-          </p>
-          <h2>5. プライバシーポリシーの変更</h2>
-          <p>
-            本ポリシーの内容は、法令等の変更や必要に応じて予告なく改定する場合があります。
-          </p>
-          <h2>6. お問い合わせ</h2>
-          <p>
-            プライバシーポリシーに関するご質問は、店頭またはお問い合わせフォームよりご連絡ください。
-          </p>
-          <p style={{ marginTop: 32 }}>
-            制定日：2024年6月23日<br />
-            薪窯Pizza POLEPOLE
-          </p>
-        </section>
+    <div className={pageStyles.page}>
+      <main className={pageStyles.main}>
+        <h1 className={pageStyles.sectionTitle}>プライバシーポリシー</h1>
+        <div className={privacyStyles.privacyContainer}>
+          <div className={privacyStyles.policyCard}>
+            <p>
+              薪窯Pizza POLEPOLE（以下「当店」）は、お客様の個人情報の保護に最大限の注意を払います。
+              <br />
+              本プライバシーポリシーは、当店のウェブサイト（以下「本サイト」）における個人情報の取扱いについて定めるものです。
+            </p>
+            <h2>1. 個人情報の取得について</h2>
+            <p>
+              本サイトでは、お問い合わせ等の際にお名前・メールアドレス等の個人情報を取得する場合があります。
+            </p>
+            <h2>2. 個人情報の利用目的</h2>
+            <p>
+              取得した個人情報は、お問い合わせへの対応やサービス向上のために利用し、目的外での利用はいたしません。
+            </p>
+            <h2>3. 個人情報の第三者提供</h2>
+            <p>
+              法令に基づく場合を除き、本人の同意なく第三者に個人情報を提供することはありません。
+            </p>
+            <h2>4. 個人情報の管理</h2>
+            <p>
+              個人情報への不正アクセス・紛失・漏洩等が起こらないよう、適切な安全対策を講じます。
+            </p>
+            <h2>5. プライバシーポリシーの変更</h2>
+            <p>
+              本ポリシーの内容は、法令等の変更や必要に応じて予告なく改定する場合があります。
+            </p>
+            <h2>6. お問い合わせ</h2>
+            <p>
+              プライバシーポリシーに関するご質問は、店頭またはお問い合わせフォームよりご連絡ください。
+            </p>
+            <p className={privacyStyles.enactmentDate}>
+              制定日：2025年6月24日
+              <br />
+              薪窯Pizza POLEPOLE
+            </p>
+          </div>
+        </div>
       </main>
     </div>
   );

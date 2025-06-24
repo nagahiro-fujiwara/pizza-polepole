@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import styles from "./gallery.module.css";
+import styles from "../page.module.css";
+import galleryStyles from "./gallery.module.css";
 
 const images = [
   { src: "/images/menu1_Malinala.jpg", alt: "マリナーラ" },
@@ -12,7 +13,7 @@ const images = [
   { src: "/images/menu5_Quwtrofolmadge.jpg", alt: "クアトロフォルマッジ" },
   { src: "/images/menu6_Seasonal.jpg", alt: "季節のピザ" },
   { src: "/images/Kama.jpg", alt: "薪窯" },
-  // Add more images as needed
+  { src: "/images/Logo.jpg", alt: "店舗ロゴ" },
 ];
 
 export default function GalleryPage() {
@@ -30,14 +31,14 @@ export default function GalleryPage() {
     <div className={styles.page}>
       <main className={styles.main}>
         <h1 className={styles.title}>ギャラリー</h1>
-        <p className={styles.description}>
+        <p className={galleryStyles.description}>
           POLEPOLEの雰囲気や自慢のピザをご覧ください。
         </p>
-        <div className={styles.galleryGrid}>
+        <div className={galleryStyles.galleryGrid}>
           {images.map((image, index) => (
             <div
               key={index}
-              className={styles.galleryItem}
+              className={galleryStyles.galleryItem}
               onClick={() => openLightbox(image.src)}
             >
               <Image
@@ -45,7 +46,7 @@ export default function GalleryPage() {
                 alt={image.alt}
                 width={400}
                 height={400}
-                className={styles.galleryImage}
+                className={galleryStyles.galleryImage}
               />
             </div>
           ))}
@@ -53,14 +54,20 @@ export default function GalleryPage() {
       </main>
 
       {selectedImage && (
-        <div className={styles.lightbox} onClick={closeLightbox}>
-          <span className={styles.closeButton}>&times;</span>
-          <div className={styles.lightboxContent}>
+        <div className={galleryStyles.lightbox} onClick={closeLightbox}>
+          <button
+            className={galleryStyles.closeButton}
+            onClick={closeLightbox}
+          >
+            &times;
+          </button>
+          <div className={galleryStyles.lightboxContent}>
             <Image
               src={selectedImage}
               alt="拡大画像"
-              layout="fill"
-              objectFit="contain"
+              fill
+              style={{ objectFit: "contain" }}
+              className={galleryStyles.lightboxImage}
             />
           </div>
         </div>

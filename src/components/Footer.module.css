@@ -1,16 +1,18 @@
 .footer {
-  background-color: #333;
-  color: #f4f4f4;
-  padding: 3rem 2rem;
-  margin-top: 4rem;
+  background-color: #2a2a2a; /* 少し明るい背景色に変更 */
+  color: #e0e0e0; /* 文字色を明るいグレーに変更 */
+  padding: 3rem 1rem; /* パディングを調整 */
+  margin-top: auto;
+  border-top: 4px solid var(--primary-color);
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1100px; /* 最大幅を少し狭くする */
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  gap: 2rem; /* 要素間のスペースを調整 */
+  text-align: center;
 }
 
 .section {
@@ -18,17 +20,17 @@
 }
 
 .title {
-  font-size: 1.2rem;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-  border-bottom: 1px solid var(--primary-color);
-  padding-bottom: 0.5rem;
-  display: inline-block;
+  font-size: 1.3rem;
+  color: #ffffff; /* タイトルは白のまま */
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
 .section p {
   margin-bottom: 0.5rem;
-  line-height: 1.6;
+  line-height: 1.7;
+  font-size: 1rem;
 }
 
 .nav {
@@ -38,20 +40,32 @@
 }
 
 .nav a {
-  color: #f4f4f4;
+  color: #e0e0e0; /* リンクの色を基本文字色と統一 */
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
 }
 
 .nav a:hover {
-  color: var(--primary-color);
+  color: var(--primary-color); /* ホバー時の色をイメージカラーに */
+  transform: translateY(-2px);
 }
 
 .copyright {
   text-align: center;
-  margin-top: 3rem;
+  margin-top: 3rem; /* 上の要素とのマージンを調整 */
   padding-top: 2rem;
-  border-top: 1px solid #555;
+  border-top: 1px solid #444; /* ボーダーの色を少し明るく */
   font-size: 0.9rem;
-  color: #aaa;
+  color: #aaa; /* コピーライトの文字色を調整 */
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem; /* スマホ表示時のギャップを調整 */
+  }
+  .footer {
+    padding: 2.5rem 1.5rem; /* スマホ表示時のパディングを調整 */
+  }
 }

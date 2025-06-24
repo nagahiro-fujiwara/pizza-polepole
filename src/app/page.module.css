@@ -1,149 +1,26 @@
-/* --- ナチュラルで温かみのあるグリーン基調ページCSS（#9BAF87系・フラット最大規模改変） --- */
+/* page.module.css */
 
 .page {
-  background: #f4f7f2;
-  font-family: 'Montserrat', 'Klee One', 'Hannari', 'Noto Sans JP', sans-serif;
-  color: #5c6d4b;
-  min-height: 100vh;
-  padding: 0 0 48px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.title {
-  font-family: 'Montserrat', 'Klee One', 'Hannari', serif;
-  font-size: 2.3rem;
-  color: #9baf87;
-  text-align: center;
-  margin: 2.2em 0 1.2em 0;
-  letter-spacing: 0.12em;
-  font-weight: 700;
-}
-
-.section {
-  background: #e6eddf;
-  border-radius: 0;
-  padding: 2.2em 1em;
-  margin-bottom: 2em;
-  box-shadow: 0 2px 8px rgba(155,175,135,0.08);
-  color: #5c6d4b;
-}
-
-.menuGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 36px;
-  margin: 2.5em 0;
   width: 100%;
-  max-width: 1100px;
-  justify-items: center;
-}
-.menuCard {
-  background: #fff;
-  border-radius: 0;
-  box-shadow: 0 2px 8px rgba(155,175,135,0.08);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 1.5em 1.2em 1.2em 1.2em;
-  transition: box-shadow 0.2s, transform 0.2s;
-  border: 1px solid #9baf87;
-  min-height: 370px;
-  max-width: 340px;
-  width: 100%;
-}
-.menuCard:hover {
-  box-shadow: 0 6px 18px rgba(155,175,135,0.13);
-  transform: translateY(-2px) scale(1.01);
-}
-.menuImg {
-  width: 100%;
-  max-width: 260px;
-  height: 170px;
-  border-radius: 0;
-  object-fit: cover;
-  background: #e6eddf;
-  margin-bottom: 18px;
-  box-shadow: 0 1px 4px rgba(155,175,135,0.08);
-}
-.menuName {
-  font-family: 'Montserrat', 'Klee One', 'Hannari', serif;
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: #9baf87;
-  margin-bottom: 8px;
-  letter-spacing: 0.06em;
-  text-align: center;
-}
-.menuDesc {
-  color: #5c6d4b;
-  margin-bottom: 12px;
-  font-size: 1.05rem;
-  text-align: center;
-  white-space: pre-line;
-  line-height: 1.7;
-  min-height: 3.5em;
-}
-.menuPrice {
-  color: #fff;
-  background: #9baf87;
-  font-weight: 700;
-  font-size: 1.13rem;
-  margin-top: 10px;
-  padding: 0.4em 1.2em;
-  border-radius: 0;
-  letter-spacing: 0.08em;
-  box-shadow: 0 1px 6px rgba(155,175,135,0.10);
-  display: inline-block;
 }
 
 .main {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  grid-row-start: 2;
-  align-items: center;
   width: 100%;
-}
-
-.catch {
-  color: #9baf87;
-  font-size: 1.18rem;
-  text-align: center;
-  margin-bottom: 1.5em;
-  letter-spacing: 0.04em;
-}
-
-.button {
-  background: #9baf87;
-  color: #fff;
-  border: none;
-  border-radius: 0;
-  padding: 0.7em 2em;
-  font-size: 1.1rem;
-  font-family: 'Montserrat', 'Klee One', 'Hannari', 'Noto Sans JP', sans-serif;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(155,175,135,0.10);
-  transition: background 0.2s, box-shadow 0.2s;
-}
-.button:hover {
-  background: #5c6d4b;
-  box-shadow: 0 4px 16px rgba(155,175,135,0.18);
+  padding-bottom: 40px;
 }
 
 /* --- Hero Section --- */
 .hero {
   position: relative;
   width: 100%;
-  height: 70vh;
+  height: 60vh;
+  min-height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
+  overflow: hidden;
 }
 
 .heroImageContainer {
@@ -156,7 +33,7 @@
 }
 
 .heroImage {
-  object-fit: cover;
+  filter: brightness(0.6);
 }
 
 .heroOverlay {
@@ -165,178 +42,231 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
   z-index: 2;
 }
 
 .heroContent {
   position: relative;
   z-index: 3;
-  padding: 1rem;
+  padding: 20px;
+  animation: fadeInDown 1s ease-out;
 }
 
-.heroContent .title {
+.title {
+  font-family: 'Montserrat', 'Klee One', 'Hannari', serif;
   font-size: 3.5rem;
-  color: white;
+  font-weight: 700;
   margin-bottom: 0.5rem;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+  letter-spacing: 0.1em;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
 }
 
-.heroContent .catch {
+.catch {
   font-size: 1.5rem;
-  color: white;
   margin-bottom: 2rem;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+  font-weight: 500;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.button {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.button:hover {
+  background-color: #8aa079;
+  transform: translateY(-2px);
+}
+
+/* --- General Section Styling --- */
+.section {
+  padding: 4rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.sectionTitle {
+  font-family: 'Montserrat', 'Klee One', 'Hannari', serif;
+  font-size: 2.3rem;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.sectionLink {
+    text-align: center;
+    margin-top: 2.5rem;
 }
 
 /* --- About Section --- */
 .aboutSection {
   display: flex;
   align-items: center;
-  gap: 2rem;
-  padding: 4rem 2rem;
+  gap: 3rem;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  padding: 3rem;
+  box-shadow: 0 4px 15px rgba(155, 175, 135, 0.08);
 }
 
 .aboutContent {
   flex: 1;
+  text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #5c6d4b;
+}
+
+.aboutContent h2 {
+    margin-bottom: 1.5rem;
 }
 
 .aboutImage {
-  flex: 1;
-  min-width: 300px;
-  position: relative;
-}
-
-.aboutImage img {
+  flex: 0 0 400px;
   border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-/* --- Section Title --- */
-.sectionTitle {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: #333;
-  font-weight: bold;
+/* --- Highlight Section (Menu & Gallery) --- */
+.highlightGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem; /* ギャップを少し広げる */
+    text-align: center;
 }
 
-
-/* ▼▼▼ グローバルなフォーム要素のスタイルはglobals.cssへ移動 ▼▼▼ */
-/* select, input, textarea {
-  border-radius: 0 !important;
-  background: #fff;
-  border: 1px solid var(--primary-color);
-  font-family: var(--main-font);
-  font-size: 1rem;
-  color: var(--main-green-dark);
-  padding: 0.6em 1em;
-  margin-bottom: 1em;
-  box-shadow: none;
-  appearance: none;
-}
-select:focus, input:focus, textarea:focus {
-  outline: none;
-  border-color: var(--main-green-dark);
-  box-shadow: 0 0 0 2px #b7d7b0;
-} */
-
-.heroFlat {
-  width: 100%;
-  max-width: 1100px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 2.5em 0 1.5em 0;
-  padding: 0 0 1em 0;
-  border-bottom: 1px solid #9baf87;
-  background: none;
-}
-.heroTextBlock {
-  flex: 1 1 0;
-  min-width: 220px;
-  padding-right: 2em;
-}
-.heroImgBlock {
-  flex: 0 0 auto;
-  min-width: 180px;
-}
-.heroImg {
-  width: 320px;
-  height: 210px;
-  object-fit: cover;
-  border-radius: 0;
-  box-shadow: 0 1px 4px rgba(155,175,135,0.08);
-  background: #e6eddf;
-}
-.topNavFlat {
-  width: 100%;
-  max-width: 1100px;
-  display: flex;
-  justify-content: flex-end;
-  gap: 32px;
-  margin: 0 0 2em 0;
-  background: none;
-  border-radius: 0;
-  padding: 0 0 0 0;
-  font-size: 1.08rem;
-}
-.topNavFlat a, .topNavFlat :global(a) {
-  color: #5c6d4b;
-  text-decoration: none;
-  font-weight: 600;
-  border-bottom: 2px solid transparent;
-  padding: 0 2px;
-  transition: border-color 0.2s, color 0.2s;
-  border-radius: 0;
-  background: none;
-}
-.topNavFlat a:hover, .topNavFlat :global(a):hover {
-  border-bottom: 2px solid #9baf87;
-  color: #9baf87;
-  background: none;
+.highlightCard {
+    background: #fff;
+    border-radius: 12px; /* 角を丸くする */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none; /* Linkコンポーネント用 */
+    color: inherit;      /* Linkコンポーネント用 */
+    display: flex;
+    flex-direction: column;
 }
 
-@media (max-width: 1100px) {
-  .galleryGrid, .menuGrid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 18px;
+.highlightCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+}
+
+.highlightCard .imgContainer {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.highlightCard .img {
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.highlightCard:hover .img {
+    transform: scale(1.1);
+}
+
+.highlightCard .cardContent {
+    padding: 1.5rem;
+    flex-grow: 1;
+}
+
+.highlightCard h3 {
+    font-size: 1.4rem;
+    color: var(--text-color-dark);
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.highlightCard:hover h3 {
+    color: var(--primary-color);
+}
+
+.highlightCard p {
+    color: var(--text-color);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.galleryHighlight {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.galleryImageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.galleryImageWrapper:hover {
+    transform: scale(1.03) translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+}
+
+.galleryImage {
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important; /* importantで上書き */
+}
+
+.galleryImageWrapper:hover .galleryImage {
+    transform: scale(1.1);
+}
+
+/* --- Animations --- */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  .menuCard, .galleryCard {
-    min-height: 320px;
-    max-width: 98vw;
-  }
-  .menuImg, .galleryImg {
-    max-width: 98vw;
-    height: 120px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-@media (max-width: 900px) {
-  .galleryGrid, .menuGrid {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 14px;
-  }
-  .galleryImg, .menuImg {
-    aspect-ratio: 4/3;
-  }
-}
-@media (max-width: 600px) {
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
   .title {
-    font-size: 1.3rem;
+    font-size: 2.5rem;
   }
-  .galleryImg, .menuImg {
-    width: 100px;
-    height: 70px;
+  .catch {
+    font-size: 1.2rem;
   }
   .section {
-    padding: 1.2em 0.5em;
+    padding: 3rem 1rem;
   }
-  .menuCard, .galleryCard {
-    padding: 0.7em 0.3em 0.7em 0.3em;
-    min-height: 220px;
+  .aboutSection {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
   }
-  .menuDesc {
-    font-size: 0.98rem;
-    min-height: 2.2em;
+  .aboutImage {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 400px;
   }
 }

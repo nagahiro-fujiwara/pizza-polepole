@@ -1,4 +1,5 @@
-import styles from "./menu.module.css";
+import pageStyles from "../page.module.css";
+import menuStyles from "./menu.module.css";
 import Image from "next/image";
 
 const menu = [
@@ -42,28 +43,30 @@ const menu = [
 
 export default function Menu() {
   return (
-    <div className={styles.menuContainer}>
-      <h1 className={styles.title}>Our Menu</h1>
-      <div className={styles.menuGrid}>
-        {menu.map((item) => (
-          <div key={item.name} className={styles.menuCard}>
-            <div className={styles.menuImageContainer}>
-              <Image
-                src={item.img}
-                alt={item.name}
-                width={300}
-                height={220}
-                className={styles.menuImg}
-              />
+    <div className={pageStyles.page}>
+      <main className={pageStyles.main}>
+        <h1 className={pageStyles.sectionTitle}>メニュー</h1>
+        <div className={menuStyles.menuGrid}>
+          {menu.map((item) => (
+            <div key={item.name} className={menuStyles.menuCard}>
+              <div className={menuStyles.menuImageContainer}>
+                <Image
+                  src={item.img}
+                  alt={item.name}
+                  width={400}
+                  height={300}
+                  className={menuStyles.menuImg}
+                />
+              </div>
+              <div className={menuStyles.menuContent}>
+                <h2 className={menuStyles.menuName}>{item.name}</h2>
+                <p className={menuStyles.menuDesc}>{item.desc}</p>
+                <div className={menuStyles.menuPrice}>{item.price}</div>
+              </div>
             </div>
-            <div className={styles.menuContent}>
-              <h2 className={styles.menuName}>{item.name}</h2>
-              <p className={styles.menuDesc}>{item.desc}</p>
-              <div className={styles.menuPrice}>{item.price}</div>
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </main>
     </div>
   );
 }
