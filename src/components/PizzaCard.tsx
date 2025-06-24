@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 interface Pizza {
   name: string;
@@ -14,7 +15,7 @@ interface PizzaCardProps {
 const PizzaCard: React.FC<PizzaCardProps> = ({ pizza }) => {
   return (
     <div className="pizza-card">
-      <img src={pizza.image} alt={pizza.name} />
+      <Image src={pizza.image} alt={pizza.name} width={300} height={300} />
       <h3>{pizza.name}</h3>
       <p>{pizza.description}</p>
       <span>¥{pizza.price.toLocaleString()}</span>

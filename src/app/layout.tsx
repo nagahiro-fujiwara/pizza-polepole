@@ -7,10 +7,11 @@ import Footer from "../components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://pizzapolepole.com"), // Add this line
   title: "薪窯Pizza POLEPOLE | 西条・東広島の本格薪窯ピザ",
   description: "広島県東広島市西条町の薪窯ピザPOLEPOLE。地元食材を使った本格ナポリピザと、心温まる癒しの空間。メニュー、店舗紹介、アクセス、ブログもご覧いただけます。",
   openGraph: {
-    title: "薪窯Pizza POLEPOLE | 西条・東広島の本格薪窯ピザ",
+    title: "薪窯Pizza POLEPOLE | 西条・東広島の本格薪窯",
     description: "広島県東広島市西条町の薪窯ピザPOLEPOLE。地元食材を使った本格ナポリピザと、心温まる癒しの空間。",
     type: "website",
     url: "https://pizzapolepole.com/", // Replace with actual domain
