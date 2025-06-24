@@ -250,61 +250,68 @@
 .accessRow {
   display: flex;
   flex-wrap: wrap;
-  gap: 2.5rem;
+  gap: 3.5rem;
   justify-content: center;
-  align-items: flex-start;
+  align-items: stretch;
   margin: 0 auto;
-  max-width: 900px;
+  max-width: 1000px;
 }
 .accessInfoBlock {
-  flex: 1 1 280px;
-  min-width: 260px;
-  max-width: 340px;
+  flex: 1 1 340px;
+  min-width: 300px;
+  max-width: 400px;
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+  padding: 2.2rem 1.7rem;
   text-align: left;
   color: #5c6d4b;
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
+  gap: 1rem;
+  justify-content: center;
 }
-.accessAddress {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-.accessDetail {
-  font-size: 1rem;
-  color: #6b7a5a;
-  margin-bottom: 0.5rem;
-}
-.accessNote {
-  font-size: 0.95rem;
-  color: #888;
+.accessInfoBlock .button, .accessInfoBlock a.button {
+  width: 100%;
+  margin-top: 0.7rem;
 }
 .accessMapBlock {
-  flex: 1 1 340px;
-  min-width: 280px;
-  max-width: 500px;
-  border-radius: 12px;
+  flex: 1 1 400px;
+  min-width: 300px;
+  max-width: 520px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.10);
   background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
+  min-height: 340px;
+}
+.accessMapBlock iframe {
+  width: 100%;
+  height: 320px;
+  min-height: 220px;
+  border-radius: 16px;
 }
 @media (max-width: 900px) {
   .accessRow {
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     max-width: 100%;
   }
-  .accessMapBlock, .accessInfoBlock {
+  .accessInfoBlock, .accessMapBlock {
     max-width: 100%;
+    border-radius: 14px;
+    padding: 1rem 0.7rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    min-width: 0;
+  }
+  .accessMapBlock iframe {
+    min-height: 180px;
+    height: 180px;
+    border-radius: 14px;
   }
 }
 
@@ -340,5 +347,89 @@
     flex: 0 0 auto;
     width: 100%;
     max-width: 400px;
+  }
+}
+@media (max-width: 600px) {
+  .section {
+    padding: 1.5rem 0.5rem;
+  }
+  .sectionTitle {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+  .aboutSection {
+    padding: 1rem;
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .aboutImage {
+    max-width: 100%;
+    height: auto;
+    min-width: 0;
+  }
+  .highlightGrid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .highlightCard {
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 1.2rem;
+  }
+  .highlightCard .imgContainer {
+    height: 160px;
+  }
+  .highlightCard .cardContent {
+    padding: 1rem;
+  }
+  .highlightCard h3 {
+    font-size: 1.1rem;
+  }
+  .highlightCard p {
+    font-size: 0.92rem;
+  }
+  .button {
+    width: 100%;
+    min-height: 48px;
+    font-size: 1rem;
+    border-radius: 24px;
+    padding: 10px 0;
+  }
+  .galleryHighlight {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .galleryImageWrapper {
+    border-radius: 14px;
+    margin-bottom: 1rem;
+  }
+  .accessRow {
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 100%;
+  }
+  .accessInfoBlock, .accessMapBlock {
+    max-width: 100%;
+    border-radius: 14px;
+    padding: 1rem 0.7rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .accessInfoBlock {
+    font-size: 0.98rem;
+    gap: 0.4rem;
+  }
+  .accessAddress {
+    font-size: 1rem;
+  }
+  .accessDetail {
+    font-size: 0.95rem;
+  }
+  .accessNote {
+    font-size: 0.9rem;
+  }
+  .accessMapBlock iframe {
+    min-height: 180px;
+    height: 180px;
   }
 }
