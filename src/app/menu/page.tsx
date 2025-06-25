@@ -53,37 +53,37 @@ export const metadata = {
 const menu = [
 	{
 		name: "マリナーラ",
-		desc: "マリナーラは「船乗りの」という意味で\nその昔ナポリの船乗りにこよなく愛されたPizzaと言われています\nチーズは無く生地や素材の味が感じられます",
+		desc: "マリナーラは「船乗りの」という意味でその昔ナポリの船乗りにこよなく愛されたPizzaと言われています。チーズは無く生地や素材の味が感じられます。",
 		price: "¥1,310",
 		img: "/images/menu_マリナーラ.jpeg",
 	},
 	{
 		name: "マルゲリータ",
-		desc: "1889年マルゲリータ王妃のために作られ\n王妃が愛したと言われる有名なPizzaです\nイタリア国旗〈トマトソース(赤) モッツァレラ(白) バジル(緑)〉を表現していると言われています\n諸説ありますが素敵なエピソードですね",
+		desc: "1889年マルゲリータ王妃のために作られ王妃が愛したと言われる有名なPizzaです。イタリア国旗〈トマトソース(赤) モッツァレラ(白) バジル(緑)〉を表現していると言われています。諸説ありますが素敵なエピソードですね。",
 		price: "¥1,850",
 		img: "/images/menu_マルゲリータ.jpeg",
 	},
 	{
 		name: "ブタバリータ",
-		desc: "国産豚と海塩を使った自家製パンチェッタ(ベーコン)と\nモッツァレラをトマトソースがしっかりまとめた\nボリュームのあるPizzaです",
+		desc: "国産豚と海塩を使った自家製パンチェッタ(ベーコン)とモッツァレラをトマトソースがしっかりまとめたボリュームのあるPizzaです。",
 		price: "¥2,050",
 		img: "/images/menu_ブタバリータ.jpeg",
 	},
 	{
 		name: "ノリジャポーネ",
-		desc: "自家製 伊勢湾産海苔ソース・えび・モッツァレラの\nあっさり和風Pizzaです\nしば漬けもいい仕事してます",
+		desc: "自家製 伊勢湾産海苔ソース・えび・モッツァレラのあっさり和風Pizzaです。しば漬けもいい仕事してます。",
 		price: "¥2,080",
 		img: "/images/menu_ノリジャポーネ.jpeg",
 	},
 	{
 		name: "クワトロフォルマッジ",
-		desc: "濃厚な4種チーズPizzaを\n『自家製りんごペースト』でお楽しみください\nフォルマッジとはご存じの通り「チーズ」という意味で\nたんぱく質や脂質・ビタミン・ミネラルを豊富に含み\n疲労回復や高血圧の予防にも役立つそうですよ\nでも食べ過ぎにはご注意くださいね！",
+		desc: "濃厚な4種チーズPizzaを『自家製りんごペースト』でお楽しみください。フォルマッジとはご存じの通り「チーズ」という意味で、たんぱく質や脂質・ビタミン・ミネラルを豊富に含み、疲労回復や高血圧の予防にも役立つそうですよ。でも食べ過ぎにはご注意くださいね！",
 		price: "¥2,290",
 		img: "/images/menu_フォルマッジ.jpeg",
 	},
 	{
 		name: "季節のPizza",
-		desc: "自家製野菜や地元・国産の\n旬な素材を使ったPizzaです",
+		desc: "自家製野菜や地元・国産の旬な素材を使ったPizzaです。",
 		price: "店内黒板をご覧ください",
 		img: "/images/menu_れんこん.jpeg",
 	},
@@ -158,7 +158,19 @@ export default function Menu() {
 							</div>
 							<div className={menuStyles.menuContent}>
 								<h2 className={menuStyles.menuName}>{item.name}</h2>
-								<p className={menuStyles.menuDesc}>{item.desc}</p>
+								<p className={menuStyles.menuDesc}>
+									{item.desc.split("\n\n").map((para, i) => (
+										<span key={i}>
+											{para.split("\n").map((line, j) => (
+												<>
+													{line}
+													{j < para.split("\n").length - 1 && ' '}
+												</>
+											))}
+											<br />
+										</span>
+									))}
+								</p>
 								<div className={menuStyles.menuPrice}>{item.price}</div>
 							</div>
 						</div>

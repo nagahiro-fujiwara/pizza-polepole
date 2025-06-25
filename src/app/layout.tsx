@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google"; // Using a standard font
 import "./globals.css";
@@ -38,22 +40,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CLBZLTLG3H"></script>
+      <body className={inter.className}>
         <script dangerouslySetInnerHTML={{
           __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-CLBZLTLG3H');
-          `,
+            (function() {
+              var correct = 'polepole0626';
+              function check() {
+                var pass = localStorage.getItem('site_auth');
+                if (pass !== correct) {
+                  var input = prompt('パスワードを入力してください');
+                  if (input === correct) {
+                    localStorage.setItem('site_auth', correct);
+                    location.reload();
+                  } else {
+                    alert('パスワードが違います');
+                    check();
+                  }
+                }
+              }
+              check();
+            })();
+          `
         }} />
-      </head>
-      <body className={inter.className}>
         <Header />
-        <BackToTopButton />
-        <main>{children}</main>
+        {children}
         <Footer />
+        <BackToTopButton />
       </body>
     </html>
   );
