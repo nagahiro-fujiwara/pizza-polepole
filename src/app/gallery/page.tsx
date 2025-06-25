@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { Helmet } from "react-helmet";
 import styles from "../page.module.css";
 import galleryStyles from "./gallery.module.css";
 
@@ -37,6 +38,28 @@ export default function GalleryPage() {
 
   return (
     <div className={`${styles.page} page-container`}>
+      <Helmet>
+        <title>ギャラリー | 薪窯ピザ POLEPOLE - 西条・東広島のピザ・カフェ</title>
+        <meta
+          name="description"
+          content="薪窯ピザPOLEPOLEの店内・外観・ピザ・季節の風景ギャラリー。西条・東広島でおしゃれなカフェ・ピザ店をお探しなら。"
+        />
+        <meta
+          name="keywords"
+          content="西条, 東広島, ピザ, ギャラリー, カフェ, 店内, 外観, おしゃれ, 人気, POLEPOLE, ポレポレ, pizza, cafe, gourmet, restaurant, gallery"
+        />
+        <meta
+          property="og:title"
+          content="ギャラリー | 薪窯ピザ POLEPOLE - 西条・東広島のピザ・カフェ"
+        />
+        <meta
+          property="og:description"
+          content="薪窯ピザPOLEPOLEの店内・外観・ピザ・季節の風景ギャラリー。西条・東広島でおしゃれなカフェ・ピザ店をお探しなら。"
+        />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://pizzapolepole.com/gallery" />
+        <meta property="og:image" content="/images/Kama.jpg" />
+      </Helmet>
       <main className={`${styles.main} text-center`}>
         <h1 className="section-title">ギャラリー</h1>
         <p className={galleryStyles.description}>

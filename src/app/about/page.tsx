@@ -2,6 +2,55 @@ import Image from "next/image";
 import pageStyles from "../page.module.css";
 import aboutStyles from "./about.module.css";
 
+export const metadata = {
+  title: "店舗紹介 | 薪窯ピザ POLEPOLE - 西条・東広島のカフェ・ランチ・ピザ",
+  description:
+    "西条・東広島でゆっくり過ごせるカフェ・ランチ・ピザのPOLEPOLE。やすらぎの空間と薪窯ピザ、地元食材のこだわり。",
+  keywords: [
+    "西条",
+    "東広島",
+    "ピザ",
+    "カフェ",
+    "ランチ",
+    "やすらぎ",
+    "ナポリピザ",
+    "地元食材",
+    "おしゃれ",
+    "人気",
+    "POLEPOLE",
+    "ポレポレ",
+    "サイジョウ",
+    "Saijo",
+    "pizza",
+    "lunch",
+    "cafe",
+    "gourmet",
+    "restaurant",
+  ],
+  openGraph: {
+    title: "店舗紹介 | 薪窯ピザ POLEPOLE - 西条・東広島のカフェ・ランチ・ピザ",
+    description:
+      "西条・東広島でゆっくり過ごせるカフェ・ランチ・ピザのPOLEPOLE。やすらぎの空間と薪窯ピザ、地元食材のこだわり。",
+    url: "https://pizzapolepole.com/about",
+    images: [
+      {
+        url: "/images/Kama.jpg",
+        width: 1200,
+        height: 630,
+        alt: "薪窯Pizza POLEPOLEの薪窯",
+      },
+    ],
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "店舗紹介 | 薪窯ピザ POLEPOLE - 西条・東広島のカフェ・ランチ・ピザ",
+    description:
+      "西条・東広島でゆっくり過ごせるカフェ・ランチ・ピザのPOLEPOLE。やすらぎの空間と薪窯ピザ、地元食材のこだわり。",
+    images: ["/images/Kama.jpg"],
+  },
+};
+
 export default function About() {
   return (
     <div className={pageStyles.page}>
@@ -61,7 +110,11 @@ export default function About() {
               </li>
               <li className={aboutStyles.infoItem}>
                 <strong>住所</strong>
-                <span>〒739-0036<br />広島県東広島市西条町田口70-1</span>
+                <span>
+                  〒739-0036
+                  <br />
+                  広島県東広島市西条町田口70-1
+                </span>
               </li>
               <li className={aboutStyles.infoItem}>
                 <strong>営業時間</strong>

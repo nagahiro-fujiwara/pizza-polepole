@@ -1,5 +1,52 @@
+import Image from "next/image";
 import pageStyles from "../page.module.css";
 import accessStyles from "./access.module.css";
+
+export const metadata = {
+  title: "アクセス | 薪窯ピザ POLEPOLE - 西条・東広島のピザ・カフェ・ランチ",
+  description:
+    "薪窯ピザPOLEPOLEへのアクセス方法・地図・駐車場案内。西条・東広島でピザ・カフェ・ランチをお探しなら。",
+  keywords: [
+    "西条",
+    "東広島",
+    "ピザ",
+    "アクセス",
+    "カフェ",
+    "ランチ",
+    "駐車場",
+    "地図",
+    "POLEPOLE",
+    "ポレポレ",
+    "pizza",
+    "lunch",
+    "cafe",
+    "gourmet",
+    "restaurant",
+    "access",
+  ],
+  openGraph: {
+    title: "アクセス | 薪窯ピザ POLEPOLE - 西条・東広島のピザ・カフェ・ランチ",
+    description:
+      "薪窯ピザPOLEPOLEへのアクセス方法・地図・駐車場案内。西条・東広島でピザ・カフェ・ランチをお探しなら。",
+    url: "https://pizzapolepole.com/access",
+    images: [
+      {
+        url: "/images/Kama.jpg",
+        width: 1200,
+        height: 630,
+        alt: "薪窯Pizza POLEPOLEの薪窯",
+      },
+    ],
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "アクセス | 薪窯ピザ POLEPOLE - 西条・東広島のピザ・カフェ・ランチ",
+    description:
+      "薪窯ピザPOLEPOLEへのアクセス方法・地図・駐車場案内。西条・東広島でピザ・カフェ・ランチをお探しなら。",
+    images: ["/images/Kama.jpg"],
+  },
+};
 
 export default function Access() {
   return (
@@ -8,25 +55,33 @@ export default function Access() {
         <h1 className="section-title">アクセス</h1>
         <div className={accessStyles.accessContainer}>
           <div className={accessStyles.exteriorGrid}>
-            <img
+            <Image
               src="/images/exterior_玄関.JPG"
               alt="店舗玄関"
               className={accessStyles.exteriorImg}
+              width={400}
+              height={300}
             />
-            <img
+            <Image
               src="/images/exterior_全体.JPG"
               alt="店舗全体"
               className={accessStyles.exteriorImg}
+              width={400}
+              height={300}
             />
-            <img
+            <Image
               src="/images/exterior_のれん.JPG"
               alt="のれん"
               className={accessStyles.exteriorImg}
+              width={400}
+              height={300}
             />
-            <img
+            <Image
               src="/images/exterior_空撮1.JPG"
               alt="空撮"
               className={accessStyles.exteriorImg}
+              width={400}
+              height={300}
             />
           </div>
           <div className={accessStyles.infoCard}>

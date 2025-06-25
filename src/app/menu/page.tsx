@@ -2,6 +2,54 @@ import pageStyles from "../page.module.css";
 import menuStyles from "./menu.module.css";
 import Image from "next/image";
 
+export const metadata = {
+	title: "メニュー | 薪窯ピザ POLEPOLE - 西条・東広島のピザ・ランチ・カフェ",
+	description:
+		"西条・東広島で人気の薪窯ピザPOLEPOLEのメニュー。地元食材・自家製生地・ナポリピザ・季節のおすすめも。ランチやカフェ利用にも最適。",
+	keywords: [
+		"西条",
+		"東広島",
+		"ピザ",
+		"メニュー",
+		"ランチ",
+		"カフェ",
+		"ナポリピザ",
+		"地元食材",
+		"季節限定",
+		"おしゃれ",
+		"人気",
+		"POLEPOLE",
+		"ポレポレ",
+		"pizza",
+		"lunch",
+		"cafe",
+		"gourmet",
+		"restaurant",
+	],
+	openGraph: {
+		title: "メニュー | 薪窯ピザ POLEPOLE - 西条・東広島のピザ・ランチ・カフェ",
+		description:
+			"西条・東広島で人気の薪窯ピザPOLEPOLEのメニュー。地元食材・自家製生地・ナポリピザ・季節のおすすめも。ランチやカフェ利用にも最適。",
+		url: "https://pizzapolepole.com/menu",
+		images: [
+			{
+				url: "/images/Kama.jpg",
+				width: 1200,
+				height: 630,
+				alt: "薪窯Pizza POLEPOLEの薪窯",
+			},
+		],
+		type: "article",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "メニュー | 薪窯ピザ POLEPOLE - 西条・東広島のピザ・ランチ・カフェ",
+		description:
+			"西条・東広島で人気の薪窯ピザPOLEPOLEのメニュー。地元食材・自家製生地・ナポリピザ・季節のおすすめも。ランチやカフェ利用にも最適。",
+		images: ["/images/Kama.jpg"],
+	},
+};
+
 const menu = [
 	{
 		name: "マリナーラ",
