@@ -6,6 +6,8 @@ import html from "remark-html";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
+import styles from './post.module.css'; // Import the new CSS module
 
 const postsDirectory = path.join(process.cwd(), "src/app/blog/posts");
 
@@ -75,21 +77,32 @@ export default async function Post({ params: paramsPromise }: { params: Promise<
   }
 
   return (
-    <article className="prose lg:prose-xl mx-auto p-4 bg-white shadow-md rounded-lg my-8">
-      <h1 className="text-4xl font-bold mb-2">{postData.title}</h1>
-      <p className="text-gray-500 mb-4">{postData.date}</p>
+    <div className={styles.postContainer}>
       {postData.image && (
-        <div className="relative w-full h-96 mb-4">
-            <Image
-                src={postData.image}
-                alt={postData.title}
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg"
-            />
+        <div className={styles.backgroundImageContainer}>
+          <Image
+            src={postData.image}
+            alt={postData.title}
+            layout="fill"
+            objectFit="cover"
+            priority
+          />
+          <div className={styles.overlay}></div>
         </div>
       )}
-      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-    </article>
+      <main className={styles.content}>
+        <article>
+          <h1 className={styles.title}>{postData.title}</h1>
+          <p className={styles.date}>{postData.date}</p>
+          <div 
+            className={styles.body}
+            dangerouslySetInnerHTML={{ __html: postData.contentHtml }} 
+          />
+        </article>
+        <Link href="/blog" className={styles.backButton}>
+          ブログ一覧へ戻る
+        </Link>
+      </main>
+    </div>
   );
 }

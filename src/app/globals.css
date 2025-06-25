@@ -1,26 +1,28 @@
-/* --- ナチュラルで温かみのあるグリーン基調グローバルCSS（#9BAF87系） --- */
+/* --- ナチュラルで温かみのあるグリーン基調グローバルCSS（最終調整版） --- */
 @import url('https://fonts.googleapis.com/css2?family=Hannari&family=Klee+One:wght@400;700&family=Montserrat:wght@500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
 
 :root {
-  --primary-color: #9baf87;
-  --primary-color-dark: #7a8c6a;
-  --accent-color: #e6eddf;
-  --bg-color: #f4f7f2;
-  --text-color: #5c6d4b;
+  --primary-color: #8fA67D; /* 少し彩度を抑えて落ち着いたグリーンに */
+  --primary-color-dark: #708562;
+  --accent-color: #f0f4ec; /* 明るく柔らかなアクセント */
+  --bg-color: #f9fbf7; /* より明るい背景色 */
+  --text-color: #55644b; /* 少し柔らかいテキスト色 */
   --text-color-dark: #3a4a3f;
-  --card-radius: 14px;
-  --card-shadow: 0 4px 18px rgba(155,175,135,0.10);
-  --section-padding: 48px;
+  --card-radius: 16px; /* 角丸を少し大きく */
+  --card-shadow: 0 6px 20px rgba(143, 166, 125, 0.12);
+  --section-padding: 56px; /* セクションの余白を少し広げる */
 }
 
 body {
   color: var(--text-color);
   background: var(--bg-color);
   font-family: 'Klee One', 'Noto Sans JP', 'Montserrat', 'Hannari', sans-serif;
-  font-size: 1.08rem;
-  line-height: 1.8;
-  letter-spacing: 0.02em;
+  font-size: 1.1rem; /* 基本フォントサイズを少し大きく */
+  line-height: 1.85; /* 行間を広げて読みやすく */
+  letter-spacing: 0.03em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
@@ -33,17 +35,18 @@ html, body {
 }
 
 .page-container {
-    padding-top: 80px; /* ヘッダーの高さ分 */
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-top: 90px; /* ヘッダーの高さ分 + 少し余白 */
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .section-title {
     font-family: 'Montserrat', 'Klee One', 'Hannari', 'Noto Sans JP', serif;
-    font-size: 2.3rem;
-    color: var(--primary-color);
+    font-size: 2.4rem;
+    color: var(--primary-color-dark);
     text-align: center;
-    margin-bottom: 2.5rem;
+    margin-top: 2rem; /* 上部マージンを調整 */
+    margin-bottom: 3rem; /* 下部マージンを調整 */
     letter-spacing: 0.1em;
     font-weight: 700;
     padding-top: 2rem; /* タイトルの上の余白 */
@@ -62,27 +65,29 @@ html, body {
 }
 
 img, .next-image {
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(155,175,135,0.07);
+  border-radius: 12px; /* 画像の角丸を調整 */
+  box-shadow: 0 4px 12px rgba(143, 166, 125, 0.08);
 }
 
 button, .button {
   background: var(--primary-color);
   color: #fff;
   border: none;
-  border-radius: 24px;
-  padding: 0.7em 2.2em;
+  border-radius: 30px; /* ボタンの角をより丸く */
+  padding: 0.8em 2.5em;
   font-size: 1.1rem;
   font-family: inherit;
   font-weight: 700;
-  box-shadow: 0 2px 8px rgba(155,175,135,0.10);
+  box-shadow: 0 4px 14px rgba(143, 166, 125, 0.15);
   cursor: pointer;
-  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  transition: all 0.3s ease;
+  text-decoration: none; /* aタグの場合も考慮 */
+  display: inline-block; /* aタグの場合も考慮 */
 }
 button:hover, .button:hover {
   background: var(--primary-color-dark);
-  box-shadow: 0 6px 18px rgba(155,175,135,0.16);
-  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 20px rgba(143, 166, 125, 0.2);
+  transform: translateY(-3px);
 }
 
 /* セクション余白 */
@@ -124,17 +129,20 @@ select, input, textarea {
 }
 select:focus, input:focus, textarea:focus {
   outline: none;
-  border-color: var(--main-green-dark);
-  box-shadow: 0 0 0 2px #b7d7b0;
+  border-color: var(--primary-color-dark);
+  box-shadow: 0 0 0 3px rgba(143, 166, 125, 0.2);
 }
 
 a, .link, .privacyLink {
-  color: var(--primary-color);
-  text-decoration: underline;
-  transition: color 0.2s;
+  color: var(--primary-color-dark);
+  text-decoration: none; /* 下線をなくし、ホバーで表示 */
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s, border-color 0.3s;
 }
+
 a:hover, .link:hover, .privacyLink:hover {
-  color: var(--main-green-dark);
+  color: var(--primary-color-dark);
+  border-bottom-color: var(--primary-color-dark);
 }
 
 strong, b, mark, .highlight {
@@ -156,6 +164,33 @@ hr {
   border: none;
   border-top: 1.5px solid var(--primary-color);
   margin: 2em 0;
+}
+
+/* 新設：トップへ戻るボタン */
+.backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.backToTop:hover {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
 /* レスポンシブ調整 */

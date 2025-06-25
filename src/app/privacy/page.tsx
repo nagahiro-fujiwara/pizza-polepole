@@ -49,7 +49,7 @@ export default function Privacy() {
   return (
     <div className={pageStyles.page}>
       <main className={pageStyles.main}>
-        <h1 className={pageStyles.sectionTitle}>プライバシーポリシー</h1>
+        <h1 className="section-title">プライバシーポリシー</h1>
         <div className={privacyStyles.privacyContainer}>
           <div className={privacyStyles.policyCard}>
             <p>

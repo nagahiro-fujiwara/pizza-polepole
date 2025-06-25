@@ -93,7 +93,7 @@ export default function Menu() {
 	return (
 		<div className={`${pageStyles.page} page-container`}>
 			<main className={pageStyles.main}>
-				<h2 className="section-title">メニュー</h2>
+				<h1 className="section-title">メニュー</h1>
 				<div className={menuStyles.menuGrid} style={{ marginBottom: "2rem" }}>
 					<div className={menuStyles.menuImageWrapper}>
 						<Image
@@ -161,12 +161,7 @@ export default function Menu() {
 								<p className={menuStyles.menuDesc}>
 									{item.desc.split("\n\n").map((para, i) => (
 										<span key={i}>
-											{para.split("\n").map((line, j) => (
-												<>
-													{line}
-													{j < para.split("\n").length - 1 && ' '}
-												</>
-											))}
+											{para.split("\n").join(" ")}
 											<br />
 										</span>
 									))}

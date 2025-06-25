@@ -30,9 +30,10 @@ const Header: React.FC = () => {
           <Image src="/images/Logo1.png" alt="Pizza PolePole Logo" width={160} height={40} priority />
         </Link>
         <nav className={`${styles.nav} ${isMenuOpen ? styles.open : ''}`}>
-          <Link href="/about" onClick={() => setMenuOpen(false)}>店舗紹介</Link>
+          <Link href="/about" onClick={() => setMenuOpen(false)}>メッセージ</Link>
           <Link href="/menu" onClick={() => setMenuOpen(false)}>メニュー</Link>
           <Link href="/access" onClick={() => setMenuOpen(false)}>アクセス</Link>
+          <Link href="/gallery" onClick={() => setMenuOpen(false)}>ギャラリー</Link>
           <Link href="/blog" onClick={() => setMenuOpen(false)}>ブログ</Link>
           <a
             href="https://www.instagram.com/pizza_pole_pole/"

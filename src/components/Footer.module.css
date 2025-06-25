@@ -51,6 +51,17 @@
   transform: translateY(-2px);
 }
 
+.socialLink {
+  color: #e0e0e0;
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.socialLink:hover {
+  color: var(--primary-color);
+  transform: scale(1.1) translateY(-2px);
+}
+
 .copyright {
   text-align: center;
   margin-top: 3rem; /* 上の要素とのマージンを調整 */

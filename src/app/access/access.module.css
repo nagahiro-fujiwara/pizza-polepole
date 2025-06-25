@@ -1,137 +1,133 @@
 .accessContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 2rem;
-  max-width: 900px;
-  margin: 2.5em auto;
+  max-width: 1100px;
+  margin: 2rem auto 4rem;
   padding: 0 1rem;
-  text-align: left;
 }
 
-.infoCard, .mapCard {
-  flex: 1 1 320px;
-  min-width: 240px;
-  max-width: 370px;
+.infoAndMapWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2.5rem;
+  align-items: stretch;
+  margin-top: 3rem;
+}
+
+.card {
   background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-  padding: 1.5rem 1rem;
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  text-align: center;
 }
 
-.infoCard h2, .mapCard h2 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #e6eddf;
-  padding-bottom: 0.2rem;
+.cardTitle {
+  font-family: 'Montserrat', 'Klee One', 'Hannari', serif;
+  font-size: 1.8rem;
+  color: var(--primary-color-dark);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent-color);
 }
 
 .infoList {
-  font-size: 1rem;
-  display: inline-block;
-  text-align: left;
-  margin: 0 auto;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
 }
 
 .infoItem {
   display: flex;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-  color: #5c6d4b;
-  line-height: 1.5;
-  justify-content: flex-start;
-  text-align: left;
+  align-items: flex-start;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f0f4ec;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.infoItem:last-child {
+  border-bottom: none;
 }
 
 .infoItem strong {
-  width: 70px;
-  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-color-dark);
+  width: 80px;
+  flex-shrink: 0;
+  margin-right: 1rem;
 }
 
-.mapCard {
-  align-items: center;
-  min-height: 220px;
-  padding: 1.5rem 0.7rem;
+.infoItem span {
+  color: var(--text-color);
 }
 
 .mapFrame {
-  border: 0;
-  border-radius: 10px;
   width: 100%;
-  height: 200px;
-  min-height: 120px;
+  height: 100%;
+  min-height: 350px;
+  border-radius: 12px;
+  border: 0;
 }
 
 .mapLink {
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+}
+
+.exteriorGallery {
+  margin-bottom: 3rem;
+}
+
+.exteriorGallery h2 {
+  font-family: 'Montserrat', 'Klee One', 'Hannari', serif;
+  font-size: 1.8rem;
+  color: var(--primary-color-dark);
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .exteriorGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto 2.5rem auto;
+}
+
+.exteriorImgContainer {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  aspect-ratio: 4 / 3;
 }
 
 .exteriorImg {
   width: 100%;
-  aspect-ratio: 4/3;
+  height: 100%;
   object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.4s ease;
 }
 
-.exteriorImg:hover {
-  transform: scale(1.04) translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+.exteriorImgContainer:hover .exteriorImg {
+  transform: scale(1.1);
 }
 
 @media (max-width: 900px) {
-  .accessContainer {
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 100%;
-    padding: 0 0.5rem;
-    align-items: center;
+  .infoAndMapWrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
-  .infoCard, .mapCard {
-    max-width: 100%;
-    border-radius: 10px;
-    padding: 1rem 0.5rem;
-    min-width: 0;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-    text-align: center;
+  .card {
+    padding: 1.5rem;
   }
   .mapFrame {
-    min-height: 120px;
-    height: 120px;
-    border-radius: 10px;
+    min-height: 300px;
   }
 }
 
-@media (max-width: 768px) {
-  .infoCard h2, .mapCard h2 {
-    font-size: 1.5rem;
-  }
-  .infoItem {
-    font-size: 1rem;
-  }
-  .mapFrame {
-    height: 300px;
+@media (max-width: 500px) {
+  .exteriorGrid {
+    grid-template-columns: 1fr;
   }
 }

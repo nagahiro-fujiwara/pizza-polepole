@@ -44,33 +44,54 @@ type Post = {
 };
 
 async function getPosts(): Promise<Post[]> {
-  const fileNames = await fs.readdir(postsDirectory);
-  const allPostsData = await Promise.all(
-    fileNames.map(async (fileName) => {
-      const slug = fileName.replace(/\.md$/, '');
-      const fullPath = path.join(postsDirectory, fileName);
-      const fileContents = await fs.readFile(fullPath, 'utf8');
-      const matterResult = matter(fileContents);
+  try {
+    const fileNames = await fs.readdir(postsDirectory);
+    const allPostsData = await Promise.all(
+      fileNames
+        .filter((fileName) => fileName.endsWith('.md')) // Ensure only markdown files are processed
+        .map(async (fileName) => {
+          try {
+            const slug = fileName.replace(/\.md$/, '');
+            const fullPath = path.join(postsDirectory, fileName);
+            const fileContents = await fs.readFile(fullPath, 'utf8');
+            const matterResult = matter(fileContents);
 
-      return {
-        slug,
-        title: matterResult.data.title,
-        date: matterResult.data.date,
-        description: matterResult.data.description,
-        image: matterResult.data.image,
-      };
-    })
-  );
+            // Basic validation to ensure essential data exists
+            if (!matterResult.data.title || !matterResult.data.date || !matterResult.data.image) {
+              console.warn(`Skipping post ${fileName} due to missing frontmatter.`);
+              return null;
+            }
 
-  return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+            return {
+              slug,
+              title: matterResult.data.title,
+              date: matterResult.data.date,
+              description: matterResult.data.description || '', // Provide a fallback
+              image: matterResult.data.image,
+            };
+          } catch (error) {
+            console.error(`Error processing post ${fileName}:`, error);
+            return null; // Return null if a specific post fails
+          }
+        })
+    );
+
+    // Filter out any null results from failed processing and sort
+    const validPosts = allPostsData.filter((post): post is Post => post !== null);
+    return validPosts.sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1));
+
+  } catch (error) {
+    console.error("Could not read posts directory:", error);
+    return []; // Return an empty array on failure
+  }
 }
 
 export default async function BlogPage() {
   const posts = await getPosts();
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>ブログ</h1>
+    <div className={`${styles.container} page-container`}>
+      <h1 className="section-title">ブログ</h1>
       <div className={styles.grid}>
         {posts.map((post) => (
           <Link href={`/blog/${post.slug}`} key={post.slug} className={styles.card}>

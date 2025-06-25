@@ -3,34 +3,24 @@ import pageStyles from "../page.module.css";
 import aboutStyles from "./about.module.css";
 
 export const metadata = {
-  title: "店舗紹介 | 薪窯ピザ POLEPOLE - 西条・東広島のカフェ・ランチ・ピザ",
+  title: "メッセージ | 薪窯ピザ POLEPOLE",
   description:
-    "西条・東広島でゆっくり過ごせるカフェ・ランチ・ピザのPOLEPOLE。やすらぎの空間と薪窯ピザ、地元食材のこだわり。",
+    "薪窯ピザPOLEPOLEからのメッセージ。ゆっくり、ぼちぼち、やすらぎの場で過ごす心豊かなひとときへの想いをお伝えします。",
   keywords: [
     "西条",
     "東広島",
     "ピザ",
     "カフェ",
     "ランチ",
-    "やすらぎ",
-    "ナポリピザ",
-    "地元食材",
-    "おしゃれ",
-    "人気",
+    "メッセージ",
+    "想い",
     "POLEPOLE",
     "ポレポレ",
-    "サイジョウ",
-    "Saijo",
-    "pizza",
-    "lunch",
-    "cafe",
-    "gourmet",
-    "restaurant",
   ],
   openGraph: {
-    title: "店舗紹介 | 薪窯ピザ POLEPOLE - 西条・東広島のカフェ・ランチ・ピザ",
+    title: "メッセージ | 薪窯ピザ POLEPOLE",
     description:
-      "西条・東広島でゆっくり過ごせるカフェ・ランチ・ピザのPOLEPOLE。やすらぎの空間と薪窯ピザ、地元食材のこだわり。",
+      "薪窯ピザPOLEPOLEからのメッセージ。ゆっくり、ぼちぼち、やすらぎの場で過ごす心豊かなひとときへの想いをお伝えします。",
     url: "https://pizzapolepole.com/about",
     images: [
       {
@@ -44,9 +34,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "店舗紹介 | 薪窯ピザ POLEPOLE - 西条・東広島のカフェ・ランチ・ピザ",
+    title: "メッセージ | 薪窯ピザ POLEPOLE",
     description:
-      "西条・東広島でゆっくり過ごせるカフェ・ランチ・ピザのPOLEPOLE。やすらぎの空間と薪窯ピザ、地元食材のこだわり。",
+      "薪窯ピザPOLEPOLEからのメッセージ。ゆっくり、ぼちぼち、やすらぎの場で過ごす心豊かなひとときへの想いをお伝えします。",
     images: ["/images/Kama.jpg"],
   },
 };
@@ -97,38 +87,6 @@ export default function About() {
               <br />
               ぼちぼちいきましょう、POLE POLE。
             </p>
-          </div>
-        </section>
-
-        <section className={aboutStyles.infoSection}>
-          <div className={aboutStyles.infoCard}>
-            <h2 className="section-title">店舗情報</h2>
-            <ul className={aboutStyles.infoList}>
-              <li className={aboutStyles.infoItem}>
-                <strong>店舗名</strong>
-                <span>薪窯Pizza POLEPOLE</span>
-              </li>
-              <li className={aboutStyles.infoItem}>
-                <strong>住所</strong>
-                <span>
-                  〒739-0036
-                  <br />
-                  広島県東広島市西条町田口70-1
-                </span>
-              </li>
-              <li className={aboutStyles.infoItem}>
-                <strong>営業時間</strong>
-                <span>11:00-15:00 (L.O. 14:30)</span>
-              </li>
-              <li className={aboutStyles.infoItem}>
-                <strong>定休日</strong>
-                <span>火曜日・水曜日</span>
-              </li>
-              <li className={aboutStyles.infoItem}>
-                <strong>駐車場</strong>
-                <span>5台</span>
-              </li>
-            </ul>
           </div>
         </section>
       </main>

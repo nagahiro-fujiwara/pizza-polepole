@@ -33,6 +33,11 @@
   min-width: 160px;
 }
 
+.logo:hover {
+  /* グローバルなリンクのホバースタイル（下線）を無効化 */
+  border-bottom-color: transparent;
+}
+
 .logo img, .logo :global(img) {
   display: block;
   height: 40px !important;

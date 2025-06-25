@@ -160,7 +160,7 @@ export default function Home() {
               </div>
               <div className={styles.cardContent}>
                 <h3>クワトロフォルマッジ</h3>
-                <p>はちみつと楽しむ4種のチーズ</p>
+                <p>自家製りんごペーストと楽しむ4種のチーズ</p>
               </div>
             </Link>
             <Link href="/menu/" className={styles.highlightCard}>
