@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import styles from "./Header.module.css";
 
 export default function BackToTopButton() {
   const [show, setShow] = useState(false);

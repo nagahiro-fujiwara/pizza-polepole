@@ -29,13 +29,26 @@
 .menuImageWrapper {
     text-align: center;
     margin-bottom: 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 20px rgba(155, 175, 135, 0.1);
+}
+
+.menuImageWrapper:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(155, 175, 135, 0.18);
 }
 
 .menuImageWrapper img {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: block; /* to remove bottom space */
+    transition: transform 0.4s ease;
+}
+
+.menuImageWrapper:hover img {
+    transform: scale(1.05);
 }
 
 .menuCard {
@@ -51,8 +64,8 @@
 }
 
 .menuCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(155, 175, 135, 0.15);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(155, 175, 135, 0.18);
 }
 
 .menuImageContainer {
@@ -69,7 +82,7 @@
 }
 
 .menuCard:hover .menuImg {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .menuContent {

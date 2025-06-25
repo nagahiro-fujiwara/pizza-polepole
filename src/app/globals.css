@@ -17,7 +17,7 @@
 body {
   color: var(--text-color);
   background: var(--bg-color);
-  font-family: 'Klee One', 'Noto Sans JP', 'Montserrat', 'Hannari', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Klee One', 'Noto Sans JP', 'Montserrat', 'Hannari', sans-serif;
   font-size: 1.1rem; /* 基本フォントサイズを少し大きく */
   line-height: 1.85; /* 行間を広げて読みやすく */
   letter-spacing: 0.03em;
