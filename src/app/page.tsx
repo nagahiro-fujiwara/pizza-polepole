@@ -115,8 +115,7 @@ export default function Home() {
             <h2 className={styles.sectionTitle}>やすらぎの場所</h2>
             <p>
               POLEPOLEは、スワヒリ語で「ゆっくり、ゆっくり」という意味。<br />
-              忙しい日常を忘れ、薪の爆ぜる音を聞きながら、<br />
-              心豊かなひとときをお過ごしください。
+              忙しい日常を忘れ、薪の爆ぜる音を聞きながら、心豊かなひとときをお過ごしください。
             </p>
           </div>
           <div className={styles.aboutImage}>
