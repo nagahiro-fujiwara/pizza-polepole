@@ -8,7 +8,6 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import styles from './post.module.css'; // Import the new CSS module
-import { getPostBySlug, getAllPosts } from "../../lib/api";
 import BackToTopButton from "../../../components/BackToTopButton";
 
 const postsDirectory = path.join(process.cwd(), "src/app/blog/posts");

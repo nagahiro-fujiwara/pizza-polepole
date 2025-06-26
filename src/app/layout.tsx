@@ -4,13 +4,20 @@ import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
-import { Noto_Sans_JP } from "next/font/google";
+import { Noto_Sans_JP, M_PLUS_Rounded_1c } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 const notoSansJp = Noto_Sans_JP({
   subsets: ["latin"],
   weight: ["400", "700"],
   display: "swap",
+});
+
+const mPlusRounded1c = M_PLUS_Rounded_1c({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+  variable: '--font-m-plus-rounded-1c',
 });
 
 export const metadata: Metadata = {
@@ -43,14 +50,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={notoSansJp.className}>
+    <html lang="ja" className={`${notoSansJp.className} ${mPlusRounded1c.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
       </head>
       <body className={inter.className}>
         <Header />
