@@ -2,7 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import Link from 'next/link';
 import matter from 'gray-matter';
-import Image from 'next/image';
+import Image from 'next/image'; // Imageをインポート
 import styles from './blog.module.css';
 
 export const metadata = {
@@ -91,7 +91,7 @@ export default async function BlogPage() {
 
   return (
     <div className={`${styles.container} page-container`}>
-      <h1 className="section-title">ブログ</h1>
+      <h1 className="section-title">日々のこと</h1>
       <div className={styles.grid}>
         {posts.map((post) => (
           <Link href={`/blog/${post.slug}`} key={post.slug} className={styles.card}>

@@ -54,46 +54,28 @@ export default function Access() {
       <main className={pageStyles.main}>
         <h1 className="section-title">アクセス</h1>
 
-        <div className={accessStyles.accessContainer}>
-          {/* Gallery Section */}
-          <section className={accessStyles.exteriorGallery}>
-            <h2 className={accessStyles.cardTitle}>店舗の風景</h2>
-            <div className={accessStyles.exteriorGrid}>
-              <div className={accessStyles.exteriorImgContainer}>
-                <Image
-                  src="/images/exterior_玄関.JPG"
-                  alt="店舗玄関"
-                  layout="fill"
-                  className={accessStyles.exteriorImg}
-                />
-              </div>
-              <div className={accessStyles.exteriorImgContainer}>
-                <Image
-                  src="/images/exterior_全体.JPG"
-                  alt="店舗全体"
-                  layout="fill"
-                  className={accessStyles.exteriorImg}
-                />
-              </div>
-              <div className={accessStyles.exteriorImgContainer}>
-                <Image
-                  src="/images/exterior_のれん.JPG"
-                  alt="のれん"
-                  layout="fill"
-                  className={accessStyles.exteriorImg}
-                />
-              </div>
-              <div className={accessStyles.exteriorImgContainer}>
-                <Image
-                  src="/images/exterior_空撮1.JPG"
-                  alt="空撮"
-                  layout="fill"
-                  className={accessStyles.exteriorImg}
-                />
-              </div>
-            </div>
-          </section>
+        <div className={accessStyles.photoGallery}>
+          <div className={accessStyles.photoWrapper}>
+            <Image
+              src="/images/interior_釜.JPG"
+              alt="店内の薪窯"
+              fill
+              style={{ objectFit: "cover" }}
+              className={accessStyles.photo}
+            />
+          </div>
+          <div className={accessStyles.photoWrapper}>
+            <Image
+              src="/images/interior_counter.JPG"
+              alt="店内のカウンター"
+              fill
+              style={{ objectFit: "cover" }}
+              className={accessStyles.photo}
+            />
+          </div>
+        </div>
 
+        <div className={accessStyles.accessContainer}>
           {/* Info and Map Section */}
           <div className={accessStyles.infoAndMapWrapper}>
             {/* Info Card */}

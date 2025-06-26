@@ -110,7 +110,7 @@
   transform: translateY(-2px);
 }
 
-/* Responsive adjustments */
+/* スマートフォン表示時のスタイル調整 */
 @media (max-width: 768px) {
   .postContainer {
     padding: 2rem 1rem;
@@ -128,5 +128,11 @@
   }
   .body {
     font-size: 1rem;
+  }
+  .post {
+    padding: 1.5rem;
+    margin: 0;
+    border-radius: 0;
+    margin-top: 70px; /* ヘッダーとの重なりを回避 */
   }
 }

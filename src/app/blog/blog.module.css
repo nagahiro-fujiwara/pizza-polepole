@@ -1,7 +1,5 @@
 .container {
-  /* padding: 2rem 1rem; */ /* page-containerで制御するため削除 */
-  padding-bottom: 2rem; /* 下の余白のみ保持 */
-  background-color: var(--main-bg);
+  padding-bottom: 2rem;
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
@@ -10,16 +8,18 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem; /* ギャップを少し狭く */
+  gap: 2rem;
 }
 
 .card {
   background: #fff;
-  border-radius: 12px; /* 角を丸くする */
+  border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   border: 1px solid #eee;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   text-decoration: none;
   color: inherit;
   display: flex;
@@ -32,17 +32,18 @@
 }
 
 .cardImageContainer {
-    position: relative;
-    width: 100%;
-    height: 220px; /* 少し高さを出す */
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
 }
 
 .cardImage {
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
 .card:hover .cardImage {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .cardContent {
@@ -54,7 +55,7 @@
 }
 
 .cardTitle {
-  font-size: 1.3rem; /* サイズを調整 */
+  font-size: 1.3rem;
   font-weight: 700;
   margin: 0 0 0.5rem 0;
   color: var(--text-color-dark);
@@ -63,17 +64,17 @@
 }
 
 .card:hover .cardTitle {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .cardDate {
-  font-size: 0.85rem; /* サイズを調整 */
-  color: #999; /* 少し薄く */
+  font-size: 0.85rem;
+  color: #999;
   margin-bottom: 1rem;
 }
 
 .cardDescription {
-  font-size: 0.95rem; /* サイズを調整 */
+  font-size: 0.95rem;
   color: var(--text-color);
   flex-grow: 1;
   line-height: 1.7;
@@ -85,14 +86,17 @@
     gap: 1.2rem;
     padding: 0 0.5rem;
   }
+
   .card {
     border-radius: 14px;
     margin-bottom: 1.2rem;
     padding: 1rem 0.7rem;
   }
+
   .cardImageContainer {
     height: 160px;
   }
+
   .title {
     font-size: 1.5rem;
     margin-bottom: 1.2rem;

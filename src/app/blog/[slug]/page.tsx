@@ -8,6 +8,8 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import styles from './post.module.css'; // Import the new CSS module
+import { getPostBySlug, getAllPosts } from "../../lib/api";
+import BackToTopButton from "../../../components/BackToTopButton";
 
 const postsDirectory = path.join(process.cwd(), "src/app/blog/posts");
 
@@ -77,32 +79,35 @@ export default async function Post({ params: paramsPromise }: { params: Promise<
   }
 
   return (
-    <div className={styles.postContainer}>
-      {postData.image && (
-        <div className={styles.backgroundImageContainer}>
-          <Image
-            src={postData.image}
-            alt={postData.title}
-            layout="fill"
-            objectFit="cover"
-            priority
-          />
-          <div className={styles.overlay}></div>
-        </div>
-      )}
-      <main className={styles.content}>
-        <article>
-          <h1 className={styles.title}>{postData.title}</h1>
-          <p className={styles.date}>{postData.date}</p>
-          <div 
-            className={styles.body}
-            dangerouslySetInnerHTML={{ __html: postData.contentHtml }} 
-          />
-        </article>
-        <Link href="/blog" className={styles.backButton}>
-          ブログ一覧へ戻る
-        </Link>
-      </main>
+    <div className={`page-container`}>
+      <div className={styles.postContainer}>
+        {postData.image && (
+          <div className={styles.backgroundImageContainer}>
+            <Image
+              src={postData.image}
+              alt={postData.title}
+              layout="fill"
+              objectFit="cover"
+              priority
+            />
+            <div className={styles.overlay}></div>
+          </div>
+        )}
+        <main className={styles.content}>
+          <article>
+            <h1 className={styles.title}>{postData.title}</h1>
+            <p className={styles.date}>{postData.date}</p>
+            <div 
+              className={styles.body}
+              dangerouslySetInnerHTML={{ __html: postData.contentHtml }} 
+            />
+          </article>
+          <Link href="/blog" className={styles.backButton}>
+            ブログ一覧へ戻る
+          </Link>
+        </main>
+      </div>
+      <BackToTopButton />
     </div>
   );
 }

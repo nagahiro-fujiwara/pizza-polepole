@@ -1,0 +1,105 @@
+/* c:\WS\pizza-polepole\src\components\FeatureSection.module.css */
+.section {
+  display: flex;
+  flex-direction: column; /* 縦並びに変更 */
+  align-items: center; /* 中央揃えに変更 */
+  text-align: center; /* テキストも中央揃えに */
+  gap: 2rem; /* ギャップを調整 */
+  padding: 4rem 2rem;
+  margin: 0 auto;
+  max-width: 900px; /* 最大幅を調整 */
+  overflow: hidden; /* はみ出し防止 */
+}
+
+/* .section.reverse は不要なので削除 */
+
+.content {
+  /* flex: 1; は不要 */
+  max-width: 650px; /*  テキストの最大幅を調整 */
+  order: 2; /* テキストが画像の下に来るように */
+}
+
+.imageWrapper {
+  /* flex: 1; は不要 */
+  width: 100%; /* 幅を100%に */
+  max-width: 650px; /* 画像の最大幅を調整 */
+  position: relative;
+  aspect-ratio: 16 / 9; /* 横長の比率に変更 */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  order: 1; /* 画像がテキストの上に来るように */
+}
+
+.imageWrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.title {
+  font-family: 'Montserrat', 'Klee One', 'Hannari', serif;
+  font-size: 2.2rem; /* 少し調整 */
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-color-dark); /* 濃いテキストカラーに統一 */
+  line-height: 1.4;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.8; /* 行間を調整 */
+  color: var(--text-color-light);
+  margin-bottom: 2rem;
+}
+
+.button {
+  display: inline-block;
+  background: var(--primary-color); /* グローバル変数を使用 */
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  text-decoration: none;
+  margin-top: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: "Montserrat", "Klee One", "Hannari", serif; /* フォントを統一 */
+}
+
+.button:hover {
+  background-color: var(--primary-color-dark); /* ホバー時の色をグローバル変数に */
+  transform: translateY(-2px);
+}
+
+.buttonWrapper {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 1.5rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .button {
+    padding: 10px 22px;
+    font-size: 0.9rem;
+  }
+}

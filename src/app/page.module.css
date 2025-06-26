@@ -70,21 +70,23 @@
 }
 
 .button {
-  background: var(--primary-color);
+  background: var(--primary-color); /* 薄い緑に変更 */
   color: #fff;
-  border: none;
+  border: 2px solid rgba(255, 255, 255, 0.8); /* 枠線を追加して視認性向上 */
   border-radius: 30px;
-  padding: 12px 30px;
+  padding: 12px 24px; /* パディングを調整 */
   font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
+  transition: background-color 0.3s, transform 0.3s, border-color 0.3s;
   text-decoration: none;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  font-family: "Montserrat", "Klee One", "Hannari", serif; /* フォントを統一 */
 }
 
 .button:hover {
-  background-color: #8aa079;
+  background-color: var(--primary-color-dark); /* 濃い緑に変更 */
+  border-color: #fff; /* ホバー時に枠線を白く */
   transform: translateY(-2px);
 }
 
@@ -97,9 +99,9 @@
 }
 
 .sectionTitle {
-  font-family: 'Montserrat', 'Klee One', 'Hannari', serif;
+  font-family: "Montserrat", "Klee One", "Hannari", serif;
   font-size: 2.3rem;
-  color: var(--primary-color);
+  color: var(--text-color-dark); /* 濃いテキストカラーに統一 */
   text-align: center;
   margin-bottom: 2.5rem;
   letter-spacing: 0.1em;
@@ -111,12 +113,30 @@
     margin-top: 2.5rem;
 }
 
+/* "もっと見る" などのリンクのスタイルを修正 */
+.sectionLink :global(a) {
+    display: inline-block;
+    color: var(--text-color);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.5em 1.5em;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    border: 1px solid var(--primary-color);
+}
+
+.sectionLink :global(a:hover) {
+    color: #fff;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
 /* --- About Section --- */
 .aboutSection {
   display: flex;
   align-items: center;
   gap: 3rem;
-  background-color: #fff;
+  background-color: #f9f9f9;
   border-radius: 8px;
   margin-top: 4rem;
   margin-bottom: 4rem;
@@ -126,10 +146,10 @@
 
 .aboutContent {
   flex: 1;
-  text-align: left;
+  text-align: center;
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #5c6d4b;
+  color: var(--text-color); /* グローバル変数を使用 */
 }
 
 .aboutContent h2 {
@@ -236,6 +256,42 @@
     transform: scale(1.1);
 }
 
+/* --- Final CTA Section --- */
+.finalCtaSection {
+  background-image: linear-gradient(to bottom, rgba(34, 51, 34, 0.6), rgba(34, 51, 34, 0.8)), url("/images/Kama.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  border-radius: 12px;
+  margin-top: 5rem;
+  text-align: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.finalCtaSection .sectionTitle {
+  color: #fff;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+}
+
+.finalCtaSection .sectionDescription {
+  color: #e8e8e8;
+  font-size: 1.1rem;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.9;
+  margin-bottom: 2rem;
+}
+
+.finalCtaWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
 /* --- Access Section --- */
 .accessContent {
   display: flex;
@@ -257,24 +313,17 @@
   max-width: 1000px;
 }
 .accessInfoBlock {
-  flex: 1 1 340px;
-  min-width: 300px;
-  max-width: 400px;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.10);
-  padding: 2.2rem 1.7rem;
-  text-align: left;
-  color: #5c6d4b;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  justify-content: center;
+  flex: 1;
+  max-width: 50%;
 }
-.accessInfoBlock .button, .accessInfoBlock a.button {
-  width: 100%;
-  margin-top: 0.7rem;
+
+.accessInfoBlockFullWidth {
+  flex: 1;
+  max-width: 600px; /* Or a suitable max-width */
+  margin: 0 auto;
+  text-align: center;
 }
+
 .accessMapBlock {
   flex: 1 1 400px;
   min-width: 300px;
@@ -332,9 +381,16 @@
   .title {
     font-size: 2.5rem;
   }
+
   .catch {
     font-size: 1.2rem;
   }
+
+  .button {
+    padding: 10px 20px; /* スマホ表示でのパディングを調整 */
+    font-size: 1rem;
+  }
+
   .section {
     padding: 3rem 1rem;
   }
@@ -347,6 +403,36 @@
     flex: 0 0 auto;
     width: 100%;
     max-width: 400px;
+  }
+
+  .commitmentContent {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .highlightGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .instagramFeed {
+    gap: 0.5rem;
+  }
+
+  .aboutSection,
+  .commitmentWrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .finalCtaWrapper {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .finalCtaWrapper .button {
+    width: 80%;
+    max-width: 350px;
   }
 }
 @media (max-width: 600px) {
@@ -432,4 +518,58 @@
     min-height: 180px;
     height: 180px;
   }
+}
+
+/* --- New Sections --- */
+.gallerySection {
+  background-color: #fff;
+}
+
+.sectionDescription {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.cardDate {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
+
+.instagramSection {
+  background-color: #fafafa;
+  text-align: center;
+}
+
+.instagramFeed {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.instagramPost {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.instagramPost:hover {
+  transform: scale(1.05);
+}
+
+.instagramPost img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

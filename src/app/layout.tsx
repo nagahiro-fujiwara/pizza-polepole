@@ -4,8 +4,14 @@ import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
+import { Noto_Sans_JP } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
+const notoSansJp = Noto_Sans_JP({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://pizzapolepole.com"), // Add this line
@@ -37,29 +43,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
+    <html lang="ja" className={notoSansJp.className}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className={inter.className}>
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            (function() {
-              var correct = 'polepole0626';
-              function check() {
-                var pass = localStorage.getItem('site_auth');
-                if (pass !== correct) {
-                  var input = prompt('パスワードを入力してください');
-                  if (input === correct) {
-                    localStorage.setItem('site_auth', correct);
-                    location.reload();
-                  } else {
-                    alert('パスワードが違います');
-                    check();
-                  }
-                }
-              }
-              check();
-            })();
-          `
-        }} />
         <Header />
         {children}
         <Footer />

@@ -76,6 +76,33 @@
   margin-top: 1.5rem;
 }
 
+.photoGallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.photoWrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  aspect-ratio: 4 / 3;
+}
+
+.photo {
+  transition: transform 0.4s ease-in-out;
+}
+
+.photoWrapper:hover .photo {
+  transform: scale(1.05);
+}
+
 .exteriorGallery {
   margin-bottom: 3rem;
 }
