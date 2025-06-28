@@ -54,27 +54,6 @@ export default function Access() {
       <main className={pageStyles.main}>
         <h1 className="section-title">アクセス</h1>
 
-        <div className={accessStyles.photoGallery}>
-          <div className={accessStyles.photoWrapper}>
-            <Image
-              src="/images/interior_釜.JPG"
-              alt="店内の薪窯"
-              fill
-              style={{ objectFit: "cover" }}
-              className={accessStyles.photo}
-            />
-          </div>
-          <div className={accessStyles.photoWrapper}>
-            <Image
-              src="/images/interior_counter.JPG"
-              alt="店内のカウンター"
-              fill
-              style={{ objectFit: "cover" }}
-              className={accessStyles.photo}
-            />
-          </div>
-        </div>
-
         <div className={accessStyles.accessContainer}>
           {/* Info and Map Section */}
           <div className={accessStyles.infoAndMapWrapper}>
