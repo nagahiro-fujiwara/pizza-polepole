@@ -24,6 +24,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://pizzapolepole.com"), // Add this line
   title: "薪窯Pizza POLEPOLE | 西条・東広島の薪窯ピザ",
   description: "広島県東広島市西条町の薪窯ピザPOLEPOLE。地元食材を使ったピザと、心温まる癒しの空間。メニュー、店舗紹介、アクセス、ブログもご覧いただけます。",
+  icons: {
+    icon: "/favicon.ico",
+  },
   openGraph: {
     title: "薪窯Pizza POLEPOLE | 西条・東広島の薪窯",
     description: "広島県東広島市西条町の薪窯ピザPOLEPOLE。地元食材を使ったピザと、心温まる癒しの空間。",
