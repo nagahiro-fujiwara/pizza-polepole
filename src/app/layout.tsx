@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import BackToTopButton from "../components/BackToTopButton";
 import { Noto_Sans_JP, M_PLUS_Rounded_1c } from "next/font/google";
+import Script from "next/script"; // Scriptコンポーネントをインポート
 
 const inter = Inter({ subsets: ["latin"] });
 const notoSansJp = Noto_Sans_JP({
@@ -55,6 +56,18 @@ export default function RootLayout({
   return (
     <html lang="ja" className={`${notoSansJp.className} ${mPlusRounded1c.variable}`}>
       <head>
+        <Script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=G-CLBZLTLG3H`}
+        />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-CLBZLTLG3H');
+          `}
+        </Script>
       </head>
       <body className={inter.className}>
         <Header />
