@@ -13,7 +13,8 @@ const Footer: React.FC = () => {
             広島県東広島市西条町田口70-1
           </p>
           <p>
-            営業時間: 11:00 - 15:00 (L.O. 14:30)
+            営業時間: 11:00 - 15:00 (L.O. 14:30)<br />
+            定休日: 火曜・水曜
           </p>
         </div>
         <div className={styles.section}>
