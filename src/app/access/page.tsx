@@ -1,4 +1,3 @@
-import Image from "next/image";
 import pageStyles from "../page.module.css";
 import accessStyles from "./access.module.css";
 
