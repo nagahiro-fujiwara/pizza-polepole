@@ -56,11 +56,20 @@ export default function RootLayout({
   return (
     <html lang="ja" className={`${notoSansJp.className} ${mPlusRounded1c.variable}`}>
       <head>
+      </head>
+      <body className={inter.className}>
+        <Header />
+        {children}
+        <Footer />
+        <BackToTopButton />
         <Script
-          async
+          strategy="afterInteractive"
           src={`https://www.googletagmanager.com/gtag/js?id=G-CLBZLTLG3H`}
         />
-        <Script id="google-analytics">
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+        >
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -68,12 +77,6 @@ export default function RootLayout({
             gtag('config', 'G-CLBZLTLG3H');
           `}
         </Script>
-      </head>
-      <body className={inter.className}>
-        <Header />
-        {children}
-        <Footer />
-        <BackToTopButton />
       </body>
     </html>
   );
