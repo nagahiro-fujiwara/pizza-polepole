@@ -58,7 +58,7 @@ export default function GalleryClient() {
       <main className={`${styles.main} text-center`}>
         <h1 className="section-title">ギャラリー</h1>
         <p className={galleryStyles.description}>
-          POLEPOLEの店内の様子や、薪窯で焼き上げたピザの写真をお楽しみください。
+          POLE POLEの店内の様子や、薪窯で焼き上げたピザの写真をお楽しみください。
           <br />
           ゆっくりとした時間が流れる空間を感じていただけたら嬉しいです。
         </p>

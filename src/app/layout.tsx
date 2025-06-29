@@ -1,51 +1,49 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google"; // Using a standard font
+import { Inter, Klee_One } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import BackToTopButton from "../components/BackToTopButton";
-import { Noto_Sans_JP, M_PLUS_Rounded_1c } from "next/font/google";
-import Script from "next/script"; // Scriptコンポーネントをインポート
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
-const notoSansJp = Noto_Sans_JP({
+const kleeOne = Klee_One({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "600"], // 700 is not supported
   display: "swap",
-});
-
-const mPlusRounded1c = M_PLUS_Rounded_1c({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  display: "swap",
-  variable: '--font-m-plus-rounded-1c',
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pizzapolepole.com"), // Add this line
-  title: "薪窯Pizza POLEPOLE | 西条・東広島の薪窯ピザ",
-  description: "広島県東広島市西条町の薪窯ピザPOLEPOLE。地元食材を使ったピザと、心温まる癒しの空間。メニュー、店舗紹介、アクセス、ブログもご覧いただけます。",
-  icons: {
-    icon: "/favicon.ico",
+  metadataBase: new URL("https://pizzapolepole.com"),
+  title: {
+    default: "薪窯PIZZA POLE POLE ⌇ ピッツァポレポレ",
+    template: `%s | 薪窯PIZZA POLE POLE  ⌇ ピッツァポレポレ`,
   },
+  description:
+    "広島県東広島市西条の自然に囲まれた一軒家で、本格的な薪窯Piizaが楽しめる「POLE POLE（ポレポレ）」。こだわりの生地と地元の新鮮な食材を使った、焼きたてのナポリピザをどうぞ。",
   openGraph: {
-    title: "薪窯Pizza POLEPOLE | 西条・東広島の薪窯",
-    description: "広島県東広島市西条町の薪窯ピザPOLEPOLE。地元食材を使ったピザと、心温まる癒しの空間。",
-    type: "website",
-    url: "https://pizzapolepole.com/", // Replace with actual domain
+    title: "薪窯PIZZA POLE POLE ⌇ピッツァポレポレ",
+    description:
+      "広島県東広島市西条の自然に囲まれた一軒家で、本格的な薪窯Pizzaが楽しめる「POLE POLE（ポレポレ）」。こだわりの生地と地元の新鮮な食材を使った、焼きたてのナポリピザをどうぞ。",
+    url: "https://pizzapolepole.com",
+    siteName: "ピッツァポレポレ",
     images: [
       {
-        url: "/images/Kama.jpg", // Use a representative image
+        url: "/images/Kama.jpg",
         width: 1200,
         height: 630,
-        alt: "薪窯Pizza POLEPOLEの薪窯",
+        alt: "薪窯Pizza POLE POLEの薪窯",
       },
     ],
+    locale: "ja_JP",
+    type: "website",
   },
-  keywords: [
-    "薪窯ピザ", "西条 ピザ", "東広島 ピザ", "広島 ピザ", "polepole", "ピザ", "カフェ", "ナポリピザ", "地元食材", "癒し空間"
-  ],
-  robots: "index, follow",
+  twitter: {
+    card: "summary_large_image",
+    title: "薪窯Pizza POLE POLE ⌇ ピッツァポレポレ",
+    description:
+      "広島県東広島市西条の自然に囲まれた一軒家で、本格的な薪窯Pizzaが楽しめる「POLE POLE（ポレポレ）」。こだわりの生地と地元の新鮮な食材を使った、焼きたてのピザをどうぞ。",
+    images: ["/images/Kama.jpg"],
+  },
 };
 
 export default function RootLayout({
@@ -54,14 +52,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${notoSansJp.className} ${mPlusRounded1c.variable}`}>
+    <html lang="ja" className={`${kleeOne.className}`}>
       <head>
       </head>
       <body className={inter.className}>
         <Header />
         {children}
         <Footer />
-        <BackToTopButton />
         <Script
           strategy="afterInteractive"
           src={`https://www.googletagmanager.com/gtag/js?id=G-CLBZLTLG3H`}

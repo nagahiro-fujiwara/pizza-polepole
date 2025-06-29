@@ -7,7 +7,7 @@ export default function Nav() {
     <nav className={styles.nav}>
       <div className={styles.logo}>
         <Link href="/" className={styles.siteName}>
-          薪窯Pizza POLEPOLE
+          薪窯Pizza POLE POLE
         </Link>
       </div>
       <ul className={styles.links}>

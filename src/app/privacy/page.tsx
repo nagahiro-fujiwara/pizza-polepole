@@ -2,9 +2,9 @@ import pageStyles from "../page.module.css";
 import privacyStyles from "./privacy.module.css";
 
 export const metadata = {
-  title: "プライバシーポリシー | 薪窯ピザ POLEPOLE - 西条・東広島のピザ・カフェ",
+  title: "プライバシーポリシー | 薪窯Pizza POLE POLE - 西条・東広島のピザ・カフェ",
   description:
-    "薪窯ピザPOLEPOLEのプライバシーポリシー。西条・東広島でピザ・カフェ・ランチをお探しの方も安心してご利用いただけます。",
+    "薪窯PizzaPOLE POLEのプライバシーポリシー。西条・東広島でピザ・カフェ・ランチをお探しの方も安心してご利用いただけます。",
   keywords: [
     "西条",
     "東広島",
@@ -12,7 +12,7 @@ export const metadata = {
     "プライバシー",
     "カフェ",
     "ランチ",
-    "POLEPOLE",
+    "POLE POLE",
     "ポレポレ",
     "pizza",
     "lunch",
@@ -22,25 +22,25 @@ export const metadata = {
     "privacy",
   ],
   openGraph: {
-    title: "プライバシーポリシー | 薪窯ピザ POLEPOLE - 西条・東広島のピザ・カフェ",
+    title: "プライバシーポリシー | 薪窯Pizza POLE POLE - 西条・東広島のピザ・カフェ",
     description:
-      "薪窯ピザPOLEPOLEのプライバシーポリシー。西条・東広島でピザ・カフェ・ランチをお探しの方も安心してご利用いただけます。",
+      "薪窯PizzaPOLE POLEのプライバシーポリシー。西条・東広島でピザ・カフェ・ランチをお探しの方も安心してご利用いただけます。",
     url: "https://pizzapolepole.com/privacy",
     images: [
       {
         url: "/images/Kama.jpg",
         width: 1200,
         height: 630,
-        alt: "薪窯Pizza POLEPOLEの薪窯",
+        alt: "薪窯Pizza POLE POLEの薪窯",
       },
     ],
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: "プライバシーポリシー | 薪窯ピザ POLEPOLE - 西条・東広島のピザ・カフェ",
+    title: "プライバシーポリシー | 薪窯Pizza POLE POLE - 西条・東広島のピザ・カフェ",
     description:
-      "薪窯ピザPOLEPOLEのプライバシーポリシー。西条・東広島でピザ・カフェ・ランチをお探しの方も安心してご利用いただけます。",
+      "薪窯PizzaPOLE POLEのプライバシーポリシー。西条・東広島でピザ・カフェ・ランチをお探しの方も安心してご利用いただけます。",
     images: ["/images/Kama.jpg"],
   },
 };
@@ -53,7 +53,7 @@ export default function Privacy() {
         <div className={privacyStyles.privacyContainer}>
           <div className={privacyStyles.policyCard}>
             <p>
-              薪窯Pizza POLEPOLE（以下「当店」）は、お客様の個人情報を取得・保存・利用することはありません。
+              薪窯Pizza POLE POLE（以下「当店」）は、お客様の個人情報を取得・保存・利用することはありません。
               <br />
               本サイトは、個人情報の入力や送信を必要とする機能（お問い合わせフォーム等）を設けておりません。
             </p>
@@ -84,7 +84,7 @@ export default function Privacy() {
             <p className={privacyStyles.enactmentDate}>
               制定日：2025年6月24日
               <br />
-              薪窯Pizza POLEPOLE
+              薪窯Pizza POLE POLE
             </p>
           </div>
         </div>

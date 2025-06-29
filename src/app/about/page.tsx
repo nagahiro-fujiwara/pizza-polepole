@@ -3,9 +3,9 @@ import pageStyles from "../page.module.css";
 import aboutStyles from "./about.module.css";
 
 export const metadata = {
-  title: "メッセージ | 薪窯ピザ POLEPOLE",
+  title: "メッセージ | 薪窯Pizza POLE POLE",
   description:
-    "薪窯ピザPOLEPOLEからのメッセージ。ゆっくり、ぼちぼち、やすらぎの場で過ごす心豊かなひとときへの想いをお伝えします。",
+    "薪窯Pizza POLE POLEからのメッセージ。ゆっくり、ぼちぼち、やすらぎの場で過ごす心豊かなひとときへの想いをお伝えします。",
   keywords: [
     "西条",
     "東広島",
@@ -14,29 +14,29 @@ export const metadata = {
     "ランチ",
     "メッセージ",
     "想い",
-    "POLEPOLE",
+    "POLE POLE",
     "ポレポレ",
   ],
   openGraph: {
-    title: "メッセージ | 薪窯ピザ POLEPOLE",
+    title: "メッセージ | 薪窯Pizza POLE POLE",
     description:
-      "薪窯ピザPOLEPOLEからのメッセージ。ゆっくり、ぼちぼち、やすらぎの場で過ごす心豊かなひとときへの想いをお伝えします。",
+      "薪窯Pizza POLE POLEからのメッセージ。ゆっくり、ぼちぼち、やすらぎの場で過ごす心豊かなひとときへの想いをお伝えします。",
     url: "https://pizzapolepole.com/about",
     images: [
       {
         url: "/images/Kama.jpg",
         width: 1200,
         height: 630,
-        alt: "薪窯Pizza POLEPOLEの薪窯",
+        alt: "薪窯Pizza POLE POLEの薪窯",
       },
     ],
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: "メッセージ | 薪窯ピザ POLEPOLE",
+    title: "メッセージ | 薪窯Pizza POLE POLE",
     description:
-      "薪窯ピザPOLEPOLEからのメッセージ。ゆっくり、ぼちぼち、やすらぎの場で過ごす心豊かなひとときへの想いをお伝えします。",
+      "薪窯Pizza POLE POLEからのメッセージ。ゆっくり、ぼちぼち、やすらぎの場で過ごす心豊かなひとときへの想いをお伝えします。",
     images: ["/images/Kama.jpg"],
   },
 };
@@ -75,7 +75,7 @@ export default function About() {
               あってもいいのではないでしょうか。
             </p>
             <p>
-              POLEPOLEが、そんなやすらぎの場所に
+              POLE POLEが、そんなやすらぎの場所に
               <br />
               なれたらと願っています。
             </p>

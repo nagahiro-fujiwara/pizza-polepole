@@ -4,9 +4,9 @@ import styles from "./page.module.css";
 import FeatureSection from "../components/FeatureSection"; // FeatureSectionをインポート
 
 export const metadata = {
-  title: "薪窯ピザ POLEPOLE | 西条・東広島のランチ・カフェ・ピザ",
+  title: "薪窯Pizza POLE POLE | 西条・東広島のランチ・カフェ・ピザ",
   description:
-    "東広島・西条でランチやカフェにおすすめの薪窯ピザPOLEPOLE。地元食材・自家製生地・ナポリピザ。おしゃれな店内でゆっくり過ごせる人気店。テイクアウトもOK。",
+    "東広島・西条でランチやカフェにおすすめの薪窯Pizza POLE POLE。地元食材・自家製生地・ナポリピザ。おしゃれな店内でゆっくり過ごせる人気店。テイクアウトもOK。",
   keywords: [
     "西条",
     "東広島",
@@ -26,7 +26,7 @@ export const metadata = {
     "デート",
     "地元食材",
     "自家製",
-    "POLEPOLE",
+    "POLE POLE",
     "ポレポレ",
     "サイジョウ",
     "Saijo",
@@ -38,25 +38,25 @@ export const metadata = {
     "restaurant",
   ],
   openGraph: {
-    title: "薪窯ピザ POLEPOLE | 西条・東広島のランチ・カフェ・ピザ",
+    title: "薪窯Pizza POLE POLE | 西条・東広島のランチ・カフェ・ピザ",
     description:
-      "東広島・西条でランチやカフェにおすすめの薪窯ピザPOLEPOLE。地元食材・自家製生地・ナポリピザ。おしゃれな店内でゆっくり過ごせる人気店。テイクアウトもOK。",
+      "東広島・西条でランチやカフェにおすすめの薪窯Pizza POLE POLE。地元食材・自家製生地・ナポリピザ。おしゃれな店内でゆっくり過ごせる人気店。テイクアウトもOK。",
     url: "https://pizzapolepole.com/",
     images: [
       {
         url: "/images/interior_釜1.JPG",
         width: 1200,
         height: 630,
-        alt: "薪窯Pizza POLEPOLEの薪窯",
+        alt: "薪窯Pizza POLE POLEの薪窯",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "薪窯ピザ POLEPOLE | 西条・東広島のランチ・カフェ・ピザ",
+    title: "薪窯Pizza POLE POLE | 西条・東広島のランチ・カフェ・ピザ",
     description:
-      "東広島・西条でランチやカフェにおすすめの薪窯ピザPOLEPOLE。地元食材・自家製生地・ナポリピザ。おしゃれな店内でゆっくり過ごせる人気店。テイクアウトもOK。",
+      "東広島・西条でランチやカフェにおすすめの薪窯Pizza POLE POLE。地元食材・自家製生地・ナポリピザ。おしゃれな店内でゆっくり過ごせる人気店。テイクアウトもOK。",
     images: ["/images/interior_釜1.JPG"],
   },
 };
@@ -70,7 +70,7 @@ export default function Home() {
           <div className={styles.heroImageContainer}>
             <Image
               src="/images/interior_景色.JPG" // 画像を差し替え
-              alt="薪窯Pizza POLEPOLEの店内から見た景色"
+              alt="薪窯Pizza POLE POLEの店内から見た景色"
               layout="fill"
               objectFit="cover"
               className={styles.heroImage}
@@ -100,9 +100,9 @@ export default function Home() {
             <div className={styles.heroOverlay}></div>
           </div>
           <div className={styles.heroContent}>
-            <h1 className={styles.title}>薪窯Pizza POLEPOLE</h1>
+            <h1 className={styles.title}>薪窯Pizza POLE POLE</h1>
             <p className={styles.catch}>
-              ゆっくり、ぼちぼち、やすらぎの場で味わう薪窯ピザ。
+              ゆっくり、ぼちぼち、やすらぎの場で味わう薪窯Pizza。
             </p>
             <Link href="/menu" className={styles.button}>
               メニューをみる
@@ -123,9 +123,9 @@ export default function Home() {
             />
           </div>
           <div className={styles.aboutContent}>
-            <h2 className={styles.sectionTitle}>POLEPOLEという場所</h2>
+            <h2 className={styles.sectionTitle}>POLE POLEという場所</h2>
             <p>
-              POLEPOLEは、スワヒリ語で「ぼちぼちいこか」というメッセージ。
+              POLE POLEは、スワヒリ語で「ぼちぼちいこか」というメッセージ。
               <br />
               忙しい日常から少しだけ離れて、薪の爆ぜる音に耳を澄ます。
               <br />
@@ -142,7 +142,7 @@ export default function Home() {
         {/* --- Commitment & Menu Section --- */}
         <FeatureSection
           title="一枚一枚、心を込めて"
-          description="400度を超える薪窯で、一気に焼き上げます。最高の焼き加減で、最高の味を。POLEPOLEのこだわりが詰まった一枚を、ぜひご賞味ください。"
+          description="400度を超える薪窯で、一気に焼き上げます。最高の焼き加減で、最高の味を。POLE POLEのこだわりが詰まった一枚を、ぜひご賞味ください。"
           imageUrl="/images/interior_釜4.JPG"
           imageAlt="薪窯で一枚一枚丁寧に焼くピザ"
           buttonLabel="すべてのメニューを見る"
@@ -150,7 +150,7 @@ export default function Home() {
         />
 
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>自慢の薪窯ピザ</h2>
+          <h2 className={styles.sectionTitle}>自慢の薪窯Pizza</h2>
           <div className={styles.highlightGrid}>
             <Link href="/menu/" className={styles.highlightCard}>
               <div className={styles.imgContainer}>
@@ -203,7 +203,7 @@ export default function Home() {
         {/* --- Gallery Section --- */}
         <FeatureSection
           title="空間へのこだわり"
-          description="POLEPOLEの店内は、木の温もりと開放的な窓が特徴です。一枚板のカウンター、ゆったりとしたテーブル席。お一人様でも、大切な方とでも、心地よい時間をお過ごしいただけます。"
+          description="POLE POLEの店内は、木の温もりと開放的な窓が特徴です。一枚板のカウンター、ゆったりとしたテーブル席。お一人様でも、大切な方とでも、心地よい時間をお過ごしいただけます。"
           imageUrl="/images/interior_席1.JPG"
           imageAlt="店内のテーブル席"
           buttonLabel="ギャラリーを見る"
@@ -212,7 +212,7 @@ export default function Home() {
 
         {/* --- Final CTA Section --- */}
         <section className={`${styles.section} ${styles.finalCtaSection}`}>
-          <h2 className={styles.sectionTitle}>POLEPOLEで、会いましょう</h2>
+          <h2 className={styles.sectionTitle}>POLE POLEで、会いましょう</h2>
           <p className={styles.sectionDescription}>
             薪窯で焼き上げるあつあつのピザと、やすらぎの空間をご用意して。
             <br />

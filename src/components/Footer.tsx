@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.section}>
-          <h3 className={styles.title}>薪窯Pizza POLEPOLE</h3>
+          <h3 className={styles.title}>薪窯Pizza POLE POLE</h3>
           <p>
             〒739-0036<br />
             広島県東広島市西条町田口70-1
@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
       <div className={styles.copyright}>
-        &copy; {new Date().getFullYear()} Pizza POLEPOLE. All Rights Reserved.
+        &copy; {new Date().getFullYear()} Pizza POLE POLE. All Rights Reserved.
       </div>
     </footer>
   );
