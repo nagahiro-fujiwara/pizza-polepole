@@ -71,32 +71,11 @@ export default function Home() {
             <Image
               src="/images/interior_景色.JPG" // 画像を差し替え
               alt="薪窯Pizza POLE POLEの店内から見た景色"
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: "cover" }}
               className={styles.heroImage}
               priority
             />
-            {/* 薪窯のサブ画像を右下にアクセントとして配置 */}
-            <div
-              style={{
-                position: "absolute",
-                right: "2vw",
-                bottom: "2vw",
-                zIndex: 4,
-                width: 120,
-                height: 80,
-                borderRadius: 12,
-                overflow: "hidden",
-                boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-              }}
-            >
-              <Image
-                src="/images/interior_釜.JPG"
-                alt="薪窯"
-                fill
-                style={{ objectFit: "cover" }}
-              />
-            </div>
             <div className={styles.heroOverlay}></div>
           </div>
           <div className={styles.heroContent}>
@@ -157,8 +136,8 @@ export default function Home() {
                 <Image
                   src="/images/menu_マルゲリータ.jpeg"
                   alt="マルゲリータ"
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  style={{ objectFit: "cover" }}
                   className={styles.img}
                 />
               </div>
@@ -172,8 +151,8 @@ export default function Home() {
                 <Image
                   src="/images/menu_フォルマッジ.jpeg"
                   alt="クワトロフォルマッジ"
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  style={{ objectFit: "cover" }}
                   className={styles.img}
                 />
               </div>
@@ -187,8 +166,8 @@ export default function Home() {
                 <Image
                   src="/images/menu_マリナーラ.jpeg"
                   alt="マリナーラ"
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  style={{ objectFit: "cover" }}
                   className={styles.img}
                 />
               </div>
