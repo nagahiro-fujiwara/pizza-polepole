@@ -65,16 +65,6 @@ export const metadata = {
 export default function Home() {
   return (
     <div className={`${styles.page} page-container`}>
-      <Notification 
-        message="【臨時休業のお知らせ】7月20日(日)は休業いたします。"
-        link="/blog/2025-07-20-temporary-closure"
-        linkText="詳しくはこちら"
-      />
-      <Notification 
-        message="【夏季休業のお知らせ】8月12日(火)～20日(水)は休業いたします。"
-        link="/blog/2025-08-12-summer-holiday"
-        linkText="詳しくはこちら"
-      />
       <main className={styles.main}>
         {/* --- Hero Section --- */}
         <section className={styles.hero}>
@@ -99,6 +89,17 @@ export default function Home() {
             </Link>
           </div>
         </section>
+
+        <Notification 
+          message="【臨時休業のお知らせ】7月20日(日)は休業いたします。"
+          link="/blog/2025-07-20-temporary-closure"
+          linkText="詳しくはこちら"
+        />
+        <Notification 
+          message="【夏季休業のお知らせ】8月12日(火)～20日(水)は休業いたします。"
+          link="/blog/2025-08-12-summer-holiday"
+          linkText="詳しくはこちら"
+        />
 
         {/* --- About Section --- */}
         <section className={`${styles.section} ${styles.aboutSection}`}>
