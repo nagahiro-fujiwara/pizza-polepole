@@ -1,0 +1,19 @@
+.notification {
+  background-color: #f8d7da; /* やや赤みがかった背景色 */
+  color: #721c24; /* 暗めの赤色テキスト */
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #f5c6cb; /* やや薄い赤色の境界線 */
+  font-size: 0.9rem;
+}
+
+.link {
+  color: #721c24;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-left: 1rem;
+}
+
+.link:hover {
+  text-decoration: none;
+}

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
 import FeatureSection from "../components/FeatureSection"; // FeatureSectionをインポート
+import Notification from "../components/Notification"; // Notificationをインポート
 
 export const metadata = {
   title: "薪窯Pizza POLE POLE | 西条・東広島のランチ・カフェ・ピザ",
@@ -64,6 +65,11 @@ export const metadata = {
 export default function Home() {
   return (
     <div className={`${styles.page} page-container`}>
+      <Notification 
+        message="【臨時休業のお知らせ】7月20日(日)は休業いたします。"
+        link="/blog/2025-07-20-temporary-closure"
+        linkText="詳しくはこちら"
+      />
       <main className={styles.main}>
         {/* --- Hero Section --- */}
         <section className={styles.hero}>
