@@ -70,6 +70,11 @@ export default function Home() {
         link="/blog/2025-07-20-temporary-closure"
         linkText="詳しくはこちら"
       />
+      <Notification 
+        message="【夏季休業のお知らせ】8月12日(火)～20日(水)は休業いたします。"
+        link="/blog/2025-08-12-summer-holiday"
+        linkText="詳しくはこちら"
+      />
       <main className={styles.main}>
         {/* --- Hero Section --- */}
         <section className={styles.hero}>
