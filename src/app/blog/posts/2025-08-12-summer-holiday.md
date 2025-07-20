@@ -3,6 +3,7 @@ title: '夏季休業のお知らせ'
 date: '2025-08-12'
 description: "8月12日(火)-20日(水)は夏季休業のため、休業とさせていただきます。"
 image: "/images/exterior_のれん.JPG"
+lang: "ja"
 ---
 
 ## 夏季休業のお知らせ

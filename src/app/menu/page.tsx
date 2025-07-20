@@ -1,177 +1,172 @@
 import pageStyles from "../page.module.css";
 import menuStyles from "./menu.module.css";
 import Image from "next/image";
+import { getDictionary } from "../../get-dictionary";
 
-export const metadata = {
-	title: "メニュー | 薪窯Pizza POLE POLE - 西条・東広島のピザ・ランチ・カフェ",
-	description:
-		"西条・東広島で人気の薪窯PizzaPOLE POLEのメニュー。地元食材・自家製生地・ナポリピザ・季節のおすすめも。ランチやカフェ利用にも最適。",
-	keywords: [
-		"西条",
-		"東広島",
-		"ピザ",
-		"メニュー",
-		"ランチ",
-		"カフェ",
-		"ナポリピザ",
-		"地元食材",
-		"季節限定",
-		"おしゃれ",
-		"人気",
-		"POLE POLE",
-		"ポレポレ",
-		"pizza",
-		"lunch",
-		"cafe",
-		"gourmet",
-		"restaurant",
-	],
-	openGraph: {
-		title: "メニュー | 薪窯Pizza POLE POLE - 西条・東広島のピザ・ランチ・カフェ",
-		description:
-			"西条・東広島で人気の薪窯PizzaPOLE POLEのメニュー。地元食材・自家製生地・ナポリピザ・季節のおすすめも。ランチやカフェ利用にも最適。",
-		url: "https://pizzapolepole.com/menu",
-		images: [
-			{
-				url: "/images/Kama.jpg",
-				width: 1200,
-				height: 630,
-				alt: "薪窯Pizza POLE POLEの薪窯",
-			},
-		],
-		type: "article",
-	},
-	twitter: {
-		card: "summary_large_image",
-		title: "メニュー | 薪窯Pizza POLE POLE - 西条・東広島のピザ・ランチ・カフェ",
-		description:
-			"西条・東広島で人気の薪窯PizzaPOLE POLEのメニュー。地元食材・自家製生地・ナポリピザ・季節のおすすめも。ランチやカフェ利用にも最適。",
-		images: ["/images/Kama.jpg"],
-	},
-};
+interface MenuPageProps {
+  searchParams: Promise<{ lang?: string }>;
+}
 
-const menu = [
-	{
-		name: "マリナーラ",
-		desc: "マリナーラは「船乗りの」という意味でその昔ナポリの船乗りにこよなく愛されたPizzaと言われています。チーズは無く生地や素材の味が感じられます。",
-		price: "¥1,310",
-		img: "/images/menu_マリナーラ.jpeg",
-	},
-	{
-		name: "マルゲリータ",
-		desc: "1889年マルゲリータ王妃のために作られ王妃が愛したと言われる有名なPizzaです。イタリア国旗〈トマトソース(赤) モッツァレラ(白) バジル(緑)〉を表現していると言われています。諸説ありますが素敵なエピソードですね。",
-		price: "¥1,850",
-		img: "/images/menu_マルゲリータ.jpeg",
-	},
-	{
-		name: "ブタバリータ",
-		desc: "国産豚と海塩を使った自家製パンチェッタ(ベーコン)とモッツァレラをトマトソースがしっかりまとめたボリュームのあるPizzaです。",
-		price: "¥2,050",
-		img: "/images/menu_ブタバリータ.jpeg",
-	},
-	{
-		name: "ノリジャポーネ",
-		desc: "自家製 伊勢湾産海苔ソース・えび・モッツァレラのあっさり和風Pizzaです。しば漬けもいい仕事してます。",
-		price: "¥2,080",
-		img: "/images/menu_ノリジャポーネ.jpeg",
-	},
-	{
-		name: "クワトロフォルマッジ",
-		desc: "濃厚な4種チーズPizzaを『自家製りんごペースト』でお楽しみください。フォルマッジとはご存じの通り「チーズ」という意味で、たんぱく質や脂質・ビタミン・ミネラルを豊富に含み、疲労回復や高血圧の予防にも役立つそうですよ。でも食べ過ぎにはご注意くださいね！",
-		price: "¥2,290",
-		img: "/images/menu_フォルマッジ.jpeg",
-	},
-	{
-		name: "季節のPizza",
-		desc: "自家製野菜や地元・国産の旬な素材を使ったPizzaです。",
-		price: "店内黒板をご覧ください",
-		img: "/images/menu_れんこん.jpeg",
-	},
+export async function generateMetadata({ searchParams }: MenuPageProps) {
+  const resolvedSearchParams = await searchParams;
+  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
+  const dict = await getDictionary(lang);
+
+  return {
+    title: dict.menu.meta.title,
+    description: dict.menu.meta.description,
+    keywords: dict.menu.meta.keywords,
+    openGraph: {
+      title: dict.menu.meta.title,
+      description: dict.menu.meta.description,
+      url: `https://pizzapolepole.com/${lang === 'en' ? 'en/' : ''}menu`,
+      images: [
+        {
+          url: "/images/Kama.jpg",
+          width: 1200,
+          height: 630,
+          alt: dict.menu.meta.imageAlt,
+        },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: dict.menu.meta.title,
+      description: dict.menu.meta.description,
+      images: ["/images/Kama.jpg"],
+    },
+  };
+}
+
+const menuImages = [
+  {
+    name: "マリナーラ",
+    img: "/images/menu_マリナーラ.jpeg",
+  },
+  {
+    name: "マルゲリータ",
+    img: "/images/menu_マルゲリータ.jpeg",
+  },
+  {
+    name: "ブタバリータ",
+    img: "/images/menu_ブタバリータ.jpeg",
+  },
+  {
+    name: "ノリジャポーネ",
+    img: "/images/menu_ノリジャポーネ.jpeg",
+  },
+  {
+    name: "クワトロフォルマッジ",
+    img: "/images/menu_フォルマッジ.jpeg",
+  },
+  {
+    name: "季節のPizza",
+    img: "/images/menu_れんこん.jpeg",
+  },
 ];
 
-export default function Menu() {
-	return (
-		<div className={`${pageStyles.page} page-container`}>
-			<main className={pageStyles.main}>
-				<h1 className="section-title">メニュー</h1>
-				<div className={menuStyles.menuGrid} style={{ marginBottom: "2rem" }}>
-					<div className={menuStyles.menuImageWrapper}>
-						<Image
-							src="/images/menu1.png"
-							alt="メニュー表1"
-							width={800}
-							height={1132}
-						/>
-					</div>
-					<div className={menuStyles.menuImageWrapper}>
-						<Image
-							src="/images/menu2.png"
-							alt="メニュー表2"
-							width={800}
-							height={1132}
-						/>
-					</div>
-				</div>
-				<h2 className="section-title">こだわり食材</h2>
-				<div className={menuStyles.menuGrid} style={{ marginBottom: "2rem" }}>
-					<div className={menuStyles.menuImageWrapper}>
-						<Image
-							src="/images/menu_こだわり.png"
-							alt="こだわり1"
-							width={320}
-							height={220}
-							style={{
-								objectFit: "cover",
-								width: "100%",
-								height: "auto",
-								display: "block",
-							}}
-						/>
-					</div>
-					<div className={menuStyles.menuImageWrapper}>
-						<Image
-							src="/images/menu_こだわり2.png"
-							alt="こだわり2"
-							width={320}
-							height={220}
-							style={{
-								objectFit: "cover",
-								width: "100%",
-								height: "auto",
-								display: "block",
-							}}
-						/>
-					</div>
-				</div>
-				<h2 className="section-title">Pizza</h2>
-				<div className={menuStyles.menuGrid}>
-					{menu.map((item) => (
-						<div key={item.name} className={menuStyles.menuCard}>
-							<div className={menuStyles.menuImageContainer}>
-								<Image
-									src={item.img}
-									alt={item.name}
-									width={400}
-									height={300}
-									className={menuStyles.menuImg}
-								/>
-							</div>
-							<div className={menuStyles.menuContent}>
-								<h2 className={menuStyles.menuName}>{item.name}</h2>
-								<p className={menuStyles.menuDesc}>
-									{item.desc.split("\n\n").map((para, i) => (
-										<span key={i}>
-											{para.split("\n").join(" ")}
-											<br />
-										</span>
-									))}
-								</p>
-								<div className={menuStyles.menuPrice}>{item.price}</div>
-							</div>
-						</div>
-					))}
-				</div>
-			</main>
-		</div>
-	);
+export default async function Menu({ searchParams }: MenuPageProps) {
+  const resolvedSearchParams = await searchParams;
+  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
+  const dict = await getDictionary(lang);
+
+  return (
+    <div className={`${pageStyles.page} page-container`}>
+      <main className={pageStyles.main}>
+        <h1 className="section-title">{dict.menu.title}</h1>
+        <div className={menuStyles.menuGrid} style={{ marginBottom: "2rem" }}>
+          <div className={menuStyles.menuImageWrapper}>
+            <Image
+              src="/images/menu1.png"
+              alt="メニュー表1"
+              width={800}
+              height={1132}
+            />
+          </div>
+          <div className={menuStyles.menuImageWrapper}>
+            <Image
+              src="/images/menu2.png"
+              alt="メニュー表2"
+              width={800}
+              height={1132}
+            />
+          </div>
+        </div>
+        <h2 className="section-title">{dict.menu.ingredients}</h2>
+        <div className={menuStyles.menuGrid} style={{ marginBottom: "2rem" }}>
+          <div className={menuStyles.menuImageWrapper}>
+            <Image
+              src="/images/menu_こだわり.png"
+              alt="こだわり1"
+              width={320}
+              height={220}
+              style={{
+                objectFit: "cover",
+                width: "100%",
+                height: "auto",
+                display: "block",
+              }}
+            />
+          </div>
+          <div className={menuStyles.menuImageWrapper}>
+            <Image
+              src="/images/menu_こだわり2.png"
+              alt="こだわり2"
+              width={320}
+              height={220}
+              style={{
+                objectFit: "cover",
+                width: "100%",
+                height: "auto",
+                display: "block",
+              }}
+            />
+          </div>
+        </div>
+        <h2 className="section-title">{dict.menu.pizza}</h2>
+        <div className={menuStyles.menuGrid}>
+          {dict.menu.items.map((item: any, index: number) => {
+            const imageData = menuImages.find(img => 
+              (lang === 'ja' && img.name === item.name) ||
+              (lang === 'en' && (
+                (item.name === 'Marinara' && img.name === 'マリナーラ') ||
+                (item.name === 'Margherita' && img.name === 'マルゲリータ') ||
+                (item.name === 'Porcetta Varieta' && img.name === 'ブタバリータ') ||
+                (item.name === 'Nori Japone' && img.name === 'ノリジャポーネ') ||
+                (item.name === 'Quattro Formaggi' && img.name === 'クワトロフォルマッジ') ||
+                (item.name === 'Seasonal Pizza' && img.name === '季節のPizza')
+              ))
+            );
+            
+            return (
+              <div key={index} className={menuStyles.menuCard}>
+                <div className={menuStyles.menuImageContainer}>
+                  <Image
+                    src={imageData?.img || "/images/menu_れんこん.jpeg"}
+                    alt={item.name}
+                    width={400}
+                    height={300}
+                    className={menuStyles.menuImg}
+                  />
+                </div>
+                <div className={menuStyles.menuContent}>
+                  <h2 className={menuStyles.menuName}>{item.name}</h2>
+                  <p className={menuStyles.menuDesc}>
+                    {item.desc.split("\n\n").map((para: string, i: number) => (
+                      <span key={i}>
+                        {para.split("\n").join(" ")}
+                        <br />
+                      </span>
+                    ))}
+                  </p>
+                  <div className={menuStyles.menuPrice}>{item.price}</div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </main>
+    </div>
+  );
 }

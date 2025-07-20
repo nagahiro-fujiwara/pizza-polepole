@@ -1,52 +1,46 @@
 import GalleryClient from "./GalleryClient";
+import { getDictionary } from "../../get-dictionary";
 
-export const metadata = {
-  title: "ギャラリー | 薪窯Pizza POLE POLE - 西条・東広島のピザ・カフェ",
-  description:
-    "薪窯PizzaPOLE POLEの店内・外観・ピザ・季節の風景ギャラリー。西条・東広島でおしゃれなカフェ・ピザ店をお探しなら。",
-  keywords: [
-    "西条",
-    "東広島",
-    "ピザ",
-    "pizza",
-    "ギャラリー",
-    "カフェ",
-    "店内",
-    "外観",
-    "おしゃれ",
-    "人気",
-    "POLE POLE",
-    "ポレポレ",
-    "pizza",
-    "cafe",
-    "gourmet",
-    "restaurant",
-    "gallery",
-  ],
-  openGraph: {
-    title: "ギャラリー | 薪窯Pizza POLE POLE - 西条・東広島のピザ・カフェ",
-    description:
-      "薪窯PizzaPOLE POLEの店内・外観・ピザ・季節の風景ギャラリー。西条・東広島でおしゃれなカフェ・ピザ店をお探しなら。",
-    url: "https://pizzapolepole.com/gallery",
-    images: [
-      {
-        url: "/images/Kama.jpg",
-        width: 1200,
-        height: 630,
-        alt: "薪窯Pizza POLE POLEの薪窯",
-      },
-    ],
-    type: "article",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "ギャラリー | 薪窯Pizza POLE POLE - 西条・東広島のピザ・カフェ",
-    description:
-      "薪窯PizzaPOLE POLEの店内・外観・ピザ・季節の風景ギャラリー。西条・東広島でおしゃれなカフェ・ピザ店をお探しなら。",
-    images: ["/images/Kama.jpg"],
-  },
-};
+interface GalleryPageProps {
+  searchParams: Promise<{ lang?: string }>;
+}
 
-export default function GalleryPage() {
-  return <GalleryClient />;
+export async function generateMetadata({ searchParams }: GalleryPageProps) {
+  const resolvedSearchParams = await searchParams;
+  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
+  const dict = await getDictionary(lang);
+
+  return {
+    title: dict.gallery.meta.title,
+    description: dict.gallery.meta.description,
+    keywords: dict.gallery.meta.keywords,
+    openGraph: {
+      title: dict.gallery.meta.title,
+      description: dict.gallery.meta.description,
+      url: `https://pizzapolepole.com/${lang === 'en' ? 'en/' : ''}gallery`,
+      images: [
+        {
+          url: "/images/Kama.jpg",
+          width: 1200,
+          height: 630,
+          alt: dict.gallery.meta.imageAlt,
+        },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: dict.gallery.meta.title,
+      description: dict.gallery.meta.description,
+      images: ["/images/Kama.jpg"],
+    },
+  };
+}
+
+export default async function GalleryPage({ searchParams }: GalleryPageProps) {
+  const resolvedSearchParams = await searchParams;
+  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
+  const dict = await getDictionary(lang);
+
+  return <GalleryClient dict={dict} />;
 }

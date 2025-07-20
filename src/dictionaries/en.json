@@ -1,0 +1,160 @@
+{
+    "header": {
+      "about": "About",
+      "menu": "Menu",
+      "access": "Access",
+      "gallery": "Gallery",
+      "blog": "Blog",
+      "instagram": "Instagram"
+    },
+    "footer": {
+      "title": "Wood-fired Pizza POLE POLE",
+      "address": "〒739-0036<br />70-1 Taguchi, Saijo-cho, Higashihiroshima-shi, Hiroshima",
+      "hours": "Hours: 11:00 - 15:00 (L.O. 14:30)<br />Closed: Tuesday & Wednesday",
+      "sitemap": "Sitemap",
+      "home": "Home",
+      "about": "About",
+      "menu": "Menu",
+      "access": "Access",
+      "gallery": "Gallery",
+      "blog": "Blog",
+      "privacy": "Privacy Policy",
+      "sns": "Social Media",
+      "copyright": "All Rights Reserved."
+    },
+    "home": {
+      "hero": {
+        "title": "Wood-fired Pizza POLE POLE",
+        "catch": "Slowly, little by little, enjoy wood-fired pizza in a place of peace.",
+        "button": "View Menu"
+      },
+      "notification": {
+        "temp_closure": "[Notice of Temporary Closure] We will be closed on Sunday, July 20th.",
+        "summer_holiday": "[Notice of Summer Holiday] We will be closed from Tue, Aug 12th to Wed, Aug 20th.",
+        "link_text": "Learn More"
+      },
+      "about": {
+        "title": "A Place Called POLE POLE",
+        "description_html": "POLE POLE means 'let's take it easy' in Swahili.<br />Take a short break from your busy life and listen to the crackling sound of firewood.<br />We want you to have a rich and fulfilling time.<br />That's the feeling embedded in this place.",
+        "button": "Our Philosophy"
+      },
+      "commitment": {
+        "title": "One by One, with Heart",
+        "description": "We bake our pizzas quickly in a wood-fired oven over 400°C. The best bake for the best taste. Please enjoy a piece filled with POLE POLE's dedication.",
+        "button": "See All Menus"
+      },
+      "pizza_highlight": {
+        "title": "Our Proud Wood-fired Pizza",
+        "margherita_title": "Margherita",
+        "margherita_desc": "The classic pizza with tomato, basil, and mozzarella.",
+        "formaggi_title": "Quattro Formaggi",
+        "formaggi_desc": "Four kinds of cheese enjoyed with homemade apple paste."
+      },
+      "gallery": {
+        "title": "Our Commitment to Space",
+        "description": "The interior of POLE POLE features the warmth of wood and open windows. A single-plank counter, spacious table seats. You can spend a comfortable time alone or with someone special.",
+        "button": "View Gallery"
+      },
+      "final_cta": {
+        "title": "Let's meet at POLE POLE",
+        "description_html": "With hot pizza baked in a wood-fired oven and a peaceful space.<br />We sincerely look forward to your visit.",
+        "button_access": "Check Location",
+        "button_blog": "Read Our Blog"
+      }
+    },
+    "about": {
+      "title": "Our Story",
+      "heading": "\"POLE POLE\" \n\"Slowly, slowly\" \"Take it easy\"",
+      "content1": "In today's rapidly changing and increasingly uncertain world,\nin our hectic daily lives,\nimportant moments tend to be put on the back burner.",
+      "content2": "Stepping away from such daily routine,\nthere might be moments to listen to the voice of your heart.\nWouldn't that be nice?",
+      "content3": "We hope that POLE POLE can become\nsuch a place of tranquility.",
+      "content4": "May the road always be before you.\nMay the wind always be at your back.\n\nLet's take it easy, POLE POLE.",
+      "meta": {
+        "title": "Our Story | Wood-Fired Pizza POLE POLE",
+        "description": "A message from Wood-Fired Pizza POLE POLE. We share our thoughts on spending spiritually rich moments in a place of relaxation, slowly and steadily.",
+        "keywords": ["Saijo", "Higashihiroshima", "Pizza", "Cafe", "Lunch", "Story", "Message", "POLE POLE"],
+        "imageAlt": "Wood-fired oven at POLE POLE"
+      }
+    },
+    "menu": {
+      "title": "Menu",
+      "heading": "Wood-Fired Pizza Menu",
+      "description": "Enjoy authentic pizza baked quickly in a wood-fired oven exceeding 400 degrees.",
+      "meta": {
+        "title": "Menu | Wood-Fired Pizza POLE POLE - Saijo, Higashihiroshima Pizza, Lunch, Cafe",
+        "description": "Menu of popular wood-fired Pizza POLE POLE in Saijo, Higashihiroshima. Local ingredients, homemade dough, Neapolitan pizza, seasonal recommendations. Perfect for lunch and cafe use.",
+        "keywords": ["Saijo", "Higashihiroshima", "Pizza", "Menu", "Lunch", "Cafe", "Neapolitan Pizza", "Local ingredients", "Seasonal", "POLE POLE"],
+        "imageAlt": "Wood-fired oven at POLE POLE"
+      },
+      "ingredients": "Quality Ingredients",
+      "pizza": "Pizza",
+      "items": [
+        {
+          "name": "Marinara",
+          "desc": "Marinara means 'of the sea' and is said to have been beloved by Neapolitan sailors long ago. It contains no cheese, allowing you to taste the dough and ingredients.",
+          "price": "¥1,310"
+        },
+        {
+          "name": "Margherita",
+          "desc": "A famous pizza created in 1889 for Queen Margherita and said to be loved by the queen. It represents the Italian flag with tomato sauce (red), mozzarella (white), and basil (green). There are various theories, but it's a lovely story.",
+          "price": "¥1,850"
+        },
+        {
+          "name": "Porcetta Varieta",
+          "desc": "A hearty pizza with homemade pancetta (bacon) made from domestic pork and sea salt, and mozzarella well-balanced with tomato sauce.",
+          "price": "¥2,050"
+        },
+        {
+          "name": "Nori Japone",
+          "desc": "A refreshing Japanese-style pizza with homemade Ise Bay seaweed sauce, shrimp, and mozzarella. The pickled vegetables add a nice touch.",
+          "price": "¥2,080"
+        },
+        {
+          "name": "Quattro Formaggi",
+          "desc": "Enjoy this rich four-cheese pizza with our homemade apple paste. Formaggi means 'cheese' and is rich in protein, fat, vitamins, and minerals, helping with fatigue recovery and high blood pressure prevention. But please don't overeat!",
+          "price": "¥2,290"
+        },
+        {
+          "name": "Seasonal Pizza",
+          "desc": "Pizza made with homemade vegetables and local, domestic seasonal ingredients.",
+          "price": "Please check the blackboard in store"
+        }
+      ]
+    },
+    "access": {
+      "title": "Access",
+      "heading": "Location",
+      "address": "70-1 Taguchi, Saijo-cho, Higashihiroshima, Hiroshima 739-0036",
+      "hours": "Business Hours: 11:00 - 15:00 (L.O. 14:30)",
+      "closed": "Closed: Tuesday & Wednesday",
+      "parking": "Parking: Available",
+      "meta": {
+        "title": "Access | Wood-Fired Pizza POLE POLE - Saijo, Higashihiroshima Pizza, Cafe, Lunch",
+        "description": "Access information, map, and parking guide to Wood-Fired Pizza POLE POLE. Perfect for pizza, cafe, and lunch in Saijo, Higashihiroshima.",
+        "keywords": ["Saijo", "Higashihiroshima", "Pizza", "Lunch", "Access", "Cafe", "Parking", "Map", "POLE POLE"],
+        "imageAlt": "Wood-fired oven at POLE POLE"
+      }
+    },
+    "gallery": {
+      "title": "Gallery",
+      "heading": "Interior",
+      "description": "Spend a relaxing time in a space filled with the warmth of wood and openness.",
+      "meta": {
+        "title": "Gallery | Wood-Fired Pizza POLE POLE - Saijo, Higashihiroshima Pizza, Cafe",
+        "description": "Gallery of Wood-Fired Pizza POLE POLE's interior, exterior, pizza, and seasonal scenery. Perfect stylish cafe and pizza restaurant in Saijo, Higashihiroshima.",
+        "keywords": ["Saijo", "Higashihiroshima", "Pizza", "Gallery", "Cafe", "Interior", "Exterior", "Stylish", "POLE POLE"],
+        "imageAlt": "Wood-fired oven at POLE POLE"
+      }
+    },
+    "blog": {
+      "title": "Blog",
+      "heading": "Daily Blog",
+      "description": "We bring you the daily life of POLE POLE.",
+      "meta": {
+        "title": "Blog | Wood-Fired Pizza POLE POLE - Saijo, Higashihiroshima Pizza, Cafe, Lunch",
+        "description": "Latest information, announcements, seasonal menus, and event information from Wood-Fired Pizza POLE POLE. Perfect for pizza, cafe, and lunch in Saijo, Higashihiroshima.",
+        "keywords": ["Saijo", "Higashihiroshima", "Pizza", "Blog", "News", "Cafe", "Lunch", "Events", "Seasonal", "POLE POLE"],
+        "imageAlt": "Wood-fired oven at POLE POLE"
+      }
+    }
+  }

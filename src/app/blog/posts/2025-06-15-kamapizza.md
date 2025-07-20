@@ -1,8 +1,9 @@
 ---
 title: "薪窯で焼くピザのこだわり"
-date: "2025-06-26"
+date: "2025-06-15"
 description: "POLE POLEの薪窯ピザの魅力や、店主の想いをお伝えします。"
 image: "/images/interior_釜2.JPG"
+lang: "ja"
 ---
 
 【薪窯のぬくもり】

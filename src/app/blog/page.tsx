@@ -2,116 +2,142 @@ import fs from 'fs/promises';
 import path from 'path';
 import Link from 'next/link';
 import matter from 'gray-matter';
-import Image from 'next/image'; // Imageをインポート
+import Image from 'next/image';
+import { getDictionary } from "../../get-dictionary";
+import pageStyles from "../page.module.css";
 import styles from './blog.module.css';
 
-export const metadata = {
-  title: 'ブログ | 薪窯Pizza POLE POLE - 西条・東広島のピザ・カフェ・ランチ',
-  description: '薪窯PizzaPOLE POLEの最新情報・お知らせ・季節のメニュー・イベント情報などを発信。西条・東広島でピザ・カフェ・ランチをお探しなら。',
-  keywords: [
-    '西条', '東広島', 'ピザ', 'ブログ', 'お知らせ', 'カフェ', 'ランチ', 'イベント', '季節限定', 'POLE POLE', 'ポレポレ', 'pizza', 'lunch', 'cafe', 'gourmet', 'restaurant', 'blog'
-  ],
-  openGraph: {
-    title: 'ブログ | 薪窯Pizza POLE POLE - 西条・東広島のピザ・カフェ・ランチ',
-    description: '薪窯PizzaPOLE POLEの最新情報・お知らせ・季節のメニュー・イベント情報などを発信。西条・東広島でピザ・カフェ・ランチをお探しなら。',
-    url: 'https://pizzapolepole.com/blog',
-    images: [
-      {
-        url: '/images/Kama.jpg',
-        width: 1200,
-        height: 630,
-        alt: '薪窯Pizza POLE POLEの薪窯'
-      }
-    ],
-    type: 'article'
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'ブログ | 薪窯Pizza POLE POLE - 西条・東広島のピザ・カフェ・ランチ',
-    description: '薪窯PizzaPOLE POLEの最新情報・お知らせ・季節のメニュー・イベント情報などを発信。西条・東広島でピザ・カフェ・ランチをお探しなら。',
-    images: ['/images/Kama.jpg']
-  }
-};
+interface BlogPageProps {
+  searchParams: Promise<{ lang?: string }>;
+}
 
-const postsDirectory = path.join(process.cwd(), 'src/app/blog/posts');
-
-type Post = {
+interface BlogPost {
   slug: string;
   title: string;
   date: string;
   description: string;
-  image: string;
-};
-
-async function getPosts(): Promise<Post[]> {
-  try {
-    const fileNames = await fs.readdir(postsDirectory);
-    const allPostsData = await Promise.all(
-      fileNames
-        .filter((fileName) => fileName.endsWith('.md')) // Ensure only markdown files are processed
-        .map(async (fileName) => {
-          try {
-            const slug = fileName.replace(/\.md$/, '');
-            const fullPath = path.join(postsDirectory, fileName);
-            const fileContents = await fs.readFile(fullPath, 'utf8');
-            const matterResult = matter(fileContents);
-
-            // Basic validation to ensure essential data exists
-            if (!matterResult.data.title || !matterResult.data.date || !matterResult.data.image) {
-              console.warn(`Skipping post ${fileName} due to missing frontmatter.`);
-              return null;
-            }
-
-            return {
-              slug,
-              title: matterResult.data.title,
-              date: matterResult.data.date,
-              description: matterResult.data.description || '', // Provide a fallback
-              image: matterResult.data.image,
-            };
-          } catch (error) {
-            console.error(`Error processing post ${fileName}:`, error);
-            return null; // Return null if a specific post fails
-          }
-        })
-    );
-
-    // Filter out any null results from failed processing and sort
-    const validPosts = allPostsData.filter((post): post is Post => post !== null);
-    return validPosts.sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1));
-
-  } catch (error) {
-    console.error("Could not read posts directory:", error);
-    return []; // Return an empty array on failure
-  }
+  image?: string;
+  lang?: string;
 }
 
-export default async function BlogPage() {
-  const posts = await getPosts();
+export async function generateMetadata({ searchParams }: BlogPageProps) {
+  const resolvedSearchParams = await searchParams;
+  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
+  const dict = await getDictionary(lang);
+
+  return {
+    title: dict.blog.meta.title,
+    description: dict.blog.meta.description,
+    keywords: dict.blog.meta.keywords,
+    openGraph: {
+      title: dict.blog.meta.title,
+      description: dict.blog.meta.description,
+      url: `https://pizzapolepole.com/${lang === 'en' ? 'en/' : ''}blog`,
+      images: [
+        {
+          url: "/images/Kama.jpg",
+          width: 1200,
+          height: 630,
+          alt: dict.blog.meta.imageAlt,
+        },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: dict.blog.meta.title,
+      description: dict.blog.meta.description,
+      images: ["/images/Kama.jpg"],
+    },
+  };
+}
+
+export default async function BlogPage({ searchParams }: BlogPageProps) {
+  const resolvedSearchParams = await searchParams;
+  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
+  const dict = await getDictionary(lang);
+
+  const getBlogPosts = async (): Promise<BlogPost[]> => {
+    try {
+      const postsDir = path.join(process.cwd(), 'src/app/blog/posts');
+      const files = await fs.readdir(postsDir);
+      const mdFiles = files.filter(file => file.endsWith('.md'));
+
+      const posts = await Promise.all(
+        mdFiles.map(async (file) => {
+          const slug = file.replace('.md', '');
+          const filePath = path.join(postsDir, file);
+          const content = await fs.readFile(filePath, 'utf8');
+          const { data } = matter(content);
+
+          return {
+            slug,
+            title: data.title || 'Untitled',
+            date: data.date || '2025-01-01',
+            description: data.description || '',
+            image: data.image,
+            lang: data.lang || 'ja'
+          };
+        })
+      );
+
+      // Filter posts by language
+      const filteredPosts = posts.filter(post => {
+        if (lang === 'en') {
+          return post.lang === 'en';
+        } else {
+          return post.lang === 'ja' || !post.lang;
+        }
+      });
+
+      return filteredPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    } catch (error) {
+      console.error('Error reading blog posts:', error);
+      return [];
+    }
+  };
+
+  const posts = await getBlogPosts();
 
   return (
-    <div className={`${styles.container} page-container`}>
-      <h1 className="section-title">日々のこと</h1>
-      <div className={styles.grid}>
-        {posts.map((post) => (
-          <Link href={`/blog/${post.slug}`} key={post.slug} className={styles.card}>
-            <div className={styles.cardImageContainer}>
-                <Image
-                    src={post.image}
-                    alt={post.title}
-                    layout="fill"
-                    objectFit="cover"
-                    className={styles.cardImage}
-                />
-            </div>
-            <div className={styles.cardContent}>
-              <h2 className={styles.cardTitle}>{post.title}</h2>
-              <p className={styles.cardDate}>{post.date}</p>
-              <p className={styles.cardDescription}>{post.description}</p>
-            </div>
-          </Link>
-        ))}
-      </div>
+    <div className={`${pageStyles.page} page-container`}>
+      <main className={pageStyles.main}>
+        <h1 className="section-title">{dict.blog.title}</h1>
+        
+        <div className={styles.container}>
+          <p style={{ color: '#666', fontSize: '1.1rem', textAlign: 'center', marginBottom: '3rem' }}>{dict.blog.description}</p>
+
+          <div className={styles.grid}>
+          {posts.length > 0 ? (
+            posts.map((post) => (
+              <Link key={post.slug} href={`/blog/${post.slug}`} className={styles.card}>
+                {post.image && (
+                  <div className={styles.cardImageContainer}>
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className={styles.cardImage}
+                      style={{ objectFit: 'cover' }}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </div>
+                )}
+                <div className={styles.cardContent}>
+                  <h2 className={styles.cardTitle}>{post.title}</h2>
+                  <time className={styles.cardDate}>{new Date(post.date).toLocaleDateString(lang === 'en' ? 'en-US' : 'ja-JP')}</time>
+                  <p className={styles.cardDescription}>{post.description}</p>
+                </div>
+              </Link>
+            ))
+          ) : (
+            <p style={{ textAlign: 'center', color: '#666', gridColumn: '1 / -1' }}>
+              {lang === 'en' ? 'No blog posts available.' : 'ブログ記事はまだありません。'}
+            </p>
+          )}
+        </div>
+        </div>
+      </main>
     </div>
   );
 }

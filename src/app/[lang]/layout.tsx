@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Klee_One } from "next/font/google";
 import Script from "next/script";
-import "./globals.css";
+import "../globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -11,6 +11,10 @@ const kleeOne = Klee_One({
   weight: ["400", "600"], // 700 is not supported
   display: "swap",
 });
+
+export async function generateStaticParams() {
+  return [{ lang: 'ja' }, { lang: 'en' }];
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://pizzapolepole.com"),
@@ -24,6 +28,8 @@ export const metadata: Metadata = {
     title: "薪窯PIZZA POLE POLE ⌇ピッツァポレポレ",
     description:
       "広島県東広島市西条の自然に囲まれた一軒家で、本格的な薪窯Pizzaが楽しめる「POLE POLE（ポレポレ）」。こだわりの生地と地元の新鮮な食材を使った、焼きたてのナポリピザをどうぞ。",
+    url: "https://pizzapolepole.com",
+    siteName: "ピッツァポレポレ",
     images: [
       {
         url: "/images/Kama.jpg",
@@ -46,11 +52,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: { lang: string };
 }>) {
   return (
-    <html lang="ja" className={`${kleeOne.className}`}>
+    <html lang={params.lang} className={`${kleeOne.className}`}>
       <head>
       </head>
       <body className={inter.className}>

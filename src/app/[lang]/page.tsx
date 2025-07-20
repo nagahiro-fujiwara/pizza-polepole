@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./page.module.css";
-import FeatureSection from "../components/FeatureSection";
-import Notification from "../components/Notification";
-import { getDictionary } from "../get-dictionary";
+import styles from "../page.module.css";
+import FeatureSection from "../../components/FeatureSection";
+import Notification from "../../components/Notification";
+import { getDictionary } from "../../get-dictionary";
 
 export const metadata = {
   title: "薪窯Pizza POLE POLE | 西条・東広島のランチ・カフェ・ピザ",
@@ -64,12 +64,10 @@ export const metadata = {
 };
 
 export default async function Home({
-  searchParams,
+  params: { lang },
 }: {
-  searchParams: Promise<{ lang?: string }>;
+  params: { lang: 'ja' | 'en' };
 }) {
-  const params = await searchParams;
-  const lang = (params.lang || 'ja') as 'ja' | 'en';
   const dict = await getDictionary(lang);
   const t = dict.home;
 
@@ -80,7 +78,7 @@ export default async function Home({
         <section className={styles.hero}>
           <div className={styles.heroImageContainer}>
             <Image
-              src="/images/interior_景色.JPG"
+              src="/images/interior_景色.JPG" // 画像を差し替え
               alt="薪窯Pizza POLE POLEの店内から見た景色"
               fill
               style={{ objectFit: "cover" }}
@@ -173,6 +171,21 @@ export default async function Home({
               <div className={styles.cardContent}>
                 <h3>{t.pizza_highlight.formaggi_title}</h3>
                 <p>{t.pizza_highlight.formaggi_desc}</p>
+              </div>
+            </Link>
+            <Link href="/menu/" className={styles.highlightCard}>
+              <div className={styles.imgContainer}>
+                <Image
+                  src="/images/menu_マリナーラ.jpeg"
+                  alt="マリナーラ"
+                  fill
+                  style={{ objectFit: "cover" }}
+                  className={styles.img}
+                />
+              </div>
+              <div className={styles.cardContent}>
+                <h3>マリナーラ</h3>
+                <p>トマト・にんにく・オレガノのシンプルなピザ</p>
               </div>
             </Link>
           </div>

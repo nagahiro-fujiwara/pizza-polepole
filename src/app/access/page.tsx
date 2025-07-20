@@ -1,93 +1,84 @@
 import pageStyles from "../page.module.css";
 import accessStyles from "./access.module.css";
+import { getDictionary } from "../../get-dictionary";
 
-export const metadata = {
-  title: "アクセス | 薪窯Pizza POLE POLE - 西条・東広島のピザ・カフェ・ランチ",
-  description:
-    "薪窯Pizza POLE POLEへのアクセス方法・地図・駐車場案内。西条・東広島でピザ・カフェ・ランチをお探しなら。",
-  keywords: [
-    "西条",
-    "東広島",
-    "ピザ",
-    "Pizza",
-    "ランチ",
-    "アクセス",
-    "カフェ",
-    "ランチ",
-    "駐車場",
-    "地図",
-    "POLE POLE",
-    "ポレポレ",
-    "pizza",
-    "lunch",
-    "cafe",
-    "gourmet",
-    "restaurant",
-    "access",
-  ],
-  openGraph: {
-    title: "アクセス | 薪窯Pizza POLE POLE - 西条・東広島のピザ・カフェ・ランチ",
-    description:
-      "薪窯Pizza POLE POLEへのアクセス方法・地図・駐車場案内。西条・東広島でピザ・カフェ・ランチをお探しなら。",
-    url: "https://pizzapolepole.com/access",
-    images: [
-      {
-        url: "/images/Kama.jpg",
-        width: 1200,
-        height: 630,
-        alt: "薪窯Pizza POLE POLEの薪窯",
-      },
-    ],
-    type: "article",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "アクセス | 薪窯Pizza POLE POLE - 西条・東広島のピザ・カフェ・ランチ",
-    description:
-      "薪窯Pizza POLE POLEへのアクセス方法・地図・駐車場案内。西条・東広島でピザ・カフェ・ランチをお探しなら。",
-    images: ["/images/Kama.jpg"],
-  },
-};
+interface AccessPageProps {
+  searchParams: Promise<{ lang?: string }>;
+}
 
-export default function Access() {
+export async function generateMetadata({ searchParams }: AccessPageProps) {
+  const resolvedSearchParams = await searchParams;
+  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
+  const dict = await getDictionary(lang);
+
+  return {
+    title: dict.access.meta.title,
+    description: dict.access.meta.description,
+    keywords: dict.access.meta.keywords,
+    openGraph: {
+      title: dict.access.meta.title,
+      description: dict.access.meta.description,
+      url: `https://pizzapolepole.com/${lang === 'en' ? 'en/' : ''}access`,
+      images: [
+        {
+          url: "/images/Kama.jpg",
+          width: 1200,
+          height: 630,
+          alt: dict.access.meta.imageAlt,
+        },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: dict.access.meta.title,
+      description: dict.access.meta.description,
+      images: ["/images/Kama.jpg"],
+    },
+  };
+}
+
+export default async function Access({ searchParams }: AccessPageProps) {
+  const resolvedSearchParams = await searchParams;
+  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
+  const dict = await getDictionary(lang);
+
   return (
     <div className={`${pageStyles.page} page-container`}>
       <main className={pageStyles.main}>
-        <h1 className="section-title">アクセス</h1>
+        <h1 className="section-title">{dict.access.title}</h1>
 
         <div className={accessStyles.accessContainer}>
           {/* Info and Map Section */}
           <div className={accessStyles.infoAndMapWrapper}>
             {/* Info Card */}
             <div className={accessStyles.card}>
-              <h2 className={accessStyles.cardTitle}>店舗情報</h2>
+              <h2 className={accessStyles.cardTitle}>{dict.access.heading}</h2>
               <ul className={accessStyles.infoList}>
                 <li className={accessStyles.infoItem}>
-                  <strong>住所</strong>
+                  <strong>{lang === 'en' ? 'Address' : '住所'}</strong>
                   <span>
-                    〒739-0036
-                    <br />
-                    広島県東広島市西条町田口70-1
+                    {dict.access.address}
                   </span>
                 </li>
                 <li className={accessStyles.infoItem}>
-                  <strong>営業時間</strong>
-                  <span>11:00-15:00 (L.O. 14:30)</span>
+                  <strong>{lang === 'en' ? 'Hours' : '営業時間'}</strong>
+                  <span>{dict.access.hours}</span>
                 </li>
                 <li className={accessStyles.infoItem}>
-                  <strong>定休日</strong>
-                  <span>火曜日・水曜日</span>
+                  <strong>{lang === 'en' ? 'Closed' : '定休日'}</strong>
+                  <span>{dict.access.closed}</span>
                 </li>
                 <li className={accessStyles.infoItem}>
-                  <strong>駐車場</strong>
-                  <span>5台</span>
+                  <strong>{lang === 'en' ? 'Parking' : '駐車場'}</strong>
+                  <span>{dict.access.parking}</span>
                 </li>
               </ul>
             </div>
 
             {/* Map Card */}
             <div className={accessStyles.card}>
-              <h2 className={accessStyles.cardTitle}>マップ</h2>
+              <h2 className={accessStyles.cardTitle}>{lang === 'en' ? 'Map' : 'マップ'}</h2>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2179.5039671157233!2d132.70018337444412!3d34.38873494673091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3550710d31cfc105%3A0x4cd18bdbeb206877!2z6Jaq56qvUElaWkEgUE9MRSBQT0xFKOODlOODg-ODhOOCoeODneODrOODneODrCk!5e1!3m2!1sja!2sjp!4v1750779198049!5m2!1sja!2sjp"
                 allowFullScreen
@@ -103,7 +94,7 @@ export default function Access() {
                   rel="noopener noreferrer"
                   className={pageStyles.button}
                 >
-                  Googleマップで開く
+                  {lang === 'en' ? 'Open in Google Maps' : 'Googleマップで開く'}
                 </a>
               </div>
             </div>

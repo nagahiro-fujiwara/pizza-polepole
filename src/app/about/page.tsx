@@ -1,47 +1,49 @@
 import Image from "next/image";
+import { getDictionary } from "../../get-dictionary";
 import pageStyles from "../page.module.css";
 import aboutStyles from "./about.module.css";
 
-export const metadata = {
-  title: "メッセージ | 薪窯Pizza POLE POLE",
-  description:
-    "薪窯Pizza POLE POLEからのメッセージ。ゆっくり、ぼちぼち、やすらぎの場で過ごす心豊かなひとときへの想いをお伝えします。",
-  keywords: [
-    "西条",
-    "東広島",
-    "ピザ",
-    "カフェ",
-    "ランチ",
-    "メッセージ",
-    "想い",
-    "POLE POLE",
-    "ポレポレ",
-  ],
-  openGraph: {
-    title: "メッセージ | 薪窯Pizza POLE POLE",
-    description:
-      "薪窯Pizza POLE POLEからのメッセージ。ゆっくり、ぼちぼち、やすらぎの場で過ごす心豊かなひとときへの想いをお伝えします。",
-    url: "https://pizzapolepole.com/about",
-    images: [
-      {
-        url: "/images/Kama.jpg",
-        width: 1200,
-        height: 630,
-        alt: "薪窯Pizza POLE POLEの薪窯",
-      },
-    ],
-    type: "article",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "メッセージ | 薪窯Pizza POLE POLE",
-    description:
-      "薪窯Pizza POLE POLEからのメッセージ。ゆっくり、ぼちぼち、やすらぎの場で過ごす心豊かなひとときへの想いをお伝えします。",
-    images: ["/images/Kama.jpg"],
-  },
-};
+interface AboutPageProps {
+  searchParams: Promise<{ lang?: string }>;
+}
 
-export default function About() {
+export async function generateMetadata({ searchParams }: AboutPageProps) {
+  const resolvedSearchParams = await searchParams;
+  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
+  const dict = await getDictionary(lang);
+
+  return {
+    title: dict.about.meta.title,
+    description: dict.about.meta.description,
+    keywords: dict.about.meta.keywords,
+    openGraph: {
+      title: dict.about.meta.title,
+      description: dict.about.meta.description,
+      url: `https://pizzapolepole.com/${lang === 'en' ? 'en/' : ''}about`,
+      images: [
+        {
+          url: "/images/Kama.jpg",
+          width: 1200,
+          height: 630,
+          alt: dict.about.meta.imageAlt,
+        },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: dict.about.meta.title,
+      description: dict.about.meta.description,
+      images: ["/images/Kama.jpg"],
+    },
+  };
+}
+
+export default async function About({ searchParams }: AboutPageProps) {
+  const resolvedSearchParams = await searchParams;
+  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
+  const dict = await getDictionary(lang);
+  
   return (
     <div className={pageStyles.page}>
       <main className={pageStyles.main}>
@@ -57,36 +59,11 @@ export default function About() {
           </div>
           <div className={aboutStyles.overlay}></div>
           <div className={aboutStyles.philosophyContent}>
-            <h2>
-              “POLE POLE” <br />「ゆっくりゆっくり」「ぼちぼちいこう」
-            </h2>
-            <p>
-              変化が早く、不確実性が高まる現代。
-              <br />
-              私たちの目まぐるしい日々では、
-              <br />
-              大切な時間がつい後回しにされがちです。
-            </p>
-            <p>
-              そんな日常から少しだけ離れて、
-              <br />
-              自分のこころの声に耳をかたむけるひとときが
-              <br />
-              あってもいいのではないでしょうか。
-            </p>
-            <p>
-              POLE POLEが、そんなやすらぎの場所に
-              <br />
-              なれたらと願っています。
-            </p>
-            <p>
-              道が常にあなたの前にありますように。
-              <br />
-              風がいつもあなたの背中を押してくれますように。
-              <br />
-              <br />
-              ぼちぼちいきましょう、POLE POLE。
-            </p>
+            <h2 dangerouslySetInnerHTML={{ __html: dict.about.heading.replace(/\n/g, '<br />') }}></h2>
+            <p dangerouslySetInnerHTML={{ __html: dict.about.content1.replace(/\n/g, '<br />') }}></p>
+            <p dangerouslySetInnerHTML={{ __html: dict.about.content2.replace(/\n/g, '<br />') }}></p>
+            <p dangerouslySetInnerHTML={{ __html: dict.about.content3.replace(/\n/g, '<br />') }}></p>
+            <p dangerouslySetInnerHTML={{ __html: dict.about.content4.replace(/\n/g, '<br />') }}></p>
           </div>
         </section>
       </main>

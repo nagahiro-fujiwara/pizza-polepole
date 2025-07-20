@@ -188,3 +188,69 @@
     font-size: 1.5rem;
   }
 }
+
+/* 言語切り替えボタンのスタイル */
+.langSwitch {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.langSwitch:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sticky .langSwitch {
+  color: #333;
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.sticky .langSwitch:hover {
+  background: rgba(0, 0, 0, 0.12);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.langFlag {
+  font-size: 1.1rem;
+  line-height: 1;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+  display: inline-block;
+  width: 1.2em;
+  text-align: center;
+}
+
+.langText {
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .langSwitch {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  
+  .langFlag {
+    font-size: 1rem;
+  }
+  
+  .langText {
+    font-size: 0.7rem;
+  }
+}
