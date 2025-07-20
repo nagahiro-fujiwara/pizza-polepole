@@ -63,10 +63,11 @@ export const metadata = {
 };
 
 export default async function Home({
-  params: { lang },
+  params,
 }: {
-  params: { lang: 'ja' | 'en' };
+  params: Promise<{ lang: 'ja' | 'en' }>;
 }) {
+  const { lang } = await params;
   const dict = await getDictionary(lang);
   const t = dict.home;
 

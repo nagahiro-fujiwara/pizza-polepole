@@ -50,15 +50,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 }>) {
+  const { lang } = await params;
   return (
-    <html lang={params.lang} className={`${kleeOne.className}`}>
+    <html lang={lang} className={`${kleeOne.className}`}>
       <head>
       </head>
       <body className={inter.className}>
