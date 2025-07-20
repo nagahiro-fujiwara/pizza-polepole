@@ -1,14 +1,8 @@
 import GalleryClient from "./GalleryClient";
 import { getDictionary } from "../../get-dictionary";
 
-interface GalleryPageProps {
-  searchParams: Promise<{ lang?: string }>;
-}
-
-export async function generateMetadata({ searchParams }: GalleryPageProps) {
-  const resolvedSearchParams = await searchParams;
-  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
-  const dict = await getDictionary(lang);
+export async function generateMetadata() {
+  const dict = await getDictionary('ja');
 
   return {
     title: dict.gallery.meta.title,
@@ -17,7 +11,7 @@ export async function generateMetadata({ searchParams }: GalleryPageProps) {
     openGraph: {
       title: dict.gallery.meta.title,
       description: dict.gallery.meta.description,
-      url: `https://pizzapolepole.com/${lang === 'en' ? 'en/' : ''}gallery`,
+      url: `https://pizzapolepole.com/gallery`,
       images: [
         {
           url: "/images/Kama.jpg",
@@ -37,10 +31,8 @@ export async function generateMetadata({ searchParams }: GalleryPageProps) {
   };
 }
 
-export default async function GalleryPage({ searchParams }: GalleryPageProps) {
-  const resolvedSearchParams = await searchParams;
-  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
-  const dict = await getDictionary(lang);
+export default async function GalleryPage() {
+  const dict = await getDictionary('ja');
 
   return <GalleryClient dict={dict} />;
 }

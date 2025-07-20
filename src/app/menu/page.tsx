@@ -3,14 +3,8 @@ import menuStyles from "./menu.module.css";
 import Image from "next/image";
 import { getDictionary } from "../../get-dictionary";
 
-interface MenuPageProps {
-  searchParams: Promise<{ lang?: string }>;
-}
-
-export async function generateMetadata({ searchParams }: MenuPageProps) {
-  const resolvedSearchParams = await searchParams;
-  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
-  const dict = await getDictionary(lang);
+export async function generateMetadata() {
+  const dict = await getDictionary('ja');
 
   return {
     title: dict.menu.meta.title,
@@ -19,7 +13,7 @@ export async function generateMetadata({ searchParams }: MenuPageProps) {
     openGraph: {
       title: dict.menu.meta.title,
       description: dict.menu.meta.description,
-      url: `https://pizzapolepole.com/${lang === 'en' ? 'en/' : ''}menu`,
+      url: `https://pizzapolepole.com/menu`,
       images: [
         {
           url: "/images/Kama.jpg",
@@ -66,10 +60,8 @@ const menuImages = [
   },
 ];
 
-export default async function Menu({ searchParams }: MenuPageProps) {
-  const resolvedSearchParams = await searchParams;
-  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
-  const dict = await getDictionary(lang);
+export default async function Menu() {
+  const dict = await getDictionary('ja');
 
   return (
     <div className={`${pageStyles.page} page-container`}>
@@ -128,15 +120,7 @@ export default async function Menu({ searchParams }: MenuPageProps) {
         <div className={menuStyles.menuGrid}>
           {dict.menu.items.map((item: { name: string; desc: string; price: string }, index: number) => {
             const imageData = menuImages.find(img => 
-              (lang === 'ja' && img.name === item.name) ||
-              (lang === 'en' && (
-                (item.name === 'Marinara' && img.name === 'マリナーラ') ||
-                (item.name === 'Margherita' && img.name === 'マルゲリータ') ||
-                (item.name === 'Porcetta Varieta' && img.name === 'ブタバリータ') ||
-                (item.name === 'Nori Japone' && img.name === 'ノリジャポーネ') ||
-                (item.name === 'Quattro Formaggi' && img.name === 'クワトロフォルマッジ') ||
-                (item.name === 'Seasonal Pizza' && img.name === '季節のPizza')
-              ))
+              img.name === item.name
             );
             
             return (

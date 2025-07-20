@@ -3,14 +3,8 @@ import { getDictionary } from "../../get-dictionary";
 import pageStyles from "../page.module.css";
 import aboutStyles from "./about.module.css";
 
-interface AboutPageProps {
-  searchParams: Promise<{ lang?: string }>;
-}
-
-export async function generateMetadata({ searchParams }: AboutPageProps) {
-  const resolvedSearchParams = await searchParams;
-  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
-  const dict = await getDictionary(lang);
+export async function generateMetadata() {
+  const dict = await getDictionary('ja');
 
   return {
     title: dict.about.meta.title,
@@ -19,7 +13,7 @@ export async function generateMetadata({ searchParams }: AboutPageProps) {
     openGraph: {
       title: dict.about.meta.title,
       description: dict.about.meta.description,
-      url: `https://pizzapolepole.com/${lang === 'en' ? 'en/' : ''}about`,
+      url: `https://pizzapolepole.com/about`,
       images: [
         {
           url: "/images/Kama.jpg",
@@ -39,10 +33,8 @@ export async function generateMetadata({ searchParams }: AboutPageProps) {
   };
 }
 
-export default async function About({ searchParams }: AboutPageProps) {
-  const resolvedSearchParams = await searchParams;
-  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
-  const dict = await getDictionary(lang);
+export default async function About() {
+  const dict = await getDictionary('ja');
   
   return (
     <div className={pageStyles.page}>

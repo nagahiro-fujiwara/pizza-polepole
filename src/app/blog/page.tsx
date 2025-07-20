@@ -7,10 +7,6 @@ import { getDictionary } from "../../get-dictionary";
 import pageStyles from "../page.module.css";
 import styles from './blog.module.css';
 
-interface BlogPageProps {
-  searchParams: Promise<{ lang?: string }>;
-}
-
 interface BlogPost {
   slug: string;
   title: string;
@@ -20,10 +16,8 @@ interface BlogPost {
   lang?: string;
 }
 
-export async function generateMetadata({ searchParams }: BlogPageProps) {
-  const resolvedSearchParams = await searchParams;
-  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
-  const dict = await getDictionary(lang);
+export async function generateMetadata() {
+  const dict = await getDictionary('ja');
 
   return {
     title: dict.blog.meta.title,
@@ -32,7 +26,7 @@ export async function generateMetadata({ searchParams }: BlogPageProps) {
     openGraph: {
       title: dict.blog.meta.title,
       description: dict.blog.meta.description,
-      url: `https://pizzapolepole.com/${lang === 'en' ? 'en/' : ''}blog`,
+      url: `https://pizzapolepole.com/blog`,
       images: [
         {
           url: "/images/Kama.jpg",
@@ -52,10 +46,8 @@ export async function generateMetadata({ searchParams }: BlogPageProps) {
   };
 }
 
-export default async function BlogPage({ searchParams }: BlogPageProps) {
-  const resolvedSearchParams = await searchParams;
-  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
-  const dict = await getDictionary(lang);
+export default async function BlogPage() {
+  const dict = await getDictionary('ja');
 
   const getBlogPosts = async (): Promise<BlogPost[]> => {
     try {
@@ -81,13 +73,9 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         })
       );
 
-      // Filter posts by language
+      // Filter posts by language - defaulting to Japanese
       const filteredPosts = posts.filter(post => {
-        if (lang === 'en') {
-          return post.lang === 'en';
-        } else {
-          return post.lang === 'ja' || !post.lang;
-        }
+        return post.lang === 'ja' || !post.lang;
       });
 
       return filteredPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -125,14 +113,14 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 )}
                 <div className={styles.cardContent}>
                   <h2 className={styles.cardTitle}>{post.title}</h2>
-                  <time className={styles.cardDate}>{new Date(post.date).toLocaleDateString(lang === 'en' ? 'en-US' : 'ja-JP')}</time>
+                  <time className={styles.cardDate}>{new Date(post.date).toLocaleDateString('ja-JP')}</time>
                   <p className={styles.cardDescription}>{post.description}</p>
                 </div>
               </Link>
             ))
           ) : (
             <p style={{ textAlign: 'center', color: '#666', gridColumn: '1 / -1' }}>
-              {lang === 'en' ? 'No blog posts available.' : 'ブログ記事はまだありません。'}
+              ブログ記事はまだありません。
             </p>
           )}
         </div>

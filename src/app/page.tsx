@@ -47,16 +47,10 @@ export const metadata = {
   },
 };
 
-export default async function Home({
-  searchParams,
-}: {
-  searchParams: Promise<{ lang?: string }>;
-}) {
-  const params = await searchParams;
-  const lang = (params.lang || 'ja') as 'ja' | 'en';
-  const dict = await getDictionary(lang);
+export default async function Home() {
+  const dict = await getDictionary('ja');
   const t = dict.home;
-  const featuredPosts = await getFeaturedBlogPosts(lang);
+  const featuredPosts = await getFeaturedBlogPosts('ja');
 
   return (
     <div className={`${styles.page} page-container`}>
@@ -86,7 +80,7 @@ export default async function Home({
           </div>
         </section>
 
-        <BlogNotification lang={lang} posts={featuredPosts} />
+        <BlogNotification lang="ja" posts={featuredPosts} />
 
         {/* --- About Section --- */}
         <section className={`${styles.section} ${styles.aboutSection}`}>

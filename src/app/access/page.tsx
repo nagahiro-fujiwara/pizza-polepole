@@ -2,14 +2,9 @@ import pageStyles from "../page.module.css";
 import accessStyles from "./access.module.css";
 import { getDictionary } from "../../get-dictionary";
 
-interface AccessPageProps {
-  searchParams: Promise<{ lang?: string }>;
-}
-
-export async function generateMetadata({ searchParams }: AccessPageProps) {
-  const resolvedSearchParams = await searchParams;
-  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
-  const dict = await getDictionary(lang);
+// Default to Japanese for static export
+export async function generateMetadata() {
+  const dict = await getDictionary('ja');
 
   return {
     title: dict.access.meta.title,
@@ -18,7 +13,7 @@ export async function generateMetadata({ searchParams }: AccessPageProps) {
     openGraph: {
       title: dict.access.meta.title,
       description: dict.access.meta.description,
-      url: `https://pizzapolepole.com/${lang === 'en' ? 'en/' : ''}access`,
+      url: `https://pizzapolepole.com/access`,
       images: [
         {
           url: "/images/Kama.jpg",
@@ -38,10 +33,8 @@ export async function generateMetadata({ searchParams }: AccessPageProps) {
   };
 }
 
-export default async function Access({ searchParams }: AccessPageProps) {
-  const resolvedSearchParams = await searchParams;
-  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
-  const dict = await getDictionary(lang);
+export default async function Access() {
+  const dict = await getDictionary('ja');
 
   return (
     <div className={`${pageStyles.page} page-container`}>
@@ -56,21 +49,21 @@ export default async function Access({ searchParams }: AccessPageProps) {
               <h2 className={accessStyles.cardTitle}>{dict.access.heading}</h2>
               <ul className={accessStyles.infoList}>
                 <li className={accessStyles.infoItem}>
-                  <strong>{lang === 'en' ? 'Address' : '住所'}</strong>
+                  <strong>住所</strong>
                   <span>
                     {dict.access.address}
                   </span>
                 </li>
                 <li className={accessStyles.infoItem}>
-                  <strong>{lang === 'en' ? 'Hours' : '営業時間'}</strong>
+                  <strong>営業時間</strong>
                   <span>{dict.access.hours}</span>
                 </li>
                 <li className={accessStyles.infoItem}>
-                  <strong>{lang === 'en' ? 'Closed' : '定休日'}</strong>
+                  <strong>定休日</strong>
                   <span>{dict.access.closed}</span>
                 </li>
                 <li className={accessStyles.infoItem}>
-                  <strong>{lang === 'en' ? 'Parking' : '駐車場'}</strong>
+                  <strong>駐車場</strong>
                   <span>{dict.access.parking}</span>
                 </li>
               </ul>
@@ -78,7 +71,7 @@ export default async function Access({ searchParams }: AccessPageProps) {
 
             {/* Map Card */}
             <div className={accessStyles.card}>
-              <h2 className={accessStyles.cardTitle}>{lang === 'en' ? 'Map' : 'マップ'}</h2>
+              <h2 className={accessStyles.cardTitle}>マップ</h2>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2179.5039671157233!2d132.70018337444412!3d34.38873494673091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3550710d31cfc105%3A0x4cd18bdbeb206877!2z6Jaq56qvUElaWkEgUE9MRSBQT0xFKOODlOODg-ODhOOCoeODneODrOODneODrCk!5e1!3m2!1sja!2sjp!4v1750779198049!5m2!1sja!2sjp"
                 allowFullScreen
@@ -94,7 +87,7 @@ export default async function Access({ searchParams }: AccessPageProps) {
                   rel="noopener noreferrer"
                   className={pageStyles.button}
                 >
-                  {lang === 'en' ? 'Open in Google Maps' : 'Googleマップで開く'}
+                  Googleマップで開く
                 </a>
               </div>
             </div>

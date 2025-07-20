@@ -2,14 +2,8 @@ import pageStyles from "../page.module.css";
 import privacyStyles from "./privacy.module.css";
 import { getDictionary } from "../../get-dictionary";
 
-interface PrivacyPageProps {
-  searchParams: Promise<{ lang?: string }>;
-}
-
-export async function generateMetadata({ searchParams }: PrivacyPageProps) {
-  const resolvedSearchParams = await searchParams;
-  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
-  const dict = await getDictionary(lang);
+export async function generateMetadata() {
+  const dict = await getDictionary('ja');
 
   return {
     title: dict.privacy.meta.title,
@@ -18,7 +12,7 @@ export async function generateMetadata({ searchParams }: PrivacyPageProps) {
     openGraph: {
       title: dict.privacy.meta.title,
       description: dict.privacy.meta.description,
-      url: `https://pizzapolepole.com/${lang === 'en' ? 'en/' : ''}privacy`,
+      url: `https://pizzapolepole.com/privacy`,
       images: [
         {
           url: "/images/Kama.jpg",
@@ -38,10 +32,8 @@ export async function generateMetadata({ searchParams }: PrivacyPageProps) {
   };
 }
 
-export default async function Privacy({ searchParams }: PrivacyPageProps) {
-  const resolvedSearchParams = await searchParams;
-  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
-  const dict = await getDictionary(lang);
+export default async function Privacy() {
+  const dict = await getDictionary('ja');
   return (
     <div className={`${pageStyles.page} page-container`}>
       <main className={pageStyles.main}>
