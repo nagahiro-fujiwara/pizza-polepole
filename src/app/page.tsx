@@ -2,8 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
 import FeatureSection from "../components/FeatureSection";
-import Notification from "../components/Notification";
+import BlogNotification from "../components/BlogNotification";
 import { getDictionary } from "../get-dictionary";
+import { getFeaturedBlogPosts } from "../utils/blog";
 
 export const metadata = {
   title: "薪窯Pizza POLE POLE | 西条・東広島のランチ・カフェ・ピザ",
@@ -72,6 +73,7 @@ export default async function Home({
   const lang = (params.lang || 'ja') as 'ja' | 'en';
   const dict = await getDictionary(lang);
   const t = dict.home;
+  const featuredPosts = await getFeaturedBlogPosts(lang);
 
   return (
     <div className={`${styles.page} page-container`}>
@@ -100,16 +102,7 @@ export default async function Home({
           </div>
         </section>
 
-        <Notification 
-          message={t.notification.temp_closure}
-          link="/blog/2025-07-20-temporary-closure"
-          linkText={t.notification.link_text}
-        />
-        <Notification 
-          message={t.notification.summer_holiday}
-          link="/blog/2025-08-12-summer-holiday"
-          linkText={t.notification.link_text}
-        />
+        <BlogNotification lang={lang} posts={featuredPosts} />
 
         {/* --- About Section --- */}
         <section className={`${styles.section} ${styles.aboutSection}`}>

@@ -4,6 +4,8 @@ date: '2025-08-12'
 description: "8月12日(火)-20日(水)は夏季休業のため、休業とさせていただきます。"
 image: "/images/お休みです.JPG"
 lang: "ja"
+featured: true
+category: "notice"
 ---
 
 ## 夏季休業のお知らせ

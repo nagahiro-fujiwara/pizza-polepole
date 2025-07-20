@@ -4,6 +4,8 @@ date: "2025-07-19"
 description: "We will be temporarily closed on July 20th (Sun) due to participation in local community events."
 image: "/images/お休みです.JPG"
 lang: "en"
+featured: true
+category: "notice"
 ---
 
 ## Temporary Closure Notice
