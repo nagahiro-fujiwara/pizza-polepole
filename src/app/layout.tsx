@@ -15,21 +15,22 @@ const kleeOne = Klee_One({
 export const metadata: Metadata = {
   metadataBase: new URL("https://pizzapolepole.com"),
   title: {
-    default: "薪窯PIZZA POLE POLE ⌇ ピッツァポレポレ",
-    template: `%s | 薪窯PIZZA POLE POLE  ⌇ ピッツァポレポレ`,
+    default: "薪窯Pizza POLE POLE | 東広島・西条のピザ・ランチ・カフェ",
+    template: `%s | 薪窯Pizza POLE POLE - 東広島・西条のピザレストラン`,
   },
   description:
-    "広島県東広島市西条の自然に囲まれた一軒家で、本格的な薪窯Piizaが楽しめる「POLE POLE（ポレポレ）」。こだわりの生地と地元の新鮮な食材を使った、焼きたてのナポリピザをどうぞ。",
+    "広島県東広島市西条の自然に囲まれた一軒家で、本格的な薪窯Pizzaが楽しめる「POLE POLE（ポレポレ）」。こだわりの生地と地元の新鮮な食材を使った、焼きたての薪窯ピザをどうぞ。",
   openGraph: {
-    title: "薪窯PIZZA POLE POLE ⌇ピッツァポレポレ",
+    title: "薪窯Pizza POLE POLE | 東広島・西条の本格ピザレストラン",
     description:
-      "広島県東広島市西条の自然に囲まれた一軒家で、本格的な薪窯Pizzaが楽しめる「POLE POLE（ポレポレ）」。こだわりの生地と地元の新鮮な食材を使った、焼きたてのナポリピザをどうぞ。",
+      "広島県東広島市西条の自然に囲まれた一軒家で、本格的な薪窯Pizzaが楽しめる「POLE POLE（ポレポレ）」。こだわりの生地と地元の新鮮な食材を使った、焼きたての薪窯ピザをどうぞ。",
+    siteName: "薪窯Pizza POLE POLE",
     images: [
       {
         url: "/images/Kama.jpg",
         width: 1200,
         height: 630,
-        alt: "薪窯Pizza POLE POLEの薪窯",
+        alt: "東広島・西条の薪窯Pizza POLE POLEの薪窯",
       },
     ],
     locale: "ja_JP",
@@ -37,9 +38,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "薪窯Pizza POLE POLE ⌇ ピッツァポレポレ",
+    title: "薪窯Pizza POLE POLE | 東広島・西条のピザレストラン",
     description:
-      "広島県東広島市西条の自然に囲まれた一軒家で、本格的な薪窯Pizzaが楽しめる「POLE POLE（ポレポレ）」。こだわりの生地と地元の新鮮な食材を使った、焼きたてのピザをどうぞ。",
+      "広島県東広島市西条の自然に囲まれた一軒家で、本格的な薪窯Pizzaが楽しめる「POLE POLE（ポレポレ）」。こだわりの生地と地元の新鮮な食材を使った、焼きたての薪窯ピザをどうぞ。",
     images: ["/images/Kama.jpg"],
   },
 };
@@ -52,6 +53,13 @@ export default function RootLayout({
   return (
     <html lang="ja" className={`${kleeOne.className}`}>
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
+        <link rel="canonical" href="https://pizzapolepole.com" />
+        <meta property="og:locale" content="ja_JP" />
+        <meta property="og:site_name" content="薪窯Pizza POLE POLE" />
+        <meta name="format-detection" content="telephone=no" />
       </head>
       <body className={inter.className}>
         <Header />

@@ -23,11 +23,11 @@ export const metadata: Metadata = {
     template: `%s | 薪窯PIZZA POLE POLE  ⌇ ピッツァポレポレ`,
   },
   description:
-    "広島県東広島市西条の自然に囲まれた一軒家で、本格的な薪窯Piizaが楽しめる「POLE POLE（ポレポレ）」。こだわりの生地と地元の新鮮な食材を使った、焼きたてのナポリピザをどうぞ。",
+    "広島県東広島市西条の自然に囲まれた一軒家で、本格的な薪窯Pizzaが楽しめる「POLE POLE（ポレポレ）」。こだわりの生地と地元の新鮮な食材を使った、焼きたての薪窯ピザをどうぞ。",
   openGraph: {
     title: "薪窯PIZZA POLE POLE ⌇ピッツァポレポレ",
     description:
-      "広島県東広島市西条の自然に囲まれた一軒家で、本格的な薪窯Pizzaが楽しめる「POLE POLE（ポレポレ）」。こだわりの生地と地元の新鮮な食材を使った、焼きたてのナポリピザをどうぞ。",
+      "広島県東広島市西条の自然に囲まれた一軒家で、本格的な薪窯Pizzaが楽しめる「POLE POLE（ポレポレ）」。こだわりの生地と地元の新鮮な食材を使った、焼きたての薪窯ピザをどうぞ。",
     url: "https://pizzapolepole.com",
     siteName: "ピッツァポレポレ",
     images: [

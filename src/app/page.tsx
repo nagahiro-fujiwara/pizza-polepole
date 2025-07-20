@@ -3,64 +3,47 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import FeatureSection from "../components/FeatureSection";
 import BlogNotification from "../components/BlogNotification";
+import StructuredData from "../components/StructuredData";
 import { getDictionary } from "../get-dictionary";
 import { getFeaturedBlogPosts } from "../utils/blog";
 
 export const metadata = {
-  title: "薪窯Pizza POLE POLE | 西条・東広島のランチ・カフェ・ピザ",
+  title: "薪窯Pizza POLE POLE | 東広島・西条のピザ・ランチ・カフェ",
   description:
-    "東広島・西条でランチやカフェにおすすめの薪窯Pizza POLE POLE。地元食材・自家製生地・ナポリピザ。おしゃれな店内でゆっくり過ごせる人気店。テイクアウトもOK。",
+    "広島県東広島市西条の自然に囲まれた一軒家で、本格的な薪窯Pizzaが楽しめる「POLE POLE（ポレポレ）」。こだわりの生地と地元の新鮮な食材を使った、焼きたての薪窯ピザをどうぞ。",
   keywords: [
-    "西条",
-    "東広島",
-    "ピザ",
-    "ランチ",
-    "カフェ",
-    "薪窯",
-    "ナポリピザ",
-    "テイクアウト",
-    "おしゃれ",
-    "人気",
-    "グルメ",
-    "イタリアン",
-    "ディナー",
-    "ファミリー",
-    "女子会",
-    "デート",
-    "地元食材",
-    "自家製",
+    "東広島 ピザ",
+    "西条 ピザ", 
+    "東広島 ランチ",
+    "西条 ランチ",
+    "東広島 カフェ",
+    "西条 カフェ",
+    "薪窯ピザ 東広島",
+    "ナポリピザ 西条",
     "POLE POLE",
     "ポレポレ",
-    "サイジョウ",
-    "Saijo",
-    "pizza",
-    "lunch",
-    "cafe",
-    "takeout",
-    "gourmet",
-    "restaurant",
+    "広島県 ピザ",
+    "イタリアン 東広島",
+    "ピザ 西条駅",
+    "地元食材 ピザ",
+    "手作りピザ 広島",
+    "本格ピザ 東広島",
+    "ファミリーレストラン 東広島",
+    "デート レストラン 西条",
+    "女子会 カフェ 東広島",
+    "駐車場 レストラン 西条",
+    "人気 ピザ 東広島"
   ],
   openGraph: {
-    title: "薪窯Pizza POLE POLE | 西条・東広島のランチ・カフェ・ピザ",
-    description:
-      "東広島・西条でランチやカフェにおすすめの薪窯Pizza POLE POLE。地元食材・自家製生地・ナポリピザ。おしゃれな店内でゆっくり過ごせる人気店。テイクアウトもOK。",
-    url: "https://pizzapolepole.com/",
-    images: [
-      {
-        url: "/images/interior_釜1.JPG",
-        width: 1200,
-        height: 630,
-        alt: "薪窯Pizza POLE POLEの薪窯",
-      },
-    ],
-    type: "website",
+    title: "薪窯Pizza POLE POLE | 東広島・西条の本格ピザレストラン",
+    description: "広島県東広島市西条の自然に囲まれた一軒家で、本格的な薪窯Pizzaが楽しめる「POLE POLE（ポレポレ）」。こだわりの生地と地元の新鮮な食材を使った、焼きたての薪窯ピザをどうぞ。",
+    images: ["/images/interior_釜.JPG"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "薪窯Pizza POLE POLE | 西条・東広島のランチ・カフェ・ピザ",
-    description:
-      "東広島・西条でランチやカフェにおすすめの薪窯Pizza POLE POLE。地元食材・自家製生地・ナポリピザ。おしゃれな店内でゆっくり過ごせる人気店。テイクアウトもOK。",
-    images: ["/images/interior_釜1.JPG"],
+    title: "薪窯Pizza POLE POLE | 東広島・西条のピザレストラン",
+    description: "広島県東広島市西条の自然に囲まれた一軒家で、本格的な薪窯Pizzaが楽しめる「POLE POLE（ポレポレ）」。こだわりの生地と地元の新鮮な食材を使った、焼きたての薪窯ピザをどうぞ。",
+    images: ["/images/interior_釜.JPG"],
   },
 };
 
@@ -77,6 +60,7 @@ export default async function Home({
 
   return (
     <div className={`${styles.page} page-container`}>
+      <StructuredData />
       <main className={styles.main}>
         {/* --- Hero Section --- */}
         <section className={styles.hero}>

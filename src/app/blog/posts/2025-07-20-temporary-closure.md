@@ -4,7 +4,7 @@ date: "2025-07-19"
 description: "7月20日(日)は地域行事参加のため、臨時休業とさせていただきます。"
 image: "/images/お休みです.JPG"
 lang: "ja"
-featured: true
+featured: false
 category: "notice"
 ---
 
