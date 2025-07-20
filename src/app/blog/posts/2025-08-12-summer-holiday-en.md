@@ -2,7 +2,7 @@
 title: "Summer Holiday Notice"
 date: "2025-08-12"
 description: "We will be closed for summer holidays from August 12th (Tue) to August 20th (Wed)."
-image: "/images/exterior_のれん.JPG"
+image: "/images/お休みです.JPG"
 lang: "en"
 ---
 

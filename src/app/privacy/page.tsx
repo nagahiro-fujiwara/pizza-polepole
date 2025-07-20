@@ -1,90 +1,84 @@
 import pageStyles from "../page.module.css";
 import privacyStyles from "./privacy.module.css";
+import { getDictionary } from "../../get-dictionary";
 
-export const metadata = {
-  title: "プライバシーポリシー | 薪窯Pizza POLE POLE - 西条・東広島のピザ・カフェ",
-  description:
-    "薪窯PizzaPOLE POLEのプライバシーポリシー。西条・東広島でピザ・カフェ・ランチをお探しの方も安心してご利用いただけます。",
-  keywords: [
-    "西条",
-    "東広島",
-    "ピザ",
-    "プライバシー",
-    "カフェ",
-    "ランチ",
-    "POLE POLE",
-    "ポレポレ",
-    "pizza",
-    "lunch",
-    "cafe",
-    "gourmet",
-    "restaurant",
-    "privacy",
-  ],
-  openGraph: {
-    title: "プライバシーポリシー | 薪窯Pizza POLE POLE - 西条・東広島のピザ・カフェ",
-    description:
-      "薪窯PizzaPOLE POLEのプライバシーポリシー。西条・東広島でピザ・カフェ・ランチをお探しの方も安心してご利用いただけます。",
-    url: "https://pizzapolepole.com/privacy",
-    images: [
-      {
-        url: "/images/Kama.jpg",
-        width: 1200,
-        height: 630,
-        alt: "薪窯Pizza POLE POLEの薪窯",
-      },
-    ],
-    type: "article",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "プライバシーポリシー | 薪窯Pizza POLE POLE - 西条・東広島のピザ・カフェ",
-    description:
-      "薪窯PizzaPOLE POLEのプライバシーポリシー。西条・東広島でピザ・カフェ・ランチをお探しの方も安心してご利用いただけます。",
-    images: ["/images/Kama.jpg"],
-  },
-};
+interface PrivacyPageProps {
+  searchParams: Promise<{ lang?: string }>;
+}
 
-export default function Privacy() {
+export async function generateMetadata({ searchParams }: PrivacyPageProps) {
+  const resolvedSearchParams = await searchParams;
+  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
+  const dict = await getDictionary(lang);
+
+  return {
+    title: dict.privacy.meta.title,
+    description: dict.privacy.meta.description,
+    keywords: dict.privacy.meta.keywords,
+    openGraph: {
+      title: dict.privacy.meta.title,
+      description: dict.privacy.meta.description,
+      url: `https://pizzapolepole.com/${lang === 'en' ? 'en/' : ''}privacy`,
+      images: [
+        {
+          url: "/images/Kama.jpg",
+          width: 1200,
+          height: 630,
+          alt: dict.privacy.meta.imageAlt,
+        },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: dict.privacy.meta.title,
+      description: dict.privacy.meta.description,
+      images: ["/images/Kama.jpg"],
+    },
+  };
+}
+
+export default async function Privacy({ searchParams }: PrivacyPageProps) {
+  const resolvedSearchParams = await searchParams;
+  const lang = (resolvedSearchParams.lang as 'ja' | 'en') || 'ja';
+  const dict = await getDictionary(lang);
   return (
-    <div className={pageStyles.page}>
+    <div className={`${pageStyles.page} page-container`}>
       <main className={pageStyles.main}>
-        <h1 className="section-title">プライバシーポリシー</h1>
+        <h1 className="section-title">{dict.privacy.title}</h1>
         <div className={privacyStyles.privacyContainer}>
           <div className={privacyStyles.policyCard}>
             <p>
-              薪窯Pizza POLE POLE（以下「当店」）は、お客様の個人情報を取得・保存・利用することはありません。
-              <br />
-              本サイトは、個人情報の入力や送信を必要とする機能（お問い合わせフォーム等）を設けておりません。
+              {dict.privacy.introduction}
             </p>
-            <h2>1. 個人情報の取得について</h2>
+            <h2>{dict.privacy.section1.title}</h2>
             <p>
-              当店は、本サイトを通じてお客様の個人情報を取得することはありません。
+              {dict.privacy.section1.content}
             </p>
-            <h2>2. 個人情報の利用目的</h2>
+            <h2>{dict.privacy.section2.title}</h2>
             <p>
-              個人情報の取得・利用は一切行いません。
+              {dict.privacy.section2.content}
             </p>
-            <h2>3. 個人情報の第三者提供</h2>
+            <h2>{dict.privacy.section3.title}</h2>
             <p>
-              当店は、個人情報を第三者に提供することはありません。
+              {dict.privacy.section3.content}
             </p>
-            <h2>4. アクセス解析・Cookie等について</h2>
+            <h2>{dict.privacy.section4.title}</h2>
             <p>
-              本サイトでは、サービス向上のためアクセス解析ツールを利用する場合がありますが、個人を特定する情報の取得は行いません。
+              {dict.privacy.section4.content}
             </p>
-            <h2>5. プライバシーポリシーの変更</h2>
+            <h2>{dict.privacy.section5.title}</h2>
             <p>
-              本ポリシーの内容は、必要に応じて予告なく改定する場合があります。
+              {dict.privacy.section5.content}
             </p>
-            <h2>6. お問い合わせ</h2>
+            <h2>{dict.privacy.section6.title}</h2>
             <p>
-              プライバシーポリシーに関するご質問は、店頭にてご確認ください。
+              {dict.privacy.section6.content}
             </p>
             <p className={privacyStyles.enactmentDate}>
-              制定日：2025年6月24日
+              {dict.privacy.enactmentDate}
               <br />
-              薪窯Pizza POLE POLE
+              {dict.privacy.companyName}
             </p>
           </div>
         </div>

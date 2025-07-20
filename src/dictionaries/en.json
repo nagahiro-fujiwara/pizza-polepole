@@ -156,5 +156,41 @@
         "keywords": ["Saijo", "Higashihiroshima", "Pizza", "Blog", "News", "Cafe", "Lunch", "Events", "Seasonal", "POLE POLE"],
         "imageAlt": "Wood-fired oven at POLE POLE"
       }
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "introduction": "Wood-Fired Pizza POLE POLE (hereinafter referred to as 'our restaurant') does not acquire, store, or use customers' personal information. This website does not have functions that require input or transmission of personal information (such as contact forms).",
+      "section1": {
+        "title": "1. Acquisition of Personal Information",
+        "content": "Our restaurant does not acquire customers' personal information through this website."
+      },
+      "section2": {
+        "title": "2. Purpose of Use of Personal Information",
+        "content": "We do not acquire or use personal information at all."
+      },
+      "section3": {
+        "title": "3. Provision of Personal Information to Third Parties",
+        "content": "Our restaurant does not provide personal information to third parties."
+      },
+      "section4": {
+        "title": "4. Access Analysis and Cookies",
+        "content": "This website may use access analysis tools to improve services, but we do not acquire information that identifies individuals."
+      },
+      "section5": {
+        "title": "5. Changes to Privacy Policy",
+        "content": "The content of this policy may be revised without notice as necessary."
+      },
+      "section6": {
+        "title": "6. Inquiries",
+        "content": "For questions regarding this privacy policy, please inquire at our restaurant."
+      },
+      "enactmentDate": "Effective Date: June 24, 2025",
+      "companyName": "Wood-Fired Pizza POLE POLE",
+      "meta": {
+        "title": "Privacy Policy | Wood-Fired Pizza POLE POLE - Saijo, Higashihiroshima Pizza, Cafe",
+        "description": "Privacy policy of Wood-Fired Pizza POLE POLE. You can use our services with confidence when looking for pizza, cafe, and lunch in Saijo, Higashihiroshima.",
+        "keywords": ["Saijo", "Higashihiroshima", "Pizza", "Privacy", "Cafe", "Lunch", "POLE POLE", "pizza", "lunch", "cafe", "gourmet", "restaurant", "privacy"],
+        "imageAlt": "Wood-fired oven at POLE POLE"
+      }
     }
   }

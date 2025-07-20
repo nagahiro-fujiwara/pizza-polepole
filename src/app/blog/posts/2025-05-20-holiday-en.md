@@ -1,7 +1,7 @@
 ---
 title: 'Regular Holiday Notice'
 date: '2025-05-20'
-image: '/images/exterior_のれん.JPG'
+image: '/images/お休みです.JPG'
 description: 'We are closed every Tuesday and Wednesday. Please check our business days before visiting.'
 lang: 'en'
 ---
