@@ -3,23 +3,6 @@ import { NextRequest, NextResponse } from 'next/server'
 const locales = ['ja', 'en']
 const defaultLocale = 'ja'
 
-function getLocale(request: NextRequest): string {
-  // URLから言語を取得
-  const pathname = request.nextUrl.pathname
-  const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  )
-
-  if (pathnameHasLocale) {
-    // パスに言語が含まれている場合は、それを返す
-    const locale = pathname.split('/')[1]
-    return locale
-  }
-
-  // デフォルト言語を返す
-  return defaultLocale
-}
-
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
   

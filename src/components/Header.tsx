@@ -10,7 +10,16 @@ import styles from './Header.module.css';
 const Header: React.FC = () => {
   const [isSticky, setSticky] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const [dict, setDict] = useState<any>(null);
+  const [dict, setDict] = useState<{
+    header: {
+      about: string;
+      menu: string;
+      access: string;
+      gallery: string;
+      blog: string;
+      instagram: string;
+    };
+  } | null>(null);
   const pathname = usePathname();
 
   // URLから言語を判定

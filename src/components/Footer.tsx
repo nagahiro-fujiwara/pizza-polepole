@@ -8,7 +8,23 @@ import styles from './Footer.module.css';
 import { FaInstagram } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
-  const [dict, setDict] = useState<any>(null);
+  const [dict, setDict] = useState<{
+    footer: {
+      title: string;
+      address: string;
+      hours: string;
+      sitemap: string;
+      home: string;
+      about: string;
+      menu: string;
+      access: string;
+      gallery: string;
+      blog: string;
+      privacy: string;
+      sns: string;
+      copyright: string;
+    };
+  } | null>(null);
   const pathname = usePathname();
 
   // URLから言語を判定

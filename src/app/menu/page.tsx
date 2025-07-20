@@ -126,7 +126,7 @@ export default async function Menu({ searchParams }: MenuPageProps) {
         </div>
         <h2 className="section-title">{dict.menu.pizza}</h2>
         <div className={menuStyles.menuGrid}>
-          {dict.menu.items.map((item: any, index: number) => {
+          {dict.menu.items.map((item: { name: string; desc: string; price: string }, index: number) => {
             const imageData = menuImages.find(img => 
               (lang === 'ja' && img.name === item.name) ||
               (lang === 'en' && (

@@ -13,7 +13,7 @@ const BlogNotification: React.FC<BlogNotificationProps> = ({ posts, lang }) => {
 
   return (
     <div className={styles.notificationSection}>
-      {posts.map((post, index) => (
+      {posts.map((post) => (
         <div key={post.slug} className={styles.notification}>
           <span>{post.title}</span>
           <Link 

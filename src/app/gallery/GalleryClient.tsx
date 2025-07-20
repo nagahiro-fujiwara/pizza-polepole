@@ -6,7 +6,13 @@ import styles from "../page.module.css";
 import galleryStyles from "./gallery.module.css";
 
 interface GalleryClientProps {
-  dict: any;
+  dict: {
+    gallery: {
+      title: string;
+      heading: string;
+      description: string;
+    };
+  };
 }
 
 const allImages = [
