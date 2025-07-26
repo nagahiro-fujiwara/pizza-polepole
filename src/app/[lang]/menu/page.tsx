@@ -48,6 +48,8 @@ const menuImages = [
   { name: "ブタバリータ", src: "/images/menu_ブタバリータ.jpeg", alt: "ブタバリータピザ" },
   { name: "ノリジャポーネ", src: "/images/menu_ノリジャポーネ.jpeg", alt: "ノリジャポーネピザ" },
   { name: "フォルマッジ", src: "/images/menu_フォルマッジ.jpeg", alt: "フォルマッジピザ" },
+  { name: "クワトロフォルマッジ", src: "/images/menu_フォルマッジ.jpeg", alt: "クワトロフォルマッジピザ" },
+  { name: "季節のPizza", src: "/images/August_seasonal_pizza.png", alt: "季節のピザ" },
   { name: "れんこん", src: "/images/menu_れんこん.jpeg", alt: "れんこんピザ" },
   { name: "レモン", src: "/images/menu_レモン.jpeg", alt: "レモンピザ" },
 ];
@@ -77,8 +79,8 @@ export default async function Menu({ params }: MenuPageProps) {
                   'Margherita': 'マルゲリータ',
                   'Porcetta Varieta': 'ブタバリータ',
                   'Nori Japone': 'ノリジャポーネ',
-                  'Quattro Formaggi': 'フォルマッジ',
-                  'Seasonal Pizza': 'れんこん' // Use lotus root image as example for seasonal
+                  'Quattro Formaggi': 'クワトロフォルマッジ',
+                  'Seasonal Pizza': '季節のPizza'
                 };
                 return img.name === nameMapping[item.name];
               }
