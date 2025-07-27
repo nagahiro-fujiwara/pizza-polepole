@@ -1,6 +1,5 @@
 import GalleryClient from "./GalleryClient";
 import { getDictionary } from "../../get-dictionary";
-import Breadcrumb from "../../components/Breadcrumb";
 
 export async function generateMetadata() {
   const dict = await getDictionary('ja');
@@ -35,15 +34,5 @@ export async function generateMetadata() {
 export default async function GalleryPage() {
   const dict = await getDictionary('ja');
 
-  return (
-    <>
-      <Breadcrumb 
-        items={[
-          { name: 'ホーム', url: '/' },
-          { name: 'ギャラリー', url: '/gallery' }
-        ]}
-      />
-      <GalleryClient dict={dict} />
-    </>
-  );
+  return <GalleryClient dict={dict} />;
 }

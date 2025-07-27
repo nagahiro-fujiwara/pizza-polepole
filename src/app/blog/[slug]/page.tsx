@@ -80,7 +80,7 @@ export default async function Post({ params: paramsPromise }: { params: Promise<
   }
 
   return (
-    <div className={`page-container`}>
+    <div className={`page-container ${styles.blogPostPage}`}>
       <BlogPostStructuredData
         title={postData.title}
         description={postData.description || postData.title}
@@ -88,14 +88,14 @@ export default async function Post({ params: paramsPromise }: { params: Promise<
         image={postData.image}
         slug={params.slug}
       />
+      <Breadcrumb 
+        items={[
+          { name: 'ホーム', url: '/' },
+          { name: 'ブログ', url: '/blog' },
+          { name: postData.title, url: `/blog/${params.slug}` }
+        ]}
+      />
       <div className={styles.postContainer}>
-        <Breadcrumb 
-          items={[
-            { name: 'ホーム', url: '/' },
-            { name: 'ブログ', url: '/blog' },
-            { name: postData.title, url: `/blog/${params.slug}` }
-          ]}
-        />
         {postData.image && (
           <div className={styles.backgroundImageContainer}>
             <Image

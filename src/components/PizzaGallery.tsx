@@ -28,7 +28,7 @@ const pizzaCategories: PizzaCategory[] = [
       { src: '/images/exterior_玄関.JPG', alt: '玄関', title: '温かい玄関' },
       { src: '/images/exterior_のれん.JPG', alt: 'のれん', title: 'ポレポレののれん' },
       { src: '/images/exterior_煙突.JPG', alt: '煙突', title: '薪窯の煙突' },
-      { src: '/images/exterior_イス.JPG', alt: '外の椅子', title: 'テラス席' },
+      { src: '/images/exterior_イス2.JPG', alt: '石のベンチ', title: '石のベンチ' },
       { src: '/images/exterior_ボード.JPG', alt: 'ウェルカムボード', title: 'ウェルカムボード' },
       { src: '/images/exterior_ポスト.JPG', alt: 'ポスト', title: 'かわいいポスト' }
     ]

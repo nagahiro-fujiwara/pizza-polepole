@@ -38,14 +38,14 @@ export default async function About() {
   const dict = await getDictionary('ja');
   
   return (
-    <div className={pageStyles.page}>
+    <div className={`${pageStyles.page} page-container`}>
+      <Breadcrumb 
+        items={[
+          { name: 'ホーム', url: '/' },
+          { name: 'ポレポレについて', url: '/about' }
+        ]}
+      />
       <main className={pageStyles.main}>
-        <Breadcrumb 
-          items={[
-            { name: 'ホーム', url: '/' },
-            { name: 'ポレポレについて', url: '/about' }
-          ]}
-        />
         <section className={aboutStyles.philosophySection}>
           <div className={aboutStyles.backgroundImage}>
             <Image

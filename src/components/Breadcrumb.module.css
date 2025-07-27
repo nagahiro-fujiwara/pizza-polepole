@@ -4,6 +4,8 @@
   background: linear-gradient(135deg, rgba(155, 175, 135, 0.05) 0%, rgba(230, 237, 223, 0.1) 100%);
   border-radius: 8px;
   border: 1px solid rgba(155, 175, 135, 0.15);
+  position: relative;
+  z-index: 10;
 }
 
 .breadcrumbList {

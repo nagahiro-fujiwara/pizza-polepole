@@ -1,3 +1,16 @@
+/* Blog post page specific styles */
+.blogPostPage {
+  padding-top: 80px; /* Header height */
+}
+
+.blogPostPage :global(.breadcrumb) {
+  margin: 1rem 0 0;
+  position: relative;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
 .postContainer {
   position: relative;
   width: 100%;
@@ -8,9 +21,9 @@
   color: white;
   text-align: center;
   /* Increase top padding to lower the content further */
-  padding: calc(80px + 7rem) 1rem 4rem; /* Increased spacing */
+  padding: calc(80px + 4rem) 1rem 4rem; /* Reduced spacing for breadcrumb */
   overflow: hidden;
-  margin-top: -80px; /* Pull up to be behind the header */
+  margin-top: 0; /* Remove negative margin */
 }
 
 .backgroundImageContainer {

@@ -81,6 +81,17 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
+      - name: Deploy maintenance page on build failure
+        if: failure()
+        run: |
+          mkdir -p ./maintenance-out
+          cp ./public/maintenance.html ./maintenance-out/index.html
+          echo "Build failed. Deploying maintenance page."
+      - name: Upload maintenance artifact
+        if: failure()
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./maintenance-out
 
   # Deployment job
   deploy:

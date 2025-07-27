@@ -1,5 +1,6 @@
 import pageStyles from "../page.module.css";
 import privacyStyles from "./privacy.module.css";
+import Breadcrumb from "../../components/Breadcrumb";
 import { getDictionary } from "../../get-dictionary";
 
 export async function generateMetadata() {
@@ -37,6 +38,12 @@ export default async function Privacy() {
   return (
     <div className={`${pageStyles.page} page-container`}>
       <main className={pageStyles.main}>
+        <Breadcrumb 
+          items={[
+            { name: 'ホーム', url: '/' },
+            { name: 'プライバシーポリシー', url: '/privacy' }
+          ]}
+        />
         <h1 className="section-title">{dict.privacy.title}</h1>
         <div className={privacyStyles.privacyContainer}>
           <div className={privacyStyles.policyCard}>

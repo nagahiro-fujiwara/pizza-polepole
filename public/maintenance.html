@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メンテナンス中 - 薪窯Pizza POLE POLE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #9baf87 0%, #7a8c6a 100%);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.6;
+        }
+        
+        .container {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 600px;
+            margin: 2rem;
+        }
+        
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        h1 {
+            color: #7a8c6a;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .message {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 4px solid #9baf87;
+        }
+        
+        .contact-info {
+            background: #e6eddf;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+        
+        .contact-info h3 {
+            color: #7a8c6a;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0.8rem 0;
+            font-size: 1.1rem;
+        }
+        
+        .contact-item strong {
+            color: #7a8c6a;
+            margin-left: 0.5rem;
+        }
+        
+        .hours {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .footer {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .loading {
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem;
+                margin: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">🍕🔧</div>
+        
+        <h1>メンテナンス中</h1>
+        
+        <p class="subtitle">薪窯Pizza POLE POLE</p>
+        
+        <div class="message">
+            <p><strong>現在、ウェブサイトのメンテナンス作業を行っております。</strong></p>
+            <p>ご不便をおかけして申し訳ございませんが、しばらくお待ちいただけますようお願いいたします。</p>
+        </div>
+        
+        <div class="contact-info">
+            <h3>📞 お急ぎの方はお電話でどうぞ</h3>
+            
+            <div class="contact-item">
+                <span>📞</span>
+                <strong>082-XXX-XXXX</strong>
+            </div>
+            
+            <div class="hours">
+                <div class="contact-item">
+                    <span>⏰</span>
+                    <strong>営業時間</strong>
+                </div>
+                <p>木・金・土曜日: 11:30-14:30, 17:30-20:30</p>
+                <p>日曜日: 11:30-14:30</p>
+                <p>定休日: 月・火・水曜日</p>
+            </div>
+            
+            <div class="contact-item">
+                <span>📍</span>
+                <strong>〒739-0036 広島県東広島市西条町田口70-1</strong>
+            </div>
+        </div>
+        
+        <div class="message">
+            <p class="loading">🔄 復旧作業中...</p>
+            <p>通常、数分から数時間以内に復旧いたします。</p>
+        </div>
+        
+        <div class="footer">
+            <p>薪窯で焼く本格ナポリピザを、自然豊かな一軒家レストランでお楽しみください。</p>
+            <p><strong>薪窯Pizza POLE POLE スタッフ一同</strong></p>
+        </div>
+    </div>
+</body>
+</html>
