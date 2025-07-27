@@ -5,6 +5,7 @@ import { getDictionary } from "../../get-dictionary";
 import pageStyles from "../page.module.css";
 import styles from './blog.module.css';
 import BlogFilter from '../../components/BlogFilter';
+import Breadcrumb from '../../components/Breadcrumb';
 
 interface BlogPost {
   slug: string;
@@ -91,6 +92,12 @@ export default async function BlogPage() {
   return (
     <div className={`${pageStyles.page} page-container`}>
       <main className={pageStyles.main}>
+        <Breadcrumb 
+          items={[
+            { name: 'ホーム', url: '/' },
+            { name: 'ブログ', url: '/blog' }
+          ]}
+        />
         <h1 className="section-title">{dict.blog.title}</h1>
         
         <div className={styles.container}>

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getDictionary } from "../../get-dictionary";
 import pageStyles from "../page.module.css";
 import aboutStyles from "./about.module.css";
+import Breadcrumb from "../../components/Breadcrumb";
 
 export async function generateMetadata() {
   const dict = await getDictionary('ja');
@@ -39,6 +40,12 @@ export default async function About() {
   return (
     <div className={pageStyles.page}>
       <main className={pageStyles.main}>
+        <Breadcrumb 
+          items={[
+            { name: 'ホーム', url: '/' },
+            { name: 'ポレポレについて', url: '/about' }
+          ]}
+        />
         <section className={aboutStyles.philosophySection}>
           <div className={aboutStyles.backgroundImage}>
             <Image

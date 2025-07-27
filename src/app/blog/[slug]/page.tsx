@@ -9,6 +9,8 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from './post.module.css'; // Import the new CSS module
 import BackToTopButton from "../../../components/BackToTopButton";
+import BlogPostStructuredData from "./BlogPostStructuredData";
+import Breadcrumb from "../../../components/Breadcrumb";
 
 const postsDirectory = path.join(process.cwd(), "src/app/blog/posts");
 
@@ -79,7 +81,21 @@ export default async function Post({ params: paramsPromise }: { params: Promise<
 
   return (
     <div className={`page-container`}>
+      <BlogPostStructuredData
+        title={postData.title}
+        description={postData.description || postData.title}
+        publishedDate={postData.date}
+        image={postData.image}
+        slug={params.slug}
+      />
       <div className={styles.postContainer}>
+        <Breadcrumb 
+          items={[
+            { name: 'ホーム', url: '/' },
+            { name: 'ブログ', url: '/blog' },
+            { name: postData.title, url: `/blog/${params.slug}` }
+          ]}
+        />
         {postData.image && (
           <div className={styles.backgroundImageContainer}>
             <Image

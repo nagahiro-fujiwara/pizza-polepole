@@ -4,6 +4,8 @@ import styles from "./page.module.css";
 import FeatureSection from "../components/FeatureSection";
 import BlogNotification from "../components/BlogNotification";
 import StructuredData from "../components/StructuredData";
+import RestaurantStructuredData from "../components/RestaurantStructuredData";
+import FAQStructuredData from "../components/FAQStructuredData";
 import { getDictionary } from "../get-dictionary";
 import { getFeaturedBlogPosts } from "../utils/blog";
 
@@ -173,6 +175,34 @@ export default async function Home() {
           </div>
         </section>
       </main>
+      
+      {/* レストラン構造化データ */}
+      <RestaurantStructuredData 
+        name="薪窯Pizza POLE POLE"
+        description="広島県東広島市西条の自然に囲まれた一軒家で、本格的な薪窯Pizzaが楽しめるレストラン。こだわりの生地と地元の新鮮な食材を使った、焼きたての薪窯ピザを提供。"
+        address={{
+          streetAddress: "西条町田口70-1",
+          addressLocality: "東広島市",
+          addressRegion: "広島県",
+          postalCode: "739-0036",
+          addressCountry: "JP"
+        }}
+        phone=""
+        email=""
+        url="https://pizzapolepole.com"
+        openingHours={[
+          "火曜日: 11:00-15:00",
+          "水曜日: 11:00-15:00", 
+          "木曜日: 11:00-15:00",
+          "金曜日: 11:00-15:00",
+          "土曜日: 11:00-15:00",
+          "日曜日: 11:00-15:00"
+        ]}
+        priceRange="¥¥"
+        cuisine={["ピザ", "イタリア料理", "カフェ"]}
+        image="https://pizzapolepole.com/images/exterior_全体.JPG"
+      />
+      <FAQStructuredData />
     </div>
   );
 }

@@ -1,0 +1,79 @@
+.breadcrumb {
+  margin: 1rem 0 2rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, rgba(155, 175, 135, 0.05) 0%, rgba(230, 237, 223, 0.1) 100%);
+  border-radius: 8px;
+  border: 1px solid rgba(155, 175, 135, 0.15);
+}
+
+.breadcrumbList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.breadcrumbItem {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbLink {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.breadcrumbLink:hover {
+  color: var(--primary-color-dark);
+  text-decoration: underline;
+}
+
+.separator {
+  margin: 0 0.5rem;
+  color: var(--text-color-light);
+  font-weight: 400;
+}
+
+.currentPage {
+  color: var(--text-color-dark);
+  font-weight: 600;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .breadcrumb {
+    margin: 0.5rem 0 1.5rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .breadcrumbList {
+    font-size: 0.85rem;
+  }
+  
+  .separator {
+    margin: 0 0.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .breadcrumbList {
+    font-size: 0.8rem;
+  }
+  
+  .breadcrumbItem {
+    max-width: 100%;
+  }
+  
+  .breadcrumbLink,
+  .currentPage {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+  }
+}

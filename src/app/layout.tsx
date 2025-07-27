@@ -20,6 +20,32 @@ export const metadata: Metadata = {
   },
   description:
     "広島県東広島市西条の自然に囲まれた一軒家で、本格的な薪窯Pizzaが楽しめる「POLE POLE（ポレポレ）」。こだわりの生地と地元の新鮮な食材を使った、焼きたての薪窯ピザをどうぞ。",
+  keywords: [
+    "薪窯ピザ", "東広島", "西条", "ピザレストラン", "ランチ", "カフェ", 
+    "本格ナポリピザ", "地元食材", "一軒家レストラン", "POLE POLE", "ポレポレ",
+    "広島グルメ", "薪窯", "手作りピザ", "自然", "田園風景"
+  ],
+  authors: [{ name: "Pizza POLE POLE" }],
+  creator: "Pizza POLE POLE",
+  publisher: "Pizza POLE POLE",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: "https://pizzapolepole.com",
+    languages: {
+      'ja': 'https://pizzapolepole.com',
+      'en': 'https://pizzapolepole.com/en',
+    },
+  },
   openGraph: {
     title: "薪窯Pizza POLE POLE | 東広島・西条の本格ピザレストラン",
     description:
@@ -27,7 +53,7 @@ export const metadata: Metadata = {
     siteName: "薪窯Pizza POLE POLE",
     images: [
       {
-        url: "/images/Kama.jpg",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "東広島・西条の薪窯Pizza POLE POLEの薪窯",
@@ -35,14 +61,22 @@ export const metadata: Metadata = {
     ],
     locale: "ja_JP",
     type: "website",
+    url: "https://pizzapolepole.com",
   },
   twitter: {
     card: "summary_large_image",
+    site: "@pizzapolepole",
+    creator: "@pizzapolepole",
     title: "薪窯Pizza POLE POLE | 東広島・西条のピザレストラン",
     description:
       "広島県東広島市西条の自然に囲まれた一軒家で、本格的な薪窯Pizzaが楽しめる「POLE POLE（ポレポレ）」。こだわりの生地と地元の新鮮な食材を使った、焼きたての薪窯ピザをどうぞ。",
-    images: ["/images/Kama.jpg"],
+    images: ["/opengraph-image"],
   },
+  verification: {
+    google: "your-google-verification-code",
+    yandex: "your-yandex-verification-code",
+  },
+  category: "restaurant",
 };
 
 export default function RootLayout({

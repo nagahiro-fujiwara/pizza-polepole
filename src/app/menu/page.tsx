@@ -2,6 +2,7 @@ import pageStyles from "../page.module.css";
 import menuStyles from "./menu.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import Breadcrumb from "../../components/Breadcrumb";
 import { getDictionary } from "../../get-dictionary";
 
 export async function generateMetadata() {
@@ -67,6 +68,12 @@ export default async function Menu() {
   return (
     <div className={`${pageStyles.page} page-container`}>
       <main className={pageStyles.main}>
+        <Breadcrumb 
+          items={[
+            { name: 'ホーム', url: '/' },
+            { name: 'メニュー', url: '/menu' }
+          ]}
+        />
         <h1 className="section-title">{dict.menu.title}</h1>
         <div className={menuStyles.menuGrid} style={{ marginBottom: "2rem" }}>
           <div className={menuStyles.menuImageWrapper}>
