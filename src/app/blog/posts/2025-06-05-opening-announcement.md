@@ -1,9 +1,10 @@
----
+﻿---
 title: 'Openのお知らせ'
 date: '2025-06-05'
 image: '/images/開店のお知らせ.png'
-description: '2025年6月26日(木) AM11:00より「薪窯PIZZA POLE POLE（ポレポレ）」をopenします。退職後2年3ヶ月の準備期間を経て、ついに開店です。'
+description: '**2025年6月26日(木) AM11:00〜**...詳細を表示'
 lang: 'ja'
+tags: ['営業・お知らせ']
 ---
 
 ## Openのお知らせ📢

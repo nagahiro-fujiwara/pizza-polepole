@@ -2,8 +2,9 @@
 title: '店名 "POLE POLE"への想い'
 date: '2024-04-08'
 image: '/images/店名への想い.png'
-description: 'POLE POLEという店名に込めた想い。「ぼちぼち行こう」「ゆっくり生きよう」の意味と、現代を生きる私たちへのメッセージ。'
+description: '"POLE POLE" /ポレポレ 「ぼちぼち行こう」 「ゆっくり生きよう」...詳細を表示'
 lang: 'ja'
+tags: ['開業準備']
 ---
 
 # 🍕店名 "POLE POLE"への想い ✍🏻〰️

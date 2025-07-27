@@ -6,6 +6,7 @@ image: "/images/お休みです.JPG"
 lang: "ja"
 featured: false
 category: "notice"
+tags: ['営業・お知らせ']
 ---
 
 ## 臨時休業のお知らせ

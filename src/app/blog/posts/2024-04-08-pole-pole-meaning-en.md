@@ -4,6 +4,7 @@ date: '2024-04-08'
 image: '/images/店名への想い.png'
 description: 'The meaning behind our restaurant name POLE POLE. Take it easy, live slowly - a message for those living in our modern world.'
 lang: 'en'
+tags: ['開業準備']
 ---
 
 # 🍕Our Thoughts Behind the Name "POLE POLE" ✍🏻〰️

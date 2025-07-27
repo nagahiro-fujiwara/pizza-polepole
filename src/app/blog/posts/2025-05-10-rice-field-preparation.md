@@ -1,9 +1,10 @@
----
+﻿---
 title: 'POLE POLE田んぼの代掻き完了'
 date: '2025-05-10'
 image: '/images/代かき.png'
-description: '店舗工事が進む中、POLE POLE田んぼの代掻きを終えました。田んぼと山と川に隣接した当店周りの自然環境を大切にしていきたいという想い。'
+description: '代掻き🚜➿...詳細を表示'
 lang: 'ja'
+tags: ['農業・田んぼ']
 ---
 
 ## 2025.05.10(sat)

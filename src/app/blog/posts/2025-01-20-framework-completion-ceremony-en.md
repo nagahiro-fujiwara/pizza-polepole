@@ -4,6 +4,7 @@ date: '2025-01-20'
 image: '/images/上棟.png'
 description: 'Framework completion ceremony on an auspicious building day. A natural, simple space filled with love from the master carpenter, architect, and restaurant family. Also featuring seasonal winter ingredients during Daikan period.'
 lang: 'en'
+tags: ['建設・工事', '文化・イベント']
 ---
 
 ## 2025.01.20(mon) Auspicious Building Day 建(Tatsu)

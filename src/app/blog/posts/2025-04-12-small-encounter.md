@@ -1,9 +1,10 @@
----
+﻿---
 title: '小さな出会い'
 date: '2025-04-12'
 image: '/images/小さな出会い.png'
-description: '左官工事の立ち合いから帰る途中、外国人の女の子がGoogle mapで薪窯PIZZA POLE POLEを探していました。英語が苦手な私たちとの心温まる小さな出会い。'
+description: '小さな出会い 🍀...詳細を表示'
 lang: 'ja'
+tags: ['家族・人生', '開業準備']
 ---
 
 ## 2025.04.12(sat)

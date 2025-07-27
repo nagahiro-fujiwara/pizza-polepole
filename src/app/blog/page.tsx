@@ -1,11 +1,10 @@
 import fs from 'fs/promises';
 import path from 'path';
-import Link from 'next/link';
 import matter from 'gray-matter';
-import Image from 'next/image';
 import { getDictionary } from "../../get-dictionary";
 import pageStyles from "../page.module.css";
 import styles from './blog.module.css';
+import BlogFilter from '../../components/BlogFilter';
 
 interface BlogPost {
   slug: string;
@@ -14,6 +13,7 @@ interface BlogPost {
   description: string;
   image?: string;
   lang?: string;
+  tags?: string[];
 }
 
 export async function generateMetadata() {
@@ -68,7 +68,8 @@ export default async function BlogPage() {
             date: data.date || '2025-01-01',
             description: data.description || '',
             image: data.image,
-            lang: data.lang || 'ja'
+            lang: data.lang || 'ja',
+            tags: data.tags || []
           };
         })
       );
@@ -95,35 +96,7 @@ export default async function BlogPage() {
         <div className={styles.container}>
           <p style={{ color: '#666', fontSize: '1.1rem', textAlign: 'center', marginBottom: '3rem' }}>{dict.blog.description}</p>
 
-          <div className={styles.grid}>
-          {posts.length > 0 ? (
-            posts.map((post) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`} className={styles.card}>
-                {post.image && (
-                  <div className={styles.cardImageContainer}>
-                    <Image
-                      src={post.image}
-                      alt={post.title}
-                      fill
-                      className={styles.cardImage}
-                      style={{ objectFit: 'cover' }}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                  </div>
-                )}
-                <div className={styles.cardContent}>
-                  <h2 className={styles.cardTitle}>{post.title}</h2>
-                  <time className={styles.cardDate}>{new Date(post.date).toLocaleDateString('ja-JP')}</time>
-                  <p className={styles.cardDescription}>{post.description}</p>
-                </div>
-              </Link>
-            ))
-          ) : (
-            <p style={{ textAlign: 'center', color: '#666', gridColumn: '1 / -1' }}>
-              ブログ記事はまだありません。
-            </p>
-          )}
-        </div>
+          <BlogFilter posts={posts} />
         </div>
       </main>
     </div>
