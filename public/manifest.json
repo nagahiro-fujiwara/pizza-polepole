@@ -1,0 +1,30 @@
+{
+  "name": "薪窯Pizza POLE POLE",
+  "short_name": "POLE POLE",
+  "description": "東広島・西条の本格薪窯ピザレストラン",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#e6eddf",
+  "theme_color": "#9baf87",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/Logo1.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/Logo1.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "food",
+    "restaurant"
+  ],
+  "lang": "ja",
+  "dir": "ltr"
+}

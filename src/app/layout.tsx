@@ -78,6 +78,17 @@ export const metadata: Metadata = {
     yandex: "your-yandex-verification-code",
   },
   category: "restaurant",
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+      { url: '/images/Logo1.png', sizes: '192x192', type: 'image/png' },
+      { url: '/images/Logo1.png', sizes: '512x512', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: [
+      { url: '/images/Logo1.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -95,6 +106,16 @@ export default function RootLayout({
         <meta property="og:locale" content="ja_JP" />
         <meta property="og:site_name" content="薪窯Pizza POLE POLE" />
         <meta name="format-detection" content="telephone=no" />
+        
+        {/* ファビコン設定 */}
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
+        <link rel="icon" href="/images/Logo1.png" type="image/png" sizes="192x192" />
+        <link rel="apple-touch-icon" href="/images/Logo1.png" sizes="180x180" />
+        <link rel="mask-icon" href="/images/Logo1.png" color="#9baf87" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#9baf87" />
+        <meta name="msapplication-TileColor" content="#9baf87" />
+        <meta name="msapplication-TileImage" content="/images/Logo1.png" />
       </head>
       <body className={inter.className}>
         <WebSiteStructuredData />
