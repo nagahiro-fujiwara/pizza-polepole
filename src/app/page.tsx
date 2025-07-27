@@ -6,6 +6,7 @@ import BlogNotification from "../components/BlogNotification";
 import StructuredData from "../components/StructuredData";
 import RestaurantStructuredData from "../components/RestaurantStructuredData";
 import FAQStructuredData from "../components/FAQStructuredData";
+import OrganizationStructuredData from "../components/OrganizationStructuredData";
 import { getDictionary } from "../get-dictionary";
 import { getFeaturedBlogPosts } from "../utils/blog";
 
@@ -203,6 +204,7 @@ export default async function Home() {
         image="https://pizzapolepole.com/images/exterior_全体.JPG"
       />
       <FAQStructuredData />
+      <OrganizationStructuredData />
     </div>
   );
 }

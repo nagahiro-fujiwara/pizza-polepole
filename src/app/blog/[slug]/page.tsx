@@ -21,6 +21,7 @@ type PostData = {
   image: string;
   description: string;
   contentHtml: string;
+  tags?: string[];
 };
 
 // Generate dynamic metadata
@@ -35,6 +36,32 @@ export async function generateMetadata({ params: paramsPromise }: { params: Prom
   return {
     title: postData.title,
     description: postData.description,
+    keywords: postData.tags?.join(', ') || 'ピザ,薪窯,東広島,西条,ブログ',
+    openGraph: {
+      title: postData.title,
+      description: postData.description || postData.title,
+      url: `https://pizzapolepole.com/blog/${params.slug}`,
+      images: [
+        {
+          url: postData.image || '/images/Kama.jpg',
+          width: 1200,
+          height: 630,
+          alt: postData.title,
+        },
+      ],
+      type: 'article',
+      publishedTime: postData.date,
+      authors: ['Pizza POLE POLE'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: postData.title,
+      description: postData.description || postData.title,
+      images: [postData.image || '/images/Kama.jpg'],
+    },
+    alternates: {
+      canonical: `https://pizzapolepole.com/blog/${params.slug}`,
+    },
   };
 }
 
@@ -63,6 +90,7 @@ async function getPostData(slug: string): Promise<PostData | null> {
       date: matterResult.data.date,
       image: matterResult.data.image,
       description: matterResult.data.description,
+      tags: matterResult.data.tags,
       contentHtml,
     };
   } catch {

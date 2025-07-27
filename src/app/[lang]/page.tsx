@@ -114,7 +114,7 @@ export default async function Home({
           <div className={styles.aboutImage}>
             <Image
               src="/images/exterior_イス.JPG"
-              alt="店外の椅子"
+              alt="薪窯Pizza POLE POLE店外のベンチ - 東広島西条の自然に囲まれた憩いの空間"
               width={500}
               height={375}
               sizes="(max-width: 768px) 100vw, 500px"
@@ -147,7 +147,7 @@ export default async function Home({
               <div className={styles.imgContainer}>
                 <Image
                   src="/images/menu_マルゲリータ.jpeg"
-                  alt="マルゲリータ"
+                  alt="薪窯で焼いた本格マルゲリータピザ - モッツァレラチーズとバジルの香り"
                   fill
                   style={{ objectFit: "cover" }}
                   className={styles.img}
@@ -162,7 +162,7 @@ export default async function Home({
               <div className={styles.imgContainer}>
                 <Image
                   src="/images/menu_フォルマッジ.jpeg"
-                  alt="クワトロフォルマッジ"
+                  alt="4種チーズの薪窯クワトロフォルマッジピザ - 濃厚チーズの味わい"
                   fill
                   style={{ objectFit: "cover" }}
                   className={styles.img}
@@ -177,7 +177,7 @@ export default async function Home({
               <div className={styles.imgContainer}>
                 <Image
                   src="/images/menu_マリナーラ.jpeg"
-                  alt="マリナーラ"
+                  alt="薪窯焼きマリナーラピザ - トマトソースとガーリックの風味"
                   fill
                   style={{ objectFit: "cover" }}
                   className={styles.img}

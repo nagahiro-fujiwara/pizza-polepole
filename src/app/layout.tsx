@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import WebSiteStructuredData from "@/components/WebSiteStructuredData";
 
 const inter = Inter({ subsets: ["latin"] });
 const kleeOne = Klee_One({
@@ -96,6 +97,7 @@ export default function RootLayout({
         <meta name="format-detection" content="telephone=no" />
       </head>
       <body className={inter.className}>
+        <WebSiteStructuredData />
         <Header />
         {children}
         <Footer />

@@ -53,7 +53,7 @@ export default async function About({ params }: AboutPageProps) {
           <div className={aboutStyles.backgroundImage}>
             <Image
               src="/images/exterior_イス2.JPG"
-              alt="店外の椅子と緑"
+              alt="薪窯Pizza POLE POLE店外の石のベンチ - 東広島西条の自然に囲まれた憩いの空間"
               fill
               style={{ objectFit: 'cover' }}
               priority

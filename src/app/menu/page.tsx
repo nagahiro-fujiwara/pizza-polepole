@@ -3,6 +3,7 @@ import menuStyles from "./menu.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "../../components/Breadcrumb";
+import MenuStructuredData from "../../components/MenuStructuredData";
 import { getDictionary } from "../../get-dictionary";
 
 export async function generateMetadata() {
@@ -79,7 +80,7 @@ export default async function Menu() {
           <div className={menuStyles.menuImageWrapper}>
             <Image
               src="/images/menu1.png"
-              alt="メニュー表1"
+              alt="薪窯Pizza POLE POLEのメニュー表 - 本格ナポリピザと地元食材の料理一覧"
               width={800}
               height={1132}
             />
@@ -87,7 +88,7 @@ export default async function Menu() {
           <div className={menuStyles.menuImageWrapper}>
             <Image
               src="/images/menu2.png"
-              alt="メニュー表2"
+              alt="薪窯ピザのドリンクメニュー - コーヒーやビール等のお飲み物一覧"
               width={800}
               height={1132}
             />
@@ -98,7 +99,7 @@ export default async function Menu() {
           <div className={menuStyles.menuImageWrapper}>
             <Image
               src="/images/menu_こだわり.png"
-              alt="こだわり1"
+              alt="薪窯ピザへのこだわり - 生地から薪選びまで職人の技術説明"
               width={320}
               height={220}
               style={{
@@ -112,7 +113,7 @@ export default async function Menu() {
           <div className={menuStyles.menuImageWrapper}>
             <Image
               src="/images/menu_こだわり2.png"
-              alt="こだわり2"
+              alt="地元食材へのこだわり - 東広島西条の新鮮な食材へのこだわり"
               width={320}
               height={220}
               style={{
@@ -189,6 +190,7 @@ export default async function Menu() {
           })}
         </div>
       </main>
+      <MenuStructuredData />
     </div>
   );
 }

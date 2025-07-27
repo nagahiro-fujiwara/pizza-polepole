@@ -119,7 +119,7 @@ export default function PizzaGallery() {
           <div className={styles.pizzaCenter}>
             <Image
               src="/images/Logo1.png"
-              alt="ポレポレロゴ"
+              alt="薪窯Pizza POLE POLEのロゴ - 東広島西条の本格薪窯ピザレストラン"
               width={80}
               height={80}
               className={styles.centerLogo}
