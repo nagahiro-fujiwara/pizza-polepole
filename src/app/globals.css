@@ -44,13 +44,28 @@ html, body {
 
 .section-title {
     font-family: 'Montserrat', 'Klee One', 'Hannari', 'Noto Sans JP', serif;
-    font-size: 2.3rem;
+    font-size: 2.8rem;
+    font-weight: 700;
     color: var(--primary-color);
     text-align: center;
-    margin-bottom: 2.5rem;
-    letter-spacing: 0.1em;
-    font-weight: 700;
-    padding-top: 2rem; /* タイトルの上の余白 */
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+    letter-spacing: 0.05em;
+    position: relative;
+    line-height: 1.2;
+    padding-top: 2rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -0.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-color-dark));
+    border-radius: 2px;
 }
 
 .text-center {
@@ -164,7 +179,11 @@ hr {
 
 /* レスポンシブ調整 */
 @media (max-width: 900px) {
-  .section-title { font-size: 1.5rem; }
+  .section-title { 
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+    padding-top: 1.5rem;
+  }
   .card { padding: 1.2rem; }
   section { padding-top: 28px; padding-bottom: 28px; }
 }
@@ -182,13 +201,34 @@ hr {
     font-size: 1rem;
     padding: 0.5em 1.2em;
   }
-  .section-title { font-size: 1.1rem; }
+  .section-title { 
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    letter-spacing: 0.03em;
+  }
+  .section-title::after {
+    width: 60px;
+    height: 2px;
+    bottom: -0.6rem;
+  }
   header.sticky, header {
     padding: 0.5rem 0.7rem !important;
     min-height: 44px;
   }
-  .section-title, h1, h2, h3, h4, h5 {
+  h1, h2, h3, h4, h5 {
     margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    font-size: 1.6rem;
   }
 }
 

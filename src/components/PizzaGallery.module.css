@@ -1,0 +1,583 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8faf6 0%, #e6eddf 100%);
+  min-height: 100vh;
+}
+
+/* ギャラリータイトル特別スタイル */
+.galleryTitle {
+  font-family: 'Montserrat', 'Klee One', serif;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 4rem;
+  margin-top: 2rem;
+  letter-spacing: 0.08em;
+  position: relative;
+  line-height: 1.1;
+  text-shadow: 0 2px 4px rgba(155, 175, 135, 0.1);
+}
+
+.galleryTitle::before {
+  content: '✨';
+  position: absolute;
+  left: -3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  opacity: 0.7;
+}
+
+.galleryTitle::after {
+  content: '✨';
+  position: absolute;
+  right: -3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  opacity: 0.7;
+}
+
+/* カテゴリタブ */
+.categoryTabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.categoryTab {
+  padding: 0.8rem 2rem;
+  border: 2px solid var(--primary-color);
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.categoryTab:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(155, 175, 135, 0.3);
+}
+
+.categoryTab.active {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(155, 175, 135, 0.4);
+}
+
+/* ピザコンテナ */
+.pizzaContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  perspective: 1000px;
+}
+
+.pizza {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #f4e4bc 0%, #e6d5a8 40%, #d4b896 100%);
+  box-shadow: 
+    0 0 0 8px rgba(212, 184, 150, 0.3),
+    0 20px 60px rgba(155, 175, 135, 0.2);
+  overflow: visible;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.pizza:hover {
+  transform: scale(1.01);
+}
+
+/* 中央ロゴ */
+.pizzaCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  border: 3px solid var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.centerLogo {
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.pizzaCenter:hover .centerLogo {
+  transform: scale(1.1) rotate(10deg);
+}
+
+/* ピザスライス - 円形配置 */
+.pizzaSlice {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.pizzaSlice:hover {
+  z-index: 15;
+  filter: brightness(1.1) saturate(1.2);
+  transform: scale(1.15);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* 8つの画像を円状に配置 */
+.slice1 {
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.slice1:hover {
+  transform: translateX(-50%) translateY(-20px);
+}
+
+.slice2 {
+  top: 85px;
+  right: 85px;
+}
+
+.slice2:hover {
+  transform: translate(20px, -20px);
+}
+
+.slice3 {
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%);
+}
+
+.slice3:hover {
+  transform: translateY(-50%) translateX(20px);
+}
+
+.slice4 {
+  bottom: 85px;
+  right: 85px;
+}
+
+.slice4:hover {
+  transform: translate(20px, 20px);
+}
+
+.slice5 {
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.slice5:hover {
+  transform: translateX(-50%) translateY(20px);
+}
+
+.slice6 {
+  bottom: 85px;
+  left: 85px;
+}
+
+.slice6:hover {
+  transform: translate(-20px, 20px);
+}
+
+.slice7 {
+  top: 50%;
+  left: 50px;
+  transform: translateY(-50%);
+}
+
+.slice7:hover {
+  transform: translateY(-50%) translateX(-20px);
+}
+
+.slice8 {
+  top: 85px;
+  left: 85px;
+}
+
+.slice8:hover {
+  transform: translate(-20px, -20px);
+}
+
+.sliceContent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.sliceImage {
+  transition: transform 0.4s ease;
+  filter: brightness(0.9) contrast(1.1);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.pizzaSlice:hover .sliceImage {
+  filter: brightness(1.1) contrast(1.2);
+}
+
+/* ライトボックス */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lightboxContent {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.closeButton:hover {
+  background: var(--primary-dark);
+  transform: scale(1.05);
+}
+
+.lightboxImage {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.lightboxInfo {
+  padding: 1.5rem;
+  background: var(--accent-color);
+}
+
+.lightboxInfo h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.lightboxInfo p {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .galleryTitle {
+    font-size: 2.4rem;
+    margin-bottom: 3rem;
+    letter-spacing: 0.05em;
+  }
+  
+  .galleryTitle::before,
+  .galleryTitle::after {
+    font-size: 1.5rem;
+  }
+  
+  .galleryTitle::before {
+    left: -2rem;
+  }
+  
+  .galleryTitle::after {
+    right: -2rem;
+  }
+  
+  .pizza {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .pizzaSlice {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .slice1 {
+    top: 25px;
+  }
+  
+  .slice1:hover {
+    transform: translateX(-50%) translateY(-15px);
+  }
+  
+  .slice2 {
+    top: 55px;
+    right: 55px;
+  }
+  
+  .slice2:hover {
+    transform: translate(15px, -15px);
+  }
+  
+  .slice3 {
+    right: 25px;
+  }
+  
+  .slice3:hover {
+    transform: translateY(-50%) translateX(15px);
+  }
+  
+  .slice4 {
+    bottom: 55px;
+    right: 55px;
+  }
+  
+  .slice4:hover {
+    transform: translate(15px, 15px);
+  }
+  
+  .slice5 {
+    bottom: 25px;
+  }
+  
+  .slice5:hover {
+    transform: translateX(-50%) translateY(15px);
+  }
+  
+  .slice6 {
+    bottom: 55px;
+    left: 55px;
+  }
+  
+  .slice6:hover {
+    transform: translate(-15px, 15px);
+  }
+  
+  .slice7 {
+    left: 25px;
+  }
+  
+  .slice7:hover {
+    transform: translateY(-50%) translateX(-15px);
+  }
+  
+  .slice8 {
+    top: 55px;
+    left: 55px;
+  }
+  
+  .slice8:hover {
+    transform: translate(-15px, -15px);
+  }
+  
+  .pizzaCenter {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .centerLogo {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .categoryTabs {
+    gap: 0.5rem;
+  }
+  
+  .categoryTab {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .galleryTitle {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.03em;
+  }
+  
+  .galleryTitle::before,
+  .galleryTitle::after {
+    font-size: 1.2rem;
+  }
+  
+  .galleryTitle::before {
+    left: -1.5rem;
+  }
+  
+  .galleryTitle::after {
+    right: -1.5rem;
+  }
+  
+  .pizza {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .pizzaSlice {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .slice1 {
+    top: 15px;
+  }
+  
+  .slice1:hover {
+    transform: translateX(-50%) translateY(-12px);
+  }
+  
+  .slice2 {
+    top: 40px;
+    right: 40px;
+  }
+  
+  .slice2:hover {
+    transform: translate(12px, -12px);
+  }
+  
+  .slice3 {
+    right: 15px;
+  }
+  
+  .slice3:hover {
+    transform: translateY(-50%) translateX(12px);
+  }
+  
+  .slice4 {
+    bottom: 40px;
+    right: 40px;
+  }
+  
+  .slice4:hover {
+    transform: translate(12px, 12px);
+  }
+  
+  .slice5 {
+    bottom: 15px;
+  }
+  
+  .slice5:hover {
+    transform: translateX(-50%) translateY(12px);
+  }
+  
+  .slice6 {
+    bottom: 40px;
+    left: 40px;
+  }
+  
+  .slice6:hover {
+    transform: translate(-12px, 12px);
+  }
+  
+  .slice7 {
+    left: 15px;
+  }
+  
+  .slice7:hover {
+    transform: translateY(-50%) translateX(-12px);
+  }
+  
+  .slice8 {
+    top: 40px;
+    left: 40px;
+  }
+  
+  .slice8:hover {
+    transform: translate(-12px, -12px);
+  }
+  
+  .pizzaCenter {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .centerLogo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .categoryTabs {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  
+  .categoryTab {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.8rem;
+  }
+}

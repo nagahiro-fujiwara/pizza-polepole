@@ -94,7 +94,9 @@ export default async function BlogPage() {
         <h1 className="section-title">{dict.blog.title}</h1>
         
         <div className={styles.container}>
-          <p style={{ color: '#666', fontSize: '1.1rem', textAlign: 'center', marginBottom: '3rem' }}>{dict.blog.description}</p>
+          <div className={styles.description}>
+            <p>{dict.blog.description}</p>
+          </div>
 
           <BlogFilter posts={posts} />
         </div>

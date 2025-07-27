@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../app/blog/blog.module.css';
+import BlogCarousel from './BlogCarousel';
 
 interface BlogPost {
   slug: string;
@@ -22,6 +23,7 @@ interface BlogFilterProps {
 export default function BlogFilter({ posts }: BlogFilterProps) {
   const [selectedTag, setSelectedTag] = useState<string>('');
   const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>(posts);
+  const [viewMode, setViewMode] = useState<'carousel' | 'grid' | 'list'>('carousel');
 
   // すべての投稿からタグを抽出
   const allTags = Array.from(
@@ -42,6 +44,47 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
 
   return (
     <div>
+      {/* 表示モード切り替え */}
+      <div className={styles.viewModeToggle}>
+        <button
+          className={`${styles.viewModeButton} ${viewMode === 'carousel' ? styles.active : ''}`}
+          onClick={() => setViewMode('carousel')}
+          title="カルーセル表示"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" strokeWidth="2"/>
+            <circle cx="8" cy="12" r="2" fill="currentColor"/>
+            <circle cx="16" cy="12" r="2" fill="currentColor"/>
+          </svg>
+        </button>
+        <button
+          className={`${styles.viewModeButton} ${viewMode === 'grid' ? styles.active : ''}`}
+          onClick={() => setViewMode('grid')}
+          title="グリッド表示"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="3" width="7" height="7" stroke="currentColor" strokeWidth="2"/>
+            <rect x="14" y="3" width="7" height="7" stroke="currentColor" strokeWidth="2"/>
+            <rect x="3" y="14" width="7" height="7" stroke="currentColor" strokeWidth="2"/>
+            <rect x="14" y="14" width="7" height="7" stroke="currentColor" strokeWidth="2"/>
+          </svg>
+        </button>
+        <button
+          className={`${styles.viewModeButton} ${viewMode === 'list' ? styles.active : ''}`}
+          onClick={() => setViewMode('list')}
+          title="リスト表示"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <line x1="8" y1="6" x2="21" y2="6" stroke="currentColor" strokeWidth="2"/>
+            <line x1="8" y1="12" x2="21" y2="12" stroke="currentColor" strokeWidth="2"/>
+            <line x1="8" y1="18" x2="21" y2="18" stroke="currentColor" strokeWidth="2"/>
+            <line x1="3" y1="6" x2="3.01" y2="6" stroke="currentColor" strokeWidth="2"/>
+            <line x1="3" y1="12" x2="3.01" y2="12" stroke="currentColor" strokeWidth="2"/>
+            <line x1="3" y1="18" x2="3.01" y2="18" stroke="currentColor" strokeWidth="2"/>
+          </svg>
+        </button>
+      </div>
+
       {/* タグフィルター */}
       <div className={styles.tagFilter}>
         <button
@@ -61,45 +104,84 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
         ))}
       </div>
 
-      {/* ブログ投稿一覧 */}
-      <div className={styles.grid}>
-        {filteredPosts.length > 0 ? (
-          filteredPosts.map((post) => (
-            <Link key={post.slug} href={`/blog/${post.slug}`} className={styles.card}>
-              {post.image && (
-                <div className={styles.cardImageContainer}>
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className={styles.cardImage}
-                    style={{ objectFit: 'cover' }}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                </div>
-              )}
-              <div className={styles.cardContent}>
-                <h2 className={styles.cardTitle}>{post.title}</h2>
-                <time className={styles.cardDate}>{new Date(post.date).toLocaleDateString('ja-JP')}</time>
-                {post.tags && post.tags.length > 0 && (
-                  <div className={styles.cardTags}>
-                    {post.tags.map(tag => (
-                      <span key={tag} className={styles.cardTag}>
-                        {tag}
-                      </span>
-                    ))}
+      {/* 表示モードに応じたコンテンツ */}
+      {viewMode === 'carousel' ? (
+        <BlogCarousel posts={filteredPosts} />
+      ) : (
+        /* グリッド・リスト表示 */
+        <div className={viewMode === 'grid' ? styles.grid : styles.list}>
+          {filteredPosts.length > 0 ? (
+            filteredPosts.map((post) => (
+              <Link 
+                key={post.slug} 
+                href={`/blog/${post.slug}`} 
+                className={viewMode === 'grid' ? styles.card : styles.listCard}
+              >
+                {post.image && (
+                  <div className={viewMode === 'grid' ? styles.cardImageContainer : styles.listImageContainer}>
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className={styles.cardImage}
+                      style={{ objectFit: 'cover' }}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
                   </div>
                 )}
-                <p className={styles.cardDescription}>{post.description}</p>
-              </div>
-            </Link>
-          ))
-        ) : (
-          <p style={{ textAlign: 'center', color: '#666', gridColumn: '1 / -1' }}>
-            {selectedTag ? `「${selectedTag}」に該当する記事はありません。` : 'ブログ記事はまだありません。'}
-          </p>
-        )}
-      </div>
+                <div className={viewMode === 'grid' ? styles.cardContent : styles.listContent}>
+                  <h2 className={viewMode === 'grid' ? styles.cardTitle : styles.listTitle}>
+                    {post.title}
+                  </h2>
+                  {viewMode === 'list' ? (
+                    <div className={styles.listMeta}>
+                      <time className={styles.listDate}>
+                        {new Date(post.date).toLocaleDateString('ja-JP')}
+                      </time>
+                      {post.tags && post.tags.length > 0 && (
+                        <div className={styles.cardTags}>
+                          {post.tags.map(tag => (
+                            <span key={tag} className={styles.cardTag}>
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <>
+                      <time className={styles.cardDate}>
+                        {new Date(post.date).toLocaleDateString('ja-JP')}
+                      </time>
+                      {post.tags && post.tags.length > 0 && (
+                        <div className={styles.cardTags}>
+                          {post.tags.map(tag => (
+                            <span key={tag} className={styles.cardTag}>
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  )}
+                  <p className={viewMode === 'grid' ? styles.cardDescription : styles.listDescription}>
+                    {post.description}
+                  </p>
+                </div>
+              </Link>
+            ))
+          ) : (
+            <p style={{ 
+              textAlign: 'center', 
+              color: 'var(--text-color)', 
+              gridColumn: viewMode === 'grid' ? '1 / -1' : 'unset',
+              padding: '2rem'
+            }}>
+              {selectedTag ? `「${selectedTag}」に該当する記事はありません。` : 'ブログ記事はまだありません。'}
+            </p>
+          )}
+        </div>
+      )}
     </div>
   );
 }
