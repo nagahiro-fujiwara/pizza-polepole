@@ -84,6 +84,12 @@ const nextConfig = {
       },
     ]
   },
+
+  // 実験的機能のセキュリティ設定
+  experimental: {
+    // サーバーコンポーネントの安全性向上
+    serverComponentsExternalPackages: [],
+  },
 };
 
 export default nextConfig;
