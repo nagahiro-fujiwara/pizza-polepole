@@ -46,7 +46,7 @@
     "pizza_highlight": {
       "title": "自慢の薪窯Pizza",
       "margherita_title": "マルゲリータ",
-      "margherita_desc": "トマトとバジル、モッツァレラの定番ピザ",
+      "margherita_desc": "トマトとバジル、モッツァレラの定番Pizza",
       "formaggi_title": "クワトロフォルマッジ",
       "formaggi_desc": "自家製りんごペーストと楽しむ4種のチーズ"
     },
@@ -57,7 +57,7 @@
     },
     "final_cta": {
       "title": "POLE POLEで、会いましょう",
-      "description_html": "薪窯で焼き上げるあつあつのピザと、やすらぎの空間をご用意して。<br />あなたのお越しを、心よりお待ちしています。",
+      "description_html": "薪窯で焼き上げるあつあつのPizzaと、やすらぎの空間をご用意して。<br />あなたのお越しを、心よりお待ちしています。",
       "button_access": "お店の場所を確認する",
       "button_blog": "日々のブログを読む"
     }

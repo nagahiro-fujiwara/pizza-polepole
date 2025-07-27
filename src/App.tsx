@@ -46,7 +46,7 @@ function App() {
 
       <main>
         <section className="hero">
-          <h2>最高の石窯ピザを、あなたに。</h2>
+          <h2>最高の薪窯Pizzaを、あなたに。</h2>
           <p>一枚一枚、心を込めて焼き上げています。</p>
         </section>
 
@@ -55,7 +55,7 @@ function App() {
         <section id="about" className="about fade-in">
           <h2>About Us</h2>
           <p>
-            Pizza PolePoleは、小さなピザ屋です。
+            Pizza PolePoleは、小さなPizza屋です。
             厳選された食材と伝統的な製法で、最高の味をお届けします。
           </p>
         </section>
