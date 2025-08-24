@@ -4,7 +4,6 @@ date: '2025-07-22'
 image: '/images/8月休み.png'
 description: 'Notice about August temporary closures, regular holidays, and summer break (Obon holiday). Sharing our thoughts on community and family bonds.'
 lang: 'en'
-featured: true
 ---
 
 ## Taisho (Great Heat) 🔥

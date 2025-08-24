@@ -4,7 +4,6 @@ date: '2025-07-22'
 image: '/images/8月休み.png'
 description: '暑い日が続く中...詳細を表示'
 lang: 'ja'
-featured: true
 tags: ['営業・お知らせ', '季節・自然']
 ---
 

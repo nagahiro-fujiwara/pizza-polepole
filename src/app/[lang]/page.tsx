@@ -100,12 +100,12 @@ export default async function Home({
 
         <Notification 
           message={t.notification.temp_closure}
-          link="/blog/2025-07-20-temporary-closure"
+          link="/blog/2025-08-23-september-holiday"
           linkText={t.notification.link_text}
         />
         <Notification 
           message={t.notification.summer_holiday}
-          link="/blog/2025-08-12-summer-holiday"
+          link="/blog/2025-08-23-september-holiday"
           linkText={t.notification.link_text}
         />
 

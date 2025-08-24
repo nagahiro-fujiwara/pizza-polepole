@@ -160,7 +160,11 @@ export default async function Menu() {
                     <div style={{ 
                       marginTop: "1rem",
                       marginBottom: "1rem",
-                      textAlign: "center"
+                      textAlign: "center",
+                      display: "flex",
+                      gap: "1rem",
+                      justifyContent: "center",
+                      flexWrap: "wrap"
                     }}>
                       <Link 
                         href="/blog/2025-07-26-seasonal-august" 
@@ -180,6 +184,25 @@ export default async function Menu() {
                         }}
                       >
                         🍕 8月はこちら
+                      </Link>
+                      <Link 
+                        href="/blog/2025-08-24-september-seasonal-pizza" 
+                        style={{ 
+                          color: "#8b4513", 
+                          textDecoration: "none",
+                          fontSize: "1rem",
+                          fontWeight: "bold",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "0.5rem",
+                          padding: "0.5rem 1rem",
+                          backgroundColor: "#fff",
+                          border: "1px solid #8b4513",
+                          borderRadius: "20px",
+                          boxShadow: "0 2px 4px rgba(139, 69, 19, 0.1)"
+                        }}
+                      >
+                        🍕 9月はこちら
                       </Link>
                     </div>
                   )}
