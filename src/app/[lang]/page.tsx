@@ -78,8 +78,8 @@ export default async function Home({
         <section className={styles.hero}>
           <div className={styles.heroImageContainer}>
             <Image
-              src="/images/interior_景色.JPG" // 画像を差し替え
-              alt="薪窯Pizza POLE POLEの店内から見た景色"
+              src="/images/interior_景色.JPG"
+              alt={lang === 'en' ? "Interior view from POLE POLE restaurant" : "薪窯Pizza POLE POLEの店内から見た景色"}
               fill
               style={{ objectFit: "cover" }}
               className={styles.heroImage}
@@ -92,7 +92,7 @@ export default async function Home({
             <p className={styles.catch}>
               {t.hero.catch}
             </p>
-            <Link href="/menu" className={styles.button}>
+            <Link href={`/${lang === 'en' ? 'en/' : ''}menu`} className={styles.button}>
               {t.hero.button}
             </Link>
           </div>
@@ -100,12 +100,12 @@ export default async function Home({
 
         <Notification 
           message={t.notification.temp_closure}
-          link="/blog/2025-08-23-september-holiday"
+          link={`/${lang === 'en' ? 'en/' : ''}blog/2025-08-23-september-holiday${lang === 'en' ? '-en' : ''}`}
           linkText={t.notification.link_text}
         />
         <Notification 
           message={t.notification.summer_holiday}
-          link="/blog/2025-08-23-september-holiday"
+          link={`/${lang === 'en' ? 'en/' : ''}blog/2025-08-23-september-holiday${lang === 'en' ? '-en' : ''}`}
           linkText={t.notification.link_text}
         />
 
@@ -114,7 +114,7 @@ export default async function Home({
           <div className={styles.aboutImage}>
             <Image
               src="/images/exterior_イス.JPG"
-              alt="薪窯Pizza POLE POLE店外のベンチ - 東広島西条の自然に囲まれた憩いの空間"
+              alt={lang === 'en' ? "Outdoor bench at POLE POLE - peaceful space surrounded by nature in Saijo, Higashihiroshima" : "薪窯Pizza POLE POLE店外のベンチ - 東広島西条の自然に囲まれた憩いの空間"}
               width={500}
               height={375}
               sizes="(max-width: 768px) 100vw, 500px"
@@ -124,7 +124,7 @@ export default async function Home({
           <div className={styles.aboutContent}>
             <h2 className={styles.sectionTitle}>{t.about.title}</h2>
             <p dangerouslySetInnerHTML={{ __html: t.about.description_html }} />
-            <Link href="/about" className={styles.button}>
+            <Link href={`/${lang === 'en' ? 'en/' : ''}about`} className={styles.button}>
               {t.about.button}
             </Link>
           </div>
@@ -135,19 +135,19 @@ export default async function Home({
           title={t.commitment.title}
           description={t.commitment.description}
           imageUrl="/images/interior_釜4.JPG"
-          imageAlt="薪窯で一枚一枚丁寧に焼くピザ"
+          imageAlt={lang === 'en' ? "Pizza carefully baked one by one in wood-fired oven" : "薪窯で一枚一枚丁寧に焼くピザ"}
           buttonLabel={t.commitment.button}
-          buttonLink="/menu"
+          buttonLink={`/${lang === 'en' ? 'en/' : ''}menu`}
         />
 
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>{t.pizza_highlight.title}</h2>
           <div className={styles.highlightGrid}>
-            <Link href="/menu/" className={styles.highlightCard}>
+            <Link href={`/${lang === 'en' ? 'en/' : ''}menu`} className={styles.highlightCard}>
               <div className={styles.imgContainer}>
                 <Image
                   src="/images/menu_マルゲリータ.jpeg"
-                  alt="薪窯で焼いた本格マルゲリータピザ - モッツァレラチーズとバジルの香り"
+                  alt={lang === 'en' ? "Authentic Margherita pizza baked in wood-fired oven - Mozzarella cheese and basil aroma" : "薪窯で焼いた本格マルゲリータピザ - モッツァレラチーズとバジルの香り"}
                   fill
                   style={{ objectFit: "cover" }}
                   className={styles.img}
@@ -158,11 +158,11 @@ export default async function Home({
                 <p>{t.pizza_highlight.margherita_desc}</p>
               </div>
             </Link>
-            <Link href="/menu/" className={styles.highlightCard}>
+            <Link href={`/${lang === 'en' ? 'en/' : ''}menu`} className={styles.highlightCard}>
               <div className={styles.imgContainer}>
                 <Image
                   src="/images/menu_フォルマッジ.jpeg"
-                  alt="4種チーズの薪窯クワトロフォルマッジピザ - 濃厚チーズの味わい"
+                  alt={lang === 'en' ? "Four-cheese Quattro Formaggi pizza from wood-fired oven - Rich cheese flavor" : "4種チーズの薪窯クワトロフォルマッジピザ - 濃厚チーズの味わい"}
                   fill
                   style={{ objectFit: "cover" }}
                   className={styles.img}
@@ -173,19 +173,19 @@ export default async function Home({
                 <p>{t.pizza_highlight.formaggi_desc}</p>
               </div>
             </Link>
-            <Link href="/menu/" className={styles.highlightCard}>
+            <Link href={`/${lang === 'en' ? 'en/' : ''}menu`} className={styles.highlightCard}>
               <div className={styles.imgContainer}>
                 <Image
                   src="/images/menu_マリナーラ.jpeg"
-                  alt="薪窯焼きマリナーラピザ - トマトソースとガーリックの風味"
+                  alt={lang === 'en' ? "Marinara pizza from wood-fired oven - Tomato sauce and garlic flavor" : "薪窯焼きマリナーラピザ - トマトソースとガーリックの風味"}
                   fill
                   style={{ objectFit: "cover" }}
                   className={styles.img}
                 />
               </div>
               <div className={styles.cardContent}>
-                <h3>マリナーラ</h3>
-                <p>トマト・にんにく・オレガノのシンプルなピザ</p>
+                <h3>{lang === 'en' ? 'Marinara' : 'マリナーラ'}</h3>
+                <p>{lang === 'en' ? 'Simple pizza with tomato, garlic, and oregano' : 'トマト・にんにく・オレガノのシンプルなピザ'}</p>
               </div>
             </Link>
           </div>
@@ -196,9 +196,9 @@ export default async function Home({
           title={t.gallery.title}
           description={t.gallery.description}
           imageUrl="/images/interior_席1.JPG"
-          imageAlt="店内のテーブル席"
+          imageAlt={lang === 'en' ? "Indoor dining tables" : "店内のテーブル席"}
           buttonLabel={t.gallery.button}
-          buttonLink="/gallery"
+          buttonLink={`/${lang === 'en' ? 'en/' : ''}gallery`}
         />
 
         {/* --- Final CTA Section --- */}
@@ -206,10 +206,10 @@ export default async function Home({
           <h2 className={styles.sectionTitle}>{t.final_cta.title}</h2>
           <p className={styles.sectionDescription} dangerouslySetInnerHTML={{ __html: t.final_cta.description_html }} />
           <div className={styles.finalCtaWrapper}>
-            <Link href="/access" className={styles.button}>
+            <Link href={`/${lang === 'en' ? 'en/' : ''}access`} className={styles.button}>
               {t.final_cta.button_access}
             </Link>
-            <Link href="/blog" className={styles.button}>
+            <Link href={`/${lang === 'en' ? 'en/' : ''}blog`} className={styles.button}>
               {t.final_cta.button_blog}
             </Link>
           </div>

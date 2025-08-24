@@ -1,19 +1,18 @@
 import pageStyles from "../../page.module.css";
 import menuStyles from "../../menu/menu.module.css";
 import Image from "next/image";
+import Link from "next/link";
+import Breadcrumb from "../../../components/Breadcrumb";
+import MenuStructuredData from "../../../components/MenuStructuredData";
 import { getDictionary } from "../../../get-dictionary";
 
-interface MenuPageProps {
-  params: Promise<{ lang: string }>;
-}
-
-export async function generateStaticParams() {
-  return [{ lang: 'ja' }, { lang: 'en' }];
-}
-
-export async function generateMetadata({ params }: MenuPageProps) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: 'ja' | 'en' }>;
+}) {
   const { lang } = await params;
-  const dict = await getDictionary(lang as 'ja' | 'en');
+  const dict = await getDictionary(lang);
 
   return {
     title: dict.menu.meta.title,
@@ -43,73 +42,188 @@ export async function generateMetadata({ params }: MenuPageProps) {
 }
 
 const menuImages = [
-  { name: "マリナーラ", src: "/images/menu_マリナーラ.jpeg", alt: "マリナーラピザ" },
-  { name: "マルゲリータ", src: "/images/menu_マルゲリータ.jpeg", alt: "マルゲリータピザ" },
-  { name: "ブタバリータ", src: "/images/menu_ブタバリータ.jpeg", alt: "ブタバリータピザ" },
-  { name: "ノリジャポーネ", src: "/images/menu_ノリジャポーネ.jpeg", alt: "ノリジャポーネピザ" },
-  { name: "フォルマッジ", src: "/images/menu_フォルマッジ.jpeg", alt: "フォルマッジピザ" },
-  { name: "クワトロフォルマッジ", src: "/images/menu_フォルマッジ.jpeg", alt: "クワトロフォルマッジピザ" },
-  { name: "季節のPizza", src: "/images/August_seasonal_pizza.png", alt: "季節のピザ" },
-  { name: "れんこん", src: "/images/menu_れんこん.jpeg", alt: "れんこんピザ" },
-  { name: "レモン", src: "/images/menu_レモン.jpeg", alt: "レモンピザ" },
+  {
+    name: "マリナーラ",
+    img: "/images/menu_マリナーラ.jpeg",
+  },
+  {
+    name: "マルゲリータ",
+    img: "/images/menu_マルゲリータ.jpeg",
+  },
+  {
+    name: "ブタバリータ",
+    img: "/images/menu_ブタバリータ.jpeg",
+  },
+  {
+    name: "ノリジャポーネ",
+    img: "/images/menu_ノリジャポーネ.jpeg",
+  },
+  {
+    name: "クワトロフォルマッジ",
+    img: "/images/menu_フォルマッジ.jpeg",
+  },
+  {
+    name: "季節のPizza",
+    img: "/images/menu_れんこん.jpeg",
+  },
 ];
 
-export default async function Menu({ params }: MenuPageProps) {
+export default async function Menu({
+  params,
+}: {
+  params: Promise<{ lang: 'ja' | 'en' }>;
+}) {
   const { lang } = await params;
-  const dict = await getDictionary(lang as 'ja' | 'en');
+  const dict = await getDictionary(lang);
 
   return (
     <div className={`${pageStyles.page} page-container`}>
       <main className={pageStyles.main}>
+        <Breadcrumb 
+          items={[
+            { name: lang === 'en' ? 'Home' : 'ホーム', url: `/${lang === 'en' ? 'en/' : ''}` },
+            { name: lang === 'en' ? 'Menu' : 'メニュー', url: `/${lang === 'en' ? 'en/' : ''}menu` }
+          ]}
+        />
         <h1 className="section-title">{dict.menu.title}</h1>
-        <div className={menuStyles.menuContainer}>
-          <div className={menuStyles.menuDescription}>
-            <p>{dict.menu.description}</p>
+        <div className={menuStyles.menuGrid} style={{ marginBottom: "2rem" }}>
+          <div className={menuStyles.menuImageWrapper}>
+            <Image
+              src="/images/menu1.png"
+              alt={lang === 'en' ? "POLE POLE menu - Authentic Neapolitan pizza and local ingredient dishes" : "薪窯Pizza POLE POLEのメニュー表 - 本格ナポリピザと地元食材の料理一覧"}
+              width={800}
+              height={1132}
+            />
           </div>
-
+          <div className={menuStyles.menuImageWrapper}>
+            <Image
+              src="/images/menu2.png"
+              alt={lang === 'en' ? "Wood-fired pizza drink menu - Coffee, beer and other beverages" : "薪窯ピザのドリンクメニュー - コーヒーやビール等のお飲み物一覧"}
+              width={800}
+              height={1132}
+            />
+          </div>
+        </div>
+        <h2 className="section-title">{dict.menu.ingredients}</h2>
+        <div className={menuStyles.menuGrid} style={{ marginBottom: "2rem" }}>
+          <div className={menuStyles.menuImageWrapper}>
+            <Image
+              src="/images/menu_こだわり.png"
+              alt={lang === 'en' ? "Commitment to wood-fired pizza - Artisan techniques from dough to wood selection" : "薪窯ピザへのこだわり - 生地から薪選びまで職人の技術説明"}
+              width={320}
+              height={220}
+              style={{
+                objectFit: "cover",
+                width: "100%",
+                height: "auto",
+                display: "block",
+              }}
+            />
+          </div>
+          <div className={menuStyles.menuImageWrapper}>
+            <Image
+              src="/images/menu_こだわり2.png"
+              alt={lang === 'en' ? "Commitment to local ingredients - Fresh ingredients from Saijo, Higashihiroshima" : "地元食材へのこだわり - 東広島西条の新鮮な食材へのこだわり"}
+              width={320}
+              height={220}
+              style={{
+                objectFit: "cover",
+                width: "100%",
+                height: "auto",
+                display: "block",
+              }}
+            />
+          </div>
+        </div>
+        <h2 className="section-title">{dict.menu.pizza}</h2>
         <div className={menuStyles.menuGrid}>
           {dict.menu.items.map((item: { name: string; desc: string; price: string }, index: number) => {
-            const imageData = menuImages.find(img => {
-              if (lang === 'ja') {
-                return img.name === item.name;
-              } else {
-                // Map English names to Japanese image names
-                const nameMapping: { [key: string]: string } = {
-                  'Marinara': 'マリナーラ',
-                  'Margherita': 'マルゲリータ',
-                  'Porcetta Varieta': 'ブタバリータ',
-                  'Nori Japone': 'ノリジャポーネ',
-                  'Quattro Formaggi': 'クワトロフォルマッジ',
-                  'Seasonal Pizza': '季節のPizza'
-                };
-                return img.name === nameMapping[item.name];
-              }
-            });
+            const imageData = menuImages.find(img => 
+              img.name === item.name
+            );
+            
+            // Check if this is the seasonal pizza item
+            const isSeasonalPizza = item.name === "季節のPizza";
             
             return (
               <div key={index} className={menuStyles.menuCard}>
-                {imageData && (
-                  <div className={menuStyles.imageContainer}>
-                    <Image
-                      src={imageData.src}
-                      alt={imageData.alt}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                  </div>
-                )}
-                <div className={menuStyles.menuInfo}>
-                  <h3 className={menuStyles.menuName}>{item.name}</h3>
-                  <p className={menuStyles.menuDesc}>{item.desc}</p>
-                  <span className={menuStyles.menuPrice}>{item.price}</span>
+                <div className={menuStyles.menuImageContainer}>
+                  <Image
+                    src={imageData?.img || "/images/menu_れんこん.jpeg"}
+                    alt={item.name}
+                    width={400}
+                    height={300}
+                    className={menuStyles.menuImg}
+                  />
+                </div>
+                <div className={menuStyles.menuContent}>
+                  <h2 className={menuStyles.menuName}>{item.name}</h2>
+                  <p className={menuStyles.menuDesc}>
+                    {item.desc.split("\n\n").map((para: string, i: number) => (
+                      <span key={i}>
+                        {para.split("\n").join(" ")}
+                        <br />
+                      </span>
+                    ))}
+                  </p>
+                  {isSeasonalPizza && (
+                    <div style={{ 
+                      marginTop: "1rem",
+                      marginBottom: "1rem",
+                      textAlign: "center",
+                      display: "flex",
+                      gap: "1rem",
+                      justifyContent: "center",
+                      flexWrap: "wrap"
+                    }}>
+                      <Link 
+                        href={`/${lang === 'en' ? 'en/' : ''}blog/2025-07-26-seasonal-august${lang === 'en' ? '-en' : ''}`}
+                        style={{ 
+                          color: "#8b4513", 
+                          textDecoration: "none",
+                          fontSize: "1rem",
+                          fontWeight: "bold",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "0.5rem",
+                          padding: "0.5rem 1rem",
+                          backgroundColor: "#fff",
+                          border: "1px solid #8b4513",
+                          borderRadius: "20px",
+                          boxShadow: "0 2px 4px rgba(139, 69, 19, 0.1)"
+                        }}
+                      >
+                                                 🍕 {lang === 'en' ? 'August' : '8月'} {lang === 'en' ? 'Menu' : 'はこちら'}
+                      </Link>
+                      <Link 
+                        href={`/${lang === 'en' ? 'en/' : ''}blog/2025-08-24-september-seasonal-pizza${lang === 'en' ? '-en' : ''}`}
+                        style={{ 
+                          color: "#8b4513", 
+                          textDecoration: "none",
+                          fontSize: "1rem",
+                          fontWeight: "bold",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "0.5rem",
+                          padding: "0.5rem 1rem",
+                          backgroundColor: "#fff",
+                          border: "1px solid #8b4513",
+                          borderRadius: "20px",
+                          boxShadow: "0 2px 4px rgba(139, 69, 19, 0.1)"
+                        }}
+                      >
+                                                 🍕 {lang === 'en' ? 'September' : '9月'} {lang === 'en' ? 'Menu' : 'はこちら'}
+                      </Link>
+                    </div>
+                  )}
+                  <div className={menuStyles.menuPrice}>{item.price}</div>
                 </div>
               </div>
             );
           })}
         </div>
-        </div>
       </main>
+      <MenuStructuredData />
     </div>
   );
 }

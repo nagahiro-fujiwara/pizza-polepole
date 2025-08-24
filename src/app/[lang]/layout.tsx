@@ -1,16 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Klee_One } from "next/font/google";
-import Script from "next/script";
 import "../globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-
-const inter = Inter({ subsets: ["latin"] });
-const kleeOne = Klee_One({
-  subsets: ["latin"],
-  weight: ["400", "600"], // 700 is not supported
-  display: "swap",
-});
 
 export async function generateStaticParams() {
   return [{ lang: 'ja' }, { lang: 'en' }];
@@ -57,35 +46,6 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: Promise<{ lang: string }>;
 }>) {
-  const { lang } = await params;
-  return (
-    <html lang={lang} className={`${kleeOne.className}`}>
-      <head>
-      </head>
-      <body className={inter.className}>
-        <Header />
-        {children}
-        <Footer />
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <>
-            <Script
-              strategy="afterInteractive"
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-            />
-            <Script
-              id="google-analytics"
-              strategy="afterInteractive"
-            >
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
-              `}
-            </Script>
-          </>
-        )}
-      </body>
-    </html>
-  );
+  await params; // ここではスタイルのみ統一。描画は親の root layout に委譲
+  return <>{children}</>;
 }
